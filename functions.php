@@ -54,7 +54,7 @@ if ( ! function_exists( 'mtwriter_setup' ) ) :
 
 		// Set up the WordPress core custom background feature.
 		add_theme_support( 'custom-background', apply_filters( 'mtwriter_custom_background_args', array(
-			'default-color' => esc_html(get_theme_mod('color_background', '#ddd')),
+			'default-color' => esc_html(get_theme_mod('color_background', '#ebeff5')),
 			'default-image' => '',
 		) ) );
 

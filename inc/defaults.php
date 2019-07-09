@@ -114,7 +114,7 @@ if ( ! function_exists( 'mt_get_color_defaults' ) ) {
 				'color_logo_text' => '#FF4642',
 				'color_header_text' => '#5A4692',
 				'color_header_background' => '#ffffff',
-				'color_background' => '#ddd',
+				'color_background' => '#ebeff5',
 				'color_menu' => '#252525',
 				'color_menu_hover' => '#5A4692',
 				'color_menu_active' => '#5A4692',

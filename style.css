@@ -27,7 +27,7 @@ This theme, like WordPress, is licensed under the GPL.
 ==================== */
 
 :root {
-	--body-bg: #ddd;
+	--body-bg: #ebeff5;
 	--site-color: #252525;
 	--main-color: #5A4692;
 	--hover: #5a4692d4;
@@ -44,7 +44,7 @@ This theme, like WordPress, is licensed under the GPL.
 	--link-color-active-mobile: var(--main-color);
 	--link-color-hover-mobile: var(--main-color);
 	--main-menu-bg-mobile: #f9f9f9;
-	--main-menu-top-border-color: #ddd;
+	--main-menu-top-border-color: #ebeff5;
 	/* Submenu */
 	--submenu-bg: #fff;
 	--submenu-link-color: #fff;
