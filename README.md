@@ -13,7 +13,12 @@ Free WordPress Blog Theme MT-Writer.
 
 == Description ==
 
-Hi. I'm a starter theme called BlankTheme, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+MT Writer brings down the love for bloggers. Yes, MT Writer is a blog theme that is specially designed keeping in mind the interest of bloggers. It is a Highly Responsive, Fully SEO friendly theme. It rolls down with a mobile-friendly layout that helps the user in getting an edge over other competitors with ease of control over the layout.
+
+MT Writer is like Gun fully loaded with great features that are ready to free fire its usability. Its features include Gutenberg compatibility, estimated reading time, advanced typography, unlimited color options and many more. Adding to this, There is a custom hero section that displays the information about the key person behind the website along with their social links and publications.
+
+MT Writer is a much-upgraded blog theme with an amazing outlook that will be for sure adding an eye-catching experience to your readers.
+
 
 == Installation ==
 	
@@ -23,5 +28,5 @@ Hi. I'm a starter theme called BlankTheme, or underscores, if you like. I'm a th
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 1.0 - Jul 10 2019 =
 * Initial release
