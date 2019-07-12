@@ -60,11 +60,12 @@ jQuery(function ($) {
     /* ---------------------------------------------
     Infinite Scroll
     ------------------------------------------------ */
-    $('.mtwriter-posts').infiniteScroll({
-        path: '.pagination .next',
-        append: 'article.entry-blog',
-        status: '.scroller-status',
-        hideNav: '.pagination',
-    });
-    
+    if ( jQuery.fn.infiniteScroll ) {
+        $('.mtwriter-posts').infiniteScroll({
+            path: '.pagination .next',
+            append: 'article.entry-blog',
+            status: '.scroller-status',
+            hideNav: '.pagination',
+        });
+    }    
 });

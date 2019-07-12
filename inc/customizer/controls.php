@@ -4010,96 +4010,27 @@ add_action( 'customize_controls_enqueue_scripts', 'mtwriter_panels_js' );
 //
 function add_font_styles()
 {
-    /* Body Font */
-    $body_font = esc_html( get_theme_mod( 'body_fontfamily' ) );
-    if ( $body_font ) {
-        wp_enqueue_style( 'body-font', '//fonts.googleapis.com/css?family=' . $body_font );
-    }
+    $fontsRequested = array(
+        get_theme_mod( 'body_fontfamily' ),
+        get_theme_mod( 'h1_fontfamily' ),
+        get_theme_mod( 'h2_fontfamily' ),
+        get_theme_mod( 'h3_fontfamily' ),
+        get_theme_mod( 'h4_fontfamily' ),
+        get_theme_mod( 'h5_fontfamily' ),
+        get_theme_mod( 'h6_fontfamily' ),
+        get_theme_mod( 'logo_fontfamily' ),
+        get_theme_mod( 'mainmenu_fontfamily' ),
+        get_theme_mod( 'entrytitle_fontfamily' ),
+        get_theme_mod( 'posttitle_fontfamily' ),
+        get_theme_mod( 'meta_fontfamily' ),
+        get_theme_mod( 'footertitle_fontfamily' ),
+        get_theme_mod( 'copyright_fontfamily' ),
+        get_theme_mod( 'widgettitle_fontfamily' ),
+        get_theme_mod( 'dropdown_fontfamily' )
+    );
 
-    /* Headings Font */
-    $h1_font = esc_html( get_theme_mod( 'h1_fontfamily' ) );
-    if ( $h1_font ) {
-        wp_enqueue_style( 'heading1-font', '//fonts.googleapis.com/css?family=' . $h1_font );
-    }
-
-    $h2_font = esc_html( get_theme_mod( 'h2_fontfamily' ) );
-    if ( $h2_font ) {
-        wp_enqueue_style( 'heading2-font', '//fonts.googleapis.com/css?family=' . $h2_font );
-    }
-
-    $h3_font = esc_html( get_theme_mod( 'h3_fontfamily' ) );
-    if ( $h3_font ) {
-        wp_enqueue_style( 'heading3-font', '//fonts.googleapis.com/css?family=' . $h3_font );
-    }
-
-    $h4_font = esc_html( get_theme_mod( 'h4_fontfamily' ) );
-    if ( $h4_font ) {
-        wp_enqueue_style( 'heading4-font', '//fonts.googleapis.com/css?family=' . $h4_font );
-    }
-
-    $h5_font = esc_html( get_theme_mod( 'h5_fontfamily' ) );
-    if ( $h5_font ) {
-        wp_enqueue_style( 'heading5-font', '//fonts.googleapis.com/css?family=' . $h5_font );
-    }
-
-    $h6_font = esc_html( get_theme_mod( 'h6_fontfamily' ) );
-    if ( $h6_font ) {
-        wp_enqueue_style( 'heading6-font', '//fonts.googleapis.com/css?family=' . $h6_font );
-    }
-
-    /* Logo Font */
-    $logo_font = esc_html( get_theme_mod( 'logo_fontfamily' ) );
-    if ( $logo_font ) {
-        wp_enqueue_style( 'logo-font', '//fonts.googleapis.com/css?family=' . $logo_font );
-    }
-
-    /* MainMenu Font */
-    $mainmenu_font = esc_html( get_theme_mod( 'mainmenu_fontfamily' ) );
-    if ( $mainmenu_font ) {
-        wp_enqueue_style( 'mainmenu-font', '//fonts.googleapis.com/css?family=' . $mainmenu_font );
-    }
-
-    /* Entry Title Font */
-    $entrytitle_font = esc_html( get_theme_mod( 'entrytitle_fontfamily' ) );
-    if ( $entrytitle_font ) {
-        wp_enqueue_style( 'entrytitle-font', '//fonts.googleapis.com/css?family=' . $entrytitle_font );
-    }
-
-    /* Single Post Title Font */
-    $posttitle_font = esc_html( get_theme_mod( 'posttitle_fontfamily' ) );
-    if ( $posttitle_font ) {
-        wp_enqueue_style( 'posttitle-font', '//fonts.googleapis.com/css?family=' . $posttitle_font );
-    }
-
-    /* Meta Font */
-    $meta_font = esc_html( get_theme_mod( 'meta_fontfamily' ) );
-    if ( $meta_font ) {
-        wp_enqueue_style( 'meta-font', '//fonts.googleapis.com/css?family=' . $meta_font );
-    }
-
-    /* Footer Font */
-    $footertitle_font = esc_html( get_theme_mod( 'footertitle_fontfamily' ) );
-    if ( $footertitle_font ) {
-        wp_enqueue_style( 'footertitle-font', '//fonts.googleapis.com/css?family=' . $footertitle_font );
-    }
-
-    /* Copyright Font */
-    $copyright_font = esc_html( get_theme_mod( 'copyright_fontfamily' ) );
-    if ( $copyright_font ) {
-        wp_enqueue_style( 'copyright-font', '//fonts.googleapis.com/css?family=' . $copyright_font );
-    }
-
-    /* Widget Title Font */
-    $widgettitle_font = esc_html( get_theme_mod( 'widgettitle_fontfamily' ) );
-    if ( $widgettitle_font ) {
-        wp_enqueue_style( 'widgettitle-font', '//fonts.googleapis.com/css?family=' . $widgettitle_font );
-    }
-
-    /* Dropdown Font */
-    $dropdown_font = esc_html( get_theme_mod( 'dropdown_fontfamily' ) );
-    if ( $dropdown_font ) {
-        wp_enqueue_style( 'dropdown-font', '//fonts.googleapis.com/css?family=' . $dropdown_font );
-    }
-
+    $fonts = implode("|", array_filter( array_unique( $fontsRequested)));
+    
+    wp_enqueue_style( 'mtwriter-fonts', '//fonts.googleapis.com/css?family=' . $fonts );    
 }
 add_action('wp_enqueue_scripts', 'add_font_styles');
