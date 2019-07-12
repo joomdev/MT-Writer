@@ -106,6 +106,7 @@ function mtwriter_customize_register($wp_customize)
         'transport' => 'postMessage',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
+
     $wp_customize->add_control(
         new MightyThemes_Preloaders_Custom_Control(
         $wp_customize,
@@ -1018,7 +1019,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['one'],
+                'default' => $defaultFonts['body_lineheight'],
             ),
         )
     ));
@@ -2961,7 +2962,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['widgettitle_typography'],
+                'default' => $defaultFonts['widgettitle_letterspacing'],
             ),
         )
     ));

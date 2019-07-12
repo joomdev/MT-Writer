@@ -19,9 +19,7 @@
 
 	<?php wp_head(); ?>
 
-	<?php if (get_theme_mod('space_before_head') ) : ?>
-        <?php echo get_theme_mod('space_before_head'); ?>
-    <?php endif; ?>
+    <?php getOption('defaults', 'space_before_head') ?>
 </head>
 
 
