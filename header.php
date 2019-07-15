@@ -168,9 +168,22 @@
 				<?php
 			}
 		}
-
 	endif;
 ?>
+
+<?php
+	/**
+	 * Allow developers to inject code
+	 *
+	 * @link https://make.wordpress.org/core/2019/04/24/miscellaneous-developer-updates-in-5-2/
+	 */
+	if ( function_exists( 'wp_body_open' ) ) {
+		wp_body_open();
+	} else {
+		do_action( 'wp_body_open' );
+	}
+?>
+
 
 <?php
 // Preloader
@@ -189,7 +202,6 @@ endif;
 
 <div class="inner-body-wrap">
 	<div class="inner-body container">
-		
 		<?php
 			// Header Options
 			switch(get_theme_mod('header_style', 'horizontal')):
