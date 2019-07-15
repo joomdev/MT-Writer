@@ -3534,32 +3534,17 @@ function mtwriter_customize_register($wp_customize)
         )
     ));
 
-    $wp_customize->add_setting( 'show_posteddate', array(
-        'default' => $defaults['show_posteddate'],
+    $wp_customize->add_setting( 'show_date', array(
+        'default' => $defaults['show_date'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
         new MightyThemes_Toggle_Switch_Custom_control(
         $wp_customize,
-        'show_posteddate',
+        'show_date',
         array(
-            'label' => __( 'Show Posted Date', 'mtwriter' ),
-            'section' => 'single_post'
-        )
-    ));
-
-    $wp_customize->add_setting( 'show_updateddate', array(
-        'default' => $defaults['show_updateddate'],
-        'transport' => 'refresh',
-        'sanitize_callback' => 'mtwriter_sanitize_checkbox'
-    ));
-    $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
-        $wp_customize,
-        'show_updateddate',
-        array(
-            'label' => __( 'Show Updated Date', 'mtwriter' ),
+            'label' => __( 'Show Date', 'mtwriter' ),
             'section' => 'single_post'
         )
     ));

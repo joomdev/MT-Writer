@@ -78,15 +78,16 @@ $encodedUrl = rawurlencode($socialLink);
 					<?php endif; ?>
 
 					<div class="post-meta-content">
-						<?php if ( get_theme_mod('show_posteddate', 1) ) : ?>
-							<span itemprop="dateCreated" class="list-post-date m-1">Posted on <?php the_time( 'M j, y' ); ?></span>
-						<?php endif; ?>
-						<?php if ( get_theme_mod('show_updateddate', 1) ) : 
+						<?php if ( get_theme_mod('show_date', 1) ) : 
 							$u_time = get_the_time('U');
 							$u_modified_time = get_the_modified_time('U');
 							if ($u_modified_time >= $u_time + 86400) {
 						?>
 								<span itemprop="dateModified" class="list-post-date m-1">Updated on <?php the_modified_time('F jS, Y'); ?></span>
+						<?php
+							} else {
+						?>
+								<span itemprop="dateModified" class="list-post-date m-1">Updated on <?php echo get_the_time('F jS, Y'); ?></span>
 						<?php
 							}
 						?>

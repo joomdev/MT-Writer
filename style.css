@@ -1227,6 +1227,7 @@ article.entry-blog:last-child:before {
 	border-radius: 3px;
 	padding: 7px 12px;
 	transition: 400ms;
+	margin: 3px;
 }
 
 .single-entry-header .category-meta a:hover {
@@ -1238,6 +1239,8 @@ article.entry-blog:last-child:before {
 .single-entry-header .category-meta {
 	margin-bottom: 18px;
 	display: inline-block;
+	display: flex;
+    flex-wrap: wrap;
 }
 
 .post-meta {
@@ -2480,7 +2483,7 @@ ul.comments-list ul.children {
     list-style: none;
 	padding: 10px;
 	background: white;
-	margin-left: -80px;
+	margin-left: -90px;
 }
 .mt-socials li a {
 	display: flex;
