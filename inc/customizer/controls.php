@@ -3529,7 +3529,37 @@ function mtwriter_customize_register($wp_customize)
         $wp_customize,
         'show_readtime',
         array(
-            'label' => __( 'Enable Estimated Read Time', 'mtwriter' ),
+            'label' => __( 'Show Estimated Read Time', 'mtwriter' ),
+            'section' => 'single_post'
+        )
+    ));
+
+    $wp_customize->add_setting( 'show_posteddate', array(
+        'default' => $defaults['show_posteddate'],
+        'transport' => 'refresh',
+        'sanitize_callback' => 'mtwriter_sanitize_checkbox'
+    ));
+    $wp_customize->add_control(
+        new MightyThemes_Toggle_Switch_Custom_control(
+        $wp_customize,
+        'show_posteddate',
+        array(
+            'label' => __( 'Show Posted Date', 'mtwriter' ),
+            'section' => 'single_post'
+        )
+    ));
+
+    $wp_customize->add_setting( 'show_updateddate', array(
+        'default' => $defaults['show_updateddate'],
+        'transport' => 'refresh',
+        'sanitize_callback' => 'mtwriter_sanitize_checkbox'
+    ));
+    $wp_customize->add_control(
+        new MightyThemes_Toggle_Switch_Custom_control(
+        $wp_customize,
+        'show_updateddate',
+        array(
+            'label' => __( 'Show Updated Date', 'mtwriter' ),
             'section' => 'single_post'
         )
     ));

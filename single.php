@@ -59,9 +59,19 @@ $encodedUrl = rawurlencode($socialLink);
 					<?php endif; ?>
 
 					<div class="post-meta-content">
-
-						<span class="list-post-date">Posted on <?php the_time( 'M j, y' ); ?></span>
-
+						<?php if ( get_theme_mod('show_posteddate', 1) ) : ?>
+							<span itemprop="dateCreated" class="list-post-date m-1">Posted on <?php the_time( 'M j, y' ); ?></span>
+						<?php endif; ?>
+						<?php if ( get_theme_mod('show_updateddate', 1) ) : 
+							$u_time = get_the_time('U');
+							$u_modified_time = get_the_modified_time('U');
+							if ($u_modified_time >= $u_time + 86400) {
+						?>
+								<span itemprop="dateModified" class="list-post-date m-1">Updated on <?php the_modified_time('F jS, Y'); ?></span>
+						<?php
+							}
+						?>
+						<?php endif; ?>
 						<?php if ( get_theme_mod('show_author', 1) ) : ?>
 							<span class="post-author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">
 								By

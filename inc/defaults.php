@@ -59,6 +59,8 @@ if ( ! function_exists( 'mt_get_defaults' ) ) {
                 'pagination_type' => 'numbered',
                 'show_author' => true,
                 'show_readtime' => true,
+                'show_posteddate' => true,
+                'show_updateddate' => true,
                 'show_category' => true,
                 'show_tags' => true,
                 'social_share_enable' => true,
