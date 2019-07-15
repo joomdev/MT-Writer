@@ -23,6 +23,25 @@ $encodedUrl = rawurlencode($socialLink);
 	?>
 	
 	<?php wp_link_pages(); ?>
+
+	<ul class="mt-socials d-none d-xl-block">
+		<b>Share</b>
+		<li>
+			<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $socialLink; ?>"><i class="fab fa-facebook-f"></i></a>
+		</li>
+		<li>
+			<a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo $twitterUrl; ?>"><i class="fab fa-twitter"></i></a>
+		</li>
+		<li>
+			<a class="reddit" target="_blank" href="http://www.reddit.com/submit?url=<?php echo $socialLink; ?>"><i class="fab fa-reddit"></i></a>
+		</li>
+		<li>
+			<a class="pinterest" target="_blank" href="<?php echo "http://pinterest.com/pin/create/button/?url=$encodedUrl&description=$encodedTitle" ?>"><i class="fab fa-pinterest"></i></a>
+		</li>
+		<li>
+			<a class="whatsapp" target="_blank" href="https://wa.me/whatsappphonenumber/?text=<?php echo $socialLink; ?>"><i class="fab fa-whatsapp"></i></a>
+		</li>
+	</ul>
 	
 	<div class="page">
 		<div class="post-single">
