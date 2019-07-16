@@ -396,8 +396,6 @@ function mtwriter_comment($comment, $args, $depth) {
     endif;
 }
 
-
-
 /**
  * Custom Fields for User Profile
  */
