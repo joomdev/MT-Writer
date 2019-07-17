@@ -115,7 +115,7 @@ $encodedUrl = rawurlencode($socialLink);
 			</div>
 
 			<div class="entry-content">				
-				<?php the_content(); ?>					
+				<?php the_content(); ?>
 			</div><!-- entry content end -->
 		</div><!-- Post content end -->
 

@@ -79,7 +79,7 @@
                         <!-- Header Search -->
                                                 <div class="search-link ">
 
-                            <form role="search" method="get" class="search-form" action="http://mtwriter.local/" target="_self"><input type="hidden" name="customize_messenger_channel" value="preview-3"><input type="hidden" name="customize_autosaved" value="on"><input type="hidden" name="customize_changeset_uuid" value="1cb5e548-ee93-4e84-9901-dba7342fbd2d">
+                            <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" target="_self">
                                 <button type="button">
                                     <span class="search-icon"><i class="fas icon-search fa-search"></i></span>
                                     <span class="search-cross"><i class="fas fa-times icon-cross"></i></span>
