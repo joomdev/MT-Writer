@@ -184,6 +184,8 @@
 	}
 ?>
 
+<a class="skip-link screen-reader-text" href="#content">
+<?php _e( 'Skip to content', 'twentynineteen' ); ?></a>
 
 <?php
 // Preloader
@@ -274,4 +276,4 @@ endif;
 				endif;
 			?>
 			
-			<div class="content-area primary">
+			<div id="content" class="content-area primary">

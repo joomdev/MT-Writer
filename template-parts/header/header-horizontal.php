@@ -39,11 +39,10 @@
                 <?php if ( get_theme_mod('show_search', true) ) : ?>
                 <div class="search-link <?php echo ( get_theme_mod('show_search_mobile', true) ? '' : 'd-none d-sm-block' ); ?>">
 
-                    <form role="search" method="get" class="search-form"
-                        action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                         <button type="button">
                             <span class="search-icon"><i class="fas icon-search fa-search"></i></span>
-                            <span class="search-cross"><i class="fas fa-times icon-cross"></i></span>                        
+                            <span class="search-cross"><i class="fas fa-times icon-cross"></i></span>
                         </button>
                         <div class="search-box">
                             <input type="search" class="search-field" name="s" id="search" placeholder="Type here and Search...">
@@ -77,8 +76,7 @@
                     <?php if ( get_theme_mod('show_search', true) ) : ?>
                     <div class="header-action-items d-none d-lg-flex">
                         <!-- Header Search -->
-                                                <div class="search-link ">
-
+                        <div class="search-link ">
                             <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" target="_self">
                                 <button type="button">
                                     <span class="search-icon"><i class="fas icon-search fa-search"></i></span>
@@ -89,7 +87,6 @@
                                     <input type="search" class="search-field" name="s" id="search" placeholder="Type here and Search...">
                                 </div>
                             </form>
-
                         </div> <!-- Header Search End -->
                     </div>
                     <?php endif; ?>
