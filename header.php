@@ -185,7 +185,7 @@
 ?>
 
 <a class="skip-link screen-reader-text" href="#content">
-<?php _e( 'Skip to content', 'twentynineteen' ); ?></a>
+<?php _e( 'Skip to content', 'mtwriter' ); ?></a>
 
 <?php
 // Preloader
