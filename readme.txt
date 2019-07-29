@@ -1,26 +1,13 @@
-=== MT Writer ===
+=== MTWriter ===
 
 Contributors: mightythemes1
-Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, theme-options
 
 Requires at least: 4.5
-Tested up to: 5.2.1
+Tested up to: 5.2
 Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-# About Theme
-
-* Theme Name: Activello
-* Theme URI: http://mightythemes.com/themes/mt-writer
-* Tested up to: WP 5.2.2
-
-```
-* Author: Mighty Themes
-* Author URI: http://mightythemes.com/
-* Activello WordPress theme is distributed under the terms of the GNU GPL
-* Activello is based on Underscores http://underscores.me/, (C) 2012-2017 Automattic, Inc.
-```
 
 Free WordPress Blog Theme MT-Writer.
 
@@ -41,8 +28,21 @@ MT Writer is a much-upgraded blog theme with an amazing outlook that will be for
 
 == Changelog ==
 
-= 1.0 - Jul 10 2019 =
+= 1.0.1 =
 * Initial release
+
+= 1.0.2 =
+* Updated screenshot
+* Updated trac recommendations
+
+= 1.0.3 =
+* Removed CDNs
+* Removed hard-coded links
+* Added unique prefix
+* Fixed empty font request
+
+
+
 
 -------------------------------------------------------
 Infinite-scroll
