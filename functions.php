@@ -112,7 +112,7 @@ add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
  *
  * @link https://git.io/vWdr2
  */
-function mtminimag_skip_link_focus_fix() {
+function mtwriter_skip_link_focus_fix() {
 	// The following is minified via `terser --compress --mangle -- js/skip-link-focus-fix.js`.
 	?>
 	<script>
@@ -120,7 +120,7 @@ function mtminimag_skip_link_focus_fix() {
 	</script>
 	<?php
 }
-add_action( 'wp_print_footer_scripts', 'mtminimag_skip_link_focus_fix' );
+add_action( 'wp_print_footer_scripts', 'mtwriter_skip_link_focus_fix' );
 
 /**
  * Register widget area.
@@ -160,18 +160,19 @@ add_action( 'widgets_init', 'mtwriter_widgets_init' );
  * Enqueue scripts and styles.
  */
 function mtwriter_scripts() {
-	wp_enqueue_style( 'mtwriter-bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' );
-	wp_enqueue_style( 'mtwriter-fontawesome', '//use.fontawesome.com/releases/v5.8.1/css/all.css' );
+	wp_enqueue_style( 'mtwriter-responsive', get_template_directory_uri() . '/css/bootstrap.min.css' );
+	wp_enqueue_style( 'mtwriter-responsive', get_template_directory_uri() . '/css/fontawesome.min.css' );
 	wp_enqueue_style( 'mtwriter-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'mtwriter-responsive', get_template_directory_uri() . '/css/responsive.css' );
 
 	// Scripts
-	wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', array(), '20151215', true);
-	wp_enqueue_script('bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery'));
-	wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array('jquery'));
+	wp_enqueue_script( 'mtwriter-jquery', get_template_directory_uri() . '/js/jquery.min.js', array(), '20190719', true );
+	wp_enqueue_script( 'mtwriter-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery') );
+
+	wp_enqueue_script('mtwriter-main', get_template_directory_uri() . '/js/main.js', array('jquery'));
 	
 	if ( get_theme_mod('pagination_type', 'numbered') == 'infinite-scroll' ) :
-		wp_enqueue_script( 'infinitescroll', get_template_directory_uri() . '/js/infinite-scroll.min.js', array(), '20151215', true );
+		wp_enqueue_script( 'mtwriter-infinitescroll', get_template_directory_uri() . '/js/infinite-scroll.min.js', array(), '20151215', true );
 	endif;	
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -236,14 +237,6 @@ if ( is_admin() ) {
     // ─── CUSTOM METABOXES FOR POST LEVEL EDITOR ─────────────────────────────────────
     //
     require get_template_directory() . '/inc/guten/custom-meta-boxes.php';
-}
-
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
 }
 
 /**

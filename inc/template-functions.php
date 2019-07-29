@@ -42,7 +42,7 @@ add_action( 'wp_head', 'mtwriter_pingback_header' );
  * @param array $classes Classes for the body element.
  * @return array
  */
-function calculateReadTime($string)
+function mtwriter_CalculateReadTime($string)
 {
     $speed = 170;
     $word = str_word_count(strip_tags($string));
@@ -63,7 +63,7 @@ function calculateReadTime($string)
 /**
  * Related posts by Categories
  */ 
-function related_posts_by_categories()
+function mtwriter_related_posts_by_categories()
 {
     $post_id = get_the_ID();
     $categories_ids = array();
@@ -144,7 +144,7 @@ function related_posts_by_categories()
 /**
  * Related posts by Tags
  */ 
-function related_posts_by_tags()
+function mtwriter_related_posts_by_tags()
 {
     $post_id = get_the_ID();
     $tags = wp_get_post_tags($post_id);

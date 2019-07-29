@@ -55,8 +55,8 @@
 						<?php if( get_theme_mod('estimated_read_time_archive', 1) ) : ?>
 							<span class="list-post-comment">
 								<?php 
-								echo calculateReadTime(get_post_field( 'post_content', $post->ID ));
-								echo calculateReadTime(get_post_field( 'post_content', $post->ID )) == 1 ? ' minute' : ' minutes'?> read.
+								echo mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID ));
+								echo mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID )) == 1 ? ' minute' : ' minutes'?> read.
 							</span>
 						<?php endif; ?>
 					</div> <!-- Post meta footer-->

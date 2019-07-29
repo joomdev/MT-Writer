@@ -36,19 +36,19 @@ $comments_args = array(
         'author' =>
             '<div class="col-md-4">
 				<div class="form-group">
-                    <input class="form-control" name="author" id="author" type="text"  placeholder="' . esc_html__('Full Name', 'mtwriter') . '" value="' . esc_attr($commenter['comment_author']) . '" size="19"' . $aria_req . ' required />
+                    <input class="form-control" name="author" id="author" type="text"  placeholder="' . esc_html__('Full Name', 'mtwriter') . '" size="19"' . $aria_req . ' required />
                 </div>
             </div>',
         'email' =>
             '<div class="col-md-4">
                 <div class="form-group">
-					<input id="emailaddress" name="email" class="form-control" placeholder="' . esc_html__('Email Address', 'mtwriter') . '" type="email" value="' . esc_attr($commenter['comment_author_email']) . '" size="19"' . $aria_req . ' required />
+					<input id="emailaddress" name="email" class="form-control" placeholder="' . esc_html__('Email Address', 'mtwriter') . '" type="email" size="19"' . $aria_req . ' required />
                 </div>
             </div>',
         'url' =>
             '<div class="col-md-4">
                 <div class="form-group">
-					<input id="website" name="url" type="text" class="form-control" placeholder="' . esc_html__('Website', 'mtwriter') . '" value="' . esc_attr($commenter['comment_author_url']) . '" size="19" />
+					<input id="website" name="url" type="text" class="form-control" placeholder="' . esc_html__('Website', 'mtwriter') . '" size="19" />
                 </div>
             </div>',
     ),

@@ -4045,7 +4045,8 @@ function add_font_styles()
     );
 
     $fonts = implode("|", array_filter( array_unique( $fontsRequested)));
-    
-    wp_enqueue_style( 'mtwriter-fonts', '//fonts.googleapis.com/css?family=' . $fonts );    
+    if( !empty($fonts) ) {
+        wp_enqueue_style( 'mtwriter-fonts', '//fonts.googleapis.com/css?family=' . $fonts );
+    }
 }
 add_action('wp_enqueue_scripts', 'add_font_styles');

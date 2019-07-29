@@ -103,8 +103,8 @@ $encodedUrl = rawurlencode($socialLink);
 
 						<?php if( get_theme_mod('show_readtime', 1) ) : ?>
 							<span class="list-post-comment">
-								<?php echo calculateReadTime(get_post_field( 'post_content', $post->ID )); ?>
-								<?php echo calculateReadTime(get_post_field( 'post_content', $post->ID )) == 1 ? ' minute' : ' minutes'?> read.
+								<?php echo mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID )); ?>
+								<?php echo mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID )) == 1 ? ' minute' : ' minutes'?> read.
 							</span>
 						<?php endif; ?>
 					</div>
@@ -233,9 +233,9 @@ $encodedUrl = rawurlencode($socialLink);
 	<?php
 		if(get_theme_mod('related_post_enable', 0)) {
 			switch(get_theme_mod('related_post_by', 'categories')) :
-				case 'categories' : related_posts_by_categories();
+				case 'categories' : mtwriter_related_posts_by_categories();
 				break;
-				case 'tags' : related_posts_by_tags();
+				case 'tags' : mtwriter_related_posts_by_tags();
 				break;
 			endswitch;
 		}

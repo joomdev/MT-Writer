@@ -4,7 +4,7 @@
             <div class="col-lg-8 col-md-12 order-2 order-lg-1">
                 <div class="mt-author-bio">
                     <div class="hero-title">
-                        <?php echo get_theme_mod('hero_title', '<h2>Hello, I’m <strong>Jane Doe</strong> </h2>'); ?>
+                        <?php echo get_theme_mod('hero_title', '<h2>Hello, I am <strong>Jane Doe</strong> </h2>'); ?>
                     </div>
 
                     <div class="hero-bio">

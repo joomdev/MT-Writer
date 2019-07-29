@@ -28,7 +28,7 @@ if ( ! function_exists( 'mt_get_defaults' ) ) {
                 'backtotop_mobile' => false,
 
                 'show_hero_area' => true,
-                'hero_title' => '<h2>Hello, I’m <strong>Jane Doe</strong> </h2>',
+                'hero_title' => '<h2>Hello, I am <strong>Jane Doe</strong> </h2>',
                 'hero_bio' => '<div>A <strong>creative content writer</strong> and a passionate blogger who loves marketing and technology. I can help you with copywriting, UI/UX design and grow your <strong class="bio-color">agency</strong> speedily.</div>',
                 'show_profile_pic' => true,
                 'hero_profile_pic' => '',
@@ -78,7 +78,7 @@ if ( ! function_exists( 'mt_get_defaults' ) ) {
                 'read_more_text' => 'Read More',
                 '404_page_content' => '<h1>404</h1>',
                 'calltoaction' => 'Back To Home',
-                'copyright_text' => 'Copyright © 2019, MT Writer. by <a href="https://www.mightythemes.com" target="_blank">Mighty Themes</a>',
+                'copyright_text' => 'Powered by Mighty Themes.',
 
                 'facebook' => '#',
                 'twitter' => '#',

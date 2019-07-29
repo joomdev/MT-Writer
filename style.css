@@ -1,24 +1,21 @@
 /*!
-Theme Name: MT Writer
+Theme Name: Mtwriter
 Theme URI: http://mightythemes.com/themes/mt-writer
 Author: MightyThemes
 Author URI: http://mightythemes.com
 Description: MT Writer brings down the love for bloggers. Yes, MT Writer is a blog theme that is specially designed keeping in mind the interest of bloggers. It is a Highly Responsive, Fully SEO friendly theme. It rolls down with a mobile-friendly layout that helps the user in getting an edge over other competitors with ease of control over the layout.
-Version: 1.0.2
+Version: 1.0.3
 License: GNU General Public License v2 or later
-License URI: LICENSE
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: mtwriter
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, theme-options
 
 This theme, like WordPress, is licensed under the GPL.
+
+MT-Writer is based on Underscores https://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
 
-/* Table of Content
-=================================================
-1. Typography
-3. Header
-4. Global Style (body, link color, gap, ul, section-title, overlay etc)
-*/
 @import url('https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700,700i,900');
 
