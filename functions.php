@@ -160,8 +160,8 @@ add_action( 'widgets_init', 'mtwriter_widgets_init' );
  * Enqueue scripts and styles.
  */
 function mtwriter_scripts() {
-	wp_enqueue_style( 'mtwriter-responsive', get_template_directory_uri() . '/css/bootstrap.min.css' );
-	wp_enqueue_style( 'mtwriter-responsive', get_template_directory_uri() . '/css/fontawesome.min.css' );
+	wp_enqueue_style( 'mtwriter-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
+	wp_enqueue_style( 'mtwriter-fontawesome', "//use.fontawesome.com/releases/v5.8.1/css/all.css?ver=5.2.2" );
 	wp_enqueue_style( 'mtwriter-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'mtwriter-responsive', get_template_directory_uri() . '/css/responsive.css' );
 

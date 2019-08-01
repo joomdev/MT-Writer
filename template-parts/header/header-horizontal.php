@@ -62,6 +62,7 @@
             </div> <!-- Header action Items End -->
 
             <!-- Main Menu Area -->
+            <?php if ( has_nav_menu( 'menu-1' ) ) : ?>
             <div class="col-lg-8">
                 <!-- Navbar -->
                 <div itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" class="main-menu">
@@ -94,8 +95,7 @@
                 </div> <!-- Main Menu Area End-->
                 
             </div>
-
-            
+            <?php endif; ?>
         </div> <!-- Row End -->
     </div> <!-- Container End -->
 </header> <!-- End of Header area-->

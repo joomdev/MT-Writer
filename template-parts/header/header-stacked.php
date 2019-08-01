@@ -66,12 +66,12 @@
             <div class="col-12">
                 <!-- Navbar -->
                 <div itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" class="main-menu">
-                    <?php
-                        wp_nav_menu( array(
-                            'theme_location' => 'menu-1',
-                            'menu_id'        => 'primary-menu',
-                        ) );
-                    ?>
+                <?php if ( has_nav_menu( 'menu-1' ) ) :
+                    wp_nav_menu( array(
+                        'theme_location' => 'menu-1',
+                        'menu_id'        => 'primary-menu',
+                    ) );
+                endif; ?>
                     <!-- Navbar End -->
                     <!-- Header action Items -->
                     <div class="header-action-items d-none d-lg-flex">
