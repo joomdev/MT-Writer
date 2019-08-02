@@ -161,7 +161,7 @@ add_action( 'widgets_init', 'mtwriter_widgets_init' );
  */
 function mtwriter_scripts() {
 	wp_enqueue_style( 'mtwriter-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
-	wp_enqueue_style( 'mtwriter-fontawesome', "//use.fontawesome.com/releases/v5.8.1/css/all.css?ver=5.2.2" );
+	wp_enqueue_style( 'mtwriter-fontawesome', get_template_directory_uri() . '/css/fontawesome/css/all.min.css' );
 	wp_enqueue_style( 'mtwriter-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'mtwriter-responsive', get_template_directory_uri() . '/css/responsive.css' );
 
@@ -173,7 +173,7 @@ function mtwriter_scripts() {
 	
 	if ( get_theme_mod('pagination_type', 'numbered') == 'infinite-scroll' ) :
 		wp_enqueue_script( 'mtwriter-infinitescroll', get_template_directory_uri() . '/js/infinite-scroll.min.js', array(), '20151215', true );
-	endif;	
+	endif;
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

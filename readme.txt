@@ -19,12 +19,33 @@ MT Writer is like Gun fully loaded with great features that are ready to free fi
 
 MT Writer is a much-upgraded blog theme with an amazing outlook that will be for sure adding an eye-catching experience to your readers.
 
-
 == Installation ==
 	
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
+
+== Mt-Writer License ==
+Mt-Writer WordPress Theme, Copyright 2018 MightyThemes.
+Mt-Writer is distributed under the terms of the GNU GPL.
+
+Mt-Writer is based on Underscores https://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+== Infinite-scroll ==
+MT-Writer uses infinite-scroll by https://infinite-scroll.com.
+ * Licensed GPLv3 for open source use (https://creativecommons.org/licenses/by/3.0/)
+
+== Media Licenses ==
+The Logos used are not affiliated with MightyThemes.
+https://medium.com, https://csstricks.com, https://forbes.com, https://smashingmagazine.com, https://thenextweb.com
+
+https://elements.envato.com/female-freelancer-QS9DHC4
+
+== FontAwesome ==
+FontAwesome Free is free, open source, and GPL friendly.
+FontAwesome icons destributed under SIL OFL 1.1 - (http://scripts.sil.org/OFL)
+Source: https://fontawesome.com
 
 == Changelog ==
 
@@ -41,11 +62,8 @@ MT Writer is a much-upgraded blog theme with an amazing outlook that will be for
 * Added unique prefix
 * Fixed empty font request
 
+== 1.0.4 =
+* Added: FontAwesome Locally
+* Updated: Optimized hero image
+* Updated readme.txt with credits
 
-
-
--------------------------------------------------------
-Infinite-scroll
--------------------------------------------------------
-MT-Writer uses infinite-scroll by https://infinite-scroll.com.
- * Licensed GPLv3 for open source use (https://creativecommons.org/licenses/by/3.0/)
