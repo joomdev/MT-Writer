@@ -5,7 +5,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 
 Requires at least: 4.5
 Tested up to: 5.2
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,5 +65,5 @@ Source: https://fontawesome.com
 == 1.0.4 =
 * Added: FontAwesome Locally
 * Updated: Optimized hero image
-* Updated readme.txt with credits
-
+* Updated: readme.txt with credits
+* Updated: MT-Popular Widget

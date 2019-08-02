@@ -166,7 +166,6 @@ function mtwriter_scripts() {
 	wp_enqueue_style( 'mtwriter-responsive', get_template_directory_uri() . '/css/responsive.css' );
 
 	// Scripts
-	wp_enqueue_script( 'mtwriter-jquery', get_template_directory_uri() . '/js/jquery.min.js', array(), '20190719', true );
 	wp_enqueue_script( 'mtwriter-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery') );
 
 	wp_enqueue_script('mtwriter-main', get_template_directory_uri() . '/js/main.js', array('jquery'));
