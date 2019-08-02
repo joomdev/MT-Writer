@@ -57,16 +57,19 @@ function mtwriter_popular_posts($instance) {
 		)
 	);
 
+	if ( $popularByViews->have_posts() ) {
+		$sortedPosts = $popularByViews;
+	} elseif ( $recentPosts->have_posts() ) {
+		$sortedPosts = $recentPosts;
+	}
 	?>
-	<?php
-		if ($popularByViews->have_posts()) {
-	?>
+
 	<div class="mt-popular-post-list">
 	<?php
-			while ($popularByViews->have_posts()) : 
-			$popularByViews->the_post();
+	while( $sortedPosts->have_posts() ) :
+		$sortedPosts->the_post();
 	?>
-			<article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" class="">
+		<article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" class="">
                 <div class="post-grid">
                     <div class="post-grid-view post-grid-view-md">
 
@@ -115,75 +118,11 @@ function mtwriter_popular_posts($instance) {
                 </div><!-- post-->
             </article><!-- col-lg-4-->
 	<?php
-			endwhile;
+	endwhile;
 	?>
-			</div>
+	</div>
 	<?php
-			// Restore original Post Data
-			wp_reset_postdata();
-		} else {
-			?>
-			<div class="mt-popular-post-list">
-		<?php
-			while ($recentPosts->have_posts()) : 
-				$recentPosts->the_post();
-	?>
-			<article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" class="">
-                <div class="post-grid">
-                    <div class="post-grid-view post-grid-view-md">
-
-                        <?php if ( $instance['showThumbnail'] == 'on' ) : ?>
-                            <div class="post-grid-image">
-                                <?php the_post_thumbnail(); ?>
-                            </div>
-                        <?php endif; ?>
-
-                        <div class="post-content post-content-overlay">
-                            <div class="post-header">
-                                <?php if ( $instance['showCategory'] == 'on' ) : ?>
-                                    <span class="category-meta">
-                                        <a href="#" rel="category tag">
-                                            <?php the_category( ',' ); ?>
-                                        </a>
-                                    </span>
-                                <?php endif; ?>
-
-                                <h3 class="entry-post-title">
-                                    <a href="<?php the_permalink() ?>">
-                                        <?php the_title() ?>
-                                    </a>
-                                </h3>
-                            </div>
-                            <!-- Post content right-->
-                            <?php if ( $instance['showDate'] == 'on' || $instance['showAuthor'] ) : ?>
-                                <div class="post-meta-footer">
-                                    <?php if ( $instance['showDate'] == 'on' ) : ?>
-                                        <span class="grid-post-date">
-                                            Post on <?php the_time( 'M j, y' ); ?>
-                                        </span>
-                                    <?php endif; ?>
-
-                                    <?php if ( $instance['showAuthor'] == 'on' ) : ?>
-                                        <span class="grid-post-author">
-                                            By <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endif; ?>
-                            <!-- Post meta footer-->
-                        </div>
-                        <!-- post-content end-->
-                    </div><!-- post-->
-                </div><!-- post-->
-            </article><!-- col-lg-4-->
-		<?php
-			endwhile;
-		?>
-		</div>
-		<?php
-			// Restore original Post Data
-			wp_reset_postdata();
-		}
+	wp_reset_postdata();
 		
 }
 
