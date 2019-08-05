@@ -39,13 +39,12 @@ add_action( 'widgets_init', 'mtwriter_load_widget' );
 function mtwriter_popular_posts($instance) {
 
 	$recentPosts = new WP_Query(
-		apply_filters( 'widget_posts_args',
-			array(
-				'posts_per_page'      => $instance['totalPosts'],
-				'no_found_rows'       => true,
-				'post_status'         => 'publish',
-				'ignore_sticky_posts' => true,
-			) )
+		array(
+			'posts_per_page'      => $instance['totalPosts'],
+			'no_found_rows'       => true,
+			'post_status'         => 'publish',
+			'ignore_sticky_posts' => true,
+		)
 	);
 
 	$popularByViews  = new WP_Query( 
@@ -180,31 +179,31 @@ class mtwriter_widget extends WP_Widget {
 		$showAuthor = isset( $instance['showAuthor'] ) ? (bool) $instance['showAuthor'] : true;
 		?>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'mtwriter' ); ?></label> 
-				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'mtwriter' ); ?></label> 
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 
-				<label for="<?php echo $this->get_field_id( 'totalPosts' ); ?>"><?php esc_html_e( 'Number of Posts:', 'mtwriter' ); ?></label> 
-				<input class="widefat" id="<?php echo $this->get_field_id( 'totalPosts' ); ?>" name="<?php echo $this->get_field_name( 'totalPosts' ); ?>" type="number" min="1" step="1" value="<?php echo $totalPosts; ?>" />
+				<label for="<?php echo esc_attr( $this->get_field_id( 'totalPosts' ) ); ?>"><?php esc_html_e( 'Number of Posts:', 'mtwriter' ); ?></label> 
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'totalPosts' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'totalPosts' ) ); ?>" type="number" min="1" step="1" value="<?php echo esc_attr($totalPosts); ?>" />
 
 				<hr>
 				<p>Customization Options: </p>
-				<input class="checkbox" type="checkbox" <?php checked( $showThumbnail ); ?> id="<?php echo $this->get_field_id( 'showThumbnail' ); ?>" name="<?php echo $this->get_field_name( 'showThumbnail' ); ?>" /> 
-				<label for="<?php echo $this->get_field_id( 'showThumbnail' ); ?>">Show Thumbnail</label>
+				<input class="checkbox" type="checkbox" <?php checked( $showThumbnail ); ?> id="<?php echo esc_attr( $this->get_field_id( 'showThumbnail' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'showThumbnail' ) ); ?>" /> 
+				<label for="<?php echo esc_attr( $this->get_field_id( 'showThumbnail' ) ); ?>">Show Thumbnail</label>
 				
 				<br><br>
 
-				<input class="checkbox" type="checkbox" <?php checked( $showCategory ); ?> id="<?php echo $this->get_field_id( 'showCategory' ); ?>" name="<?php echo $this->get_field_name( 'showCategory' ); ?>" /> 
-				<label for="<?php echo $this->get_field_id( 'showCategory' ); ?>">Show Category</label>
+				<input class="checkbox" type="checkbox" <?php checked( $showCategory ); ?> id="<?php echo esc_attr( $this->get_field_id( 'showCategory' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'showCategory' ) ); ?>" /> 
+				<label for="<?php echo esc_attr( $this->get_field_id( 'showCategory' ) ); ?>">Show Category</label>
 				
 				<br><br>
 
-				<input class="checkbox" type="checkbox" <?php checked( $showDate ); ?> id="<?php echo $this->get_field_id( 'showDate' ); ?>" name="<?php echo $this->get_field_name( 'showDate' ); ?>" /> 
-				<label for="<?php echo $this->get_field_id( 'showDate' ); ?>">Show Date</label>
+				<input class="checkbox" type="checkbox" <?php checked( $showDate ); ?> id="<?php echo esc_attr( $this->get_field_id( 'showDate' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'showDate' ) ); ?>" /> 
+				<label for="<?php echo esc_attr( $this->get_field_id( 'showDate' ) ); ?>">Show Date</label>
 				
 				<br><br>
 
-				<input class="checkbox" type="checkbox" <?php checked( $showAuthor ); ?> id="<?php echo $this->get_field_id( 'showAuthor' ); ?>" name="<?php echo $this->get_field_name( 'showAuthor' ); ?>" /> 
-				<label for="<?php echo $this->get_field_id( 'showAuthor' ); ?>">Show Author</label>
+				<input class="checkbox" type="checkbox" <?php checked( $showAuthor ); ?> id="<?php echo esc_attr( $this->get_field_id( 'showAuthor' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'showAuthor' ) ); ?>" /> 
+				<label for="<?php echo esc_attr( $this->get_field_id( 'showAuthor' ) ); ?>">Show Author</label>
 			</p>			
 		<?php
 	}

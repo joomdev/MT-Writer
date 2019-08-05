@@ -32,7 +32,7 @@ $comments_args = array(
 	'class_form'      => 'row justify-content-center',
     'comment_notes_before' => '',
     'comment_notes_after' => '',
-    'fields' => $fields =  array(
+    'fields' => array(
         'author' =>
             '<div class="col-md-4">
 				<div class="form-group">
@@ -73,9 +73,8 @@ if (have_comments()) :
 	$comments_count = wp_count_comments($post->ID)->approved;
 ?>
 	<div id="comments" class="comments-area mt-sept">
-		<h3 class="comments-heading"><?php echo $comments_count ?> Comments</h3>
-
-
+        <h3 class="comments-heading"><?php echo esc_html($comments_count) ?> Comments</h3>
+        
 		<ul class="comments-list">
 		    <?php wp_list_comments( 'type=comment&callback=mtwriter_comment' ); ?>
 		</ul>

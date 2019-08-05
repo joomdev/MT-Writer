@@ -330,7 +330,7 @@ function mtwriter_comment($comment, $args, $depth) {
         $tag       = 'li';
         $add_below = 'div-comment';
     }?>
-    <<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php 
+    <<?php echo esc_html($tag); ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php 
     if ( 'div' != $args['style'] ) { ?>
         <div id="div-comment-<?php comment_ID() ?>" class="comment first"><?php
     } ?>
@@ -359,13 +359,12 @@ function mtwriter_comment($comment, $args, $depth) {
 				<div class="meta-data">
 					<span class="comment-author"><?php echo get_comment_author_link(); ?></span>
 					<span class="comment-date">
-						<?php
-							printf( 
-								__('%1$s at %2$s', 'mtwriter'), 
-								get_comment_date(),  
-								get_comment_time() 
-							);
-						?>
+                        <?php printf( // WPCS: XSS OK.
+                            /* translators: 1: date, 2: time */
+                            _x( '%1$s at %2$s', '1: date, 2: time', 'mtwriter' ),
+                            get_comment_date(),
+                            get_comment_time()
+                        ); ?>
 					</span>
 					|
 					<b>
@@ -403,52 +402,52 @@ add_action( 'show_user_profile', 'custom_fields_user_profile' );
 add_action( 'edit_user_profile', 'custom_fields_user_profile' );
 
 function custom_fields_user_profile( $user ) { ?>
-    <h3><?php _e("Social Handles", 'mtwriter'); ?></h3>
+    <h3><?php _e("Social Handles", 'mtwriter'); // WPCS: XSS ok. ?></h3>
 
     <table class="form-table">
         <tr>
-            <th><label for="facebook"><?php _e('Facebook', 'mtwriter'); ?></label></th>
+            <th><label for="facebook"><?php _e('Facebook', 'mtwriter'); // WPCS: XSS ok. ?></label></th>
             <td>
                 <input type="text" name="facebook" id="facebook"
                     value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your facebook profile.', 'mtwriter'); ?></span>
+                <span class="description"><?php _e('Your facebook profile.', 'mtwriter'); // WPCS: XSS ok. ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="twitter"><?php _e('Twitter', 'mtwriter'); ?></label></th>
+            <th><label for="twitter"><?php _e('Twitter', 'mtwriter'); // WPCS: XSS ok. ?></label></th>
             <td>
                 <input type="text" name="twitter" id="twitter"
                     value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your twitter profile.', 'mtwriter'); ?></span>
+                <span class="description"><?php _e('Your twitter profile.', 'mtwriter'); // WPCS: XSS ok. ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="instagram"><?php _e('Instagram', 'mtwriter'); ?></label></th>
+            <th><label for="instagram"><?php _e('Instagram', 'mtwriter'); // WPCS: XSS ok. ?></label></th>
             <td>
                 <input type="text" name="instagram" id="instagram"
                     value="<?php echo esc_attr( get_the_author_meta( 'instagram', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your instagram profile.', 'mtwriter'); ?></span>
+                <span class="description"><?php _e('Your instagram profile.', 'mtwriter'); // WPCS: XSS ok. ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="linkedin"><?php _e('LinkedIn', 'mtwriter'); ?></label></th>
+            <th><label for="linkedin"><?php _e('LinkedIn', 'mtwriter'); // WPCS: XSS ok. ?></label></th>
             <td>
                 <input type="text" name="linkedin" id="linkedin"
                     value="<?php echo esc_attr( get_the_author_meta( 'linkedin', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your linkedin profile.', 'mtwriter'); ?></span>
+                <span class="description"><?php _e('Your linkedin profile.', 'mtwriter'); // WPCS: XSS ok. ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="youtube"><?php _e('YouTube', 'mtwriter'); ?></label></th>
+            <th><label for="youtube"><?php _e('YouTube', 'mtwriter'); // WPCS: XSS ok. ?></label></th>
             <td>
                 <input type="text" name="youtube" id="youtube"
                     value="<?php echo esc_attr( get_the_author_meta( 'youtube', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your youtube profile.', 'mtwriter'); ?></span>
+                <span class="description"><?php _e('Your youtube profile.', 'mtwriter'); // WPCS: XSS ok. ?></span>
             </td>
         </tr>
     </table>

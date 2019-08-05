@@ -303,7 +303,6 @@ if ( ! function_exists( 'getValue' ) ) {
             break;
             case 'fonts': echo esc_html( get_theme_mod( $property, $defaultFonts[$property] ) );
             break;
-            default: echo "<b>Notice: <big>" . $type . '</big></b> Property not found.';
         }
 
     }
