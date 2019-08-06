@@ -81,18 +81,22 @@ wp_link_pages();
 							$u_modified_time = get_the_modified_time('U');
 							if ($u_modified_time >= $u_time + 86400) {
 						?>
-								<span itemprop="dateModified" class="list-post-date m-1">Updated on <?php the_modified_time('F jS, Y'); ?></span>
+								<span itemprop="dateModified" class="list-post-date m-1">
+								<?php echo esc_html_e('Updated on', 'mtwriter'); ?>
+								<?php the_modified_time('F jS, Y'); ?></span>
 						<?php
 							} else {
 						?>
-								<span itemprop="dateModified" class="list-post-date m-1">Updated on <?php echo esc_html(get_the_time('F jS, Y')); // WPCS: XSS ok. ?></span>
+								<span itemprop="dateModified" class="list-post-date m-1">
+								<?php echo esc_html_e('Updated on', 'mtwriter'); ?>
+								<?php echo esc_html(get_the_time('F jS, Y')); // WPCS: XSS ok. ?></span>
 						<?php
 							}
 						?>
 						<?php endif; ?>
 						<?php if ( get_theme_mod('show_author', 1) ) : ?>
 							<span class="post-author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">
-								By
+								<?php echo esc_html_e('By', 'mtwriter'); ?>
 								<a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) )); ?>">
 									<?php the_author(); ?>
 								</a>
@@ -102,7 +106,7 @@ wp_link_pages();
 						<?php if( get_theme_mod('show_readtime', 1) ) : ?>
 							<span class="list-post-comment">
 								<?php echo esc_html(mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID ))); ?>
-								<?php echo mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID )) == 1 ? ' minute' : ' minutes'?> read.
+								<?php echo mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID )) == 1 ? ' minute' : ' minutes'?> <?php echo esc_html_e('read.', 'mtwriter'); ?>
 							</span>
 						<?php endif; ?>
 					</div>
@@ -122,9 +126,9 @@ wp_link_pages();
 		if (get_theme_mod('ads_pages')) {
 			if (get_theme_mod('ad_code_post_end')) {
 			?>
-				<div class="ad-page-end">
-					<?php echo get_theme_mod('ad_code_post_end'); // WPCS: XSS ok. ?>
-				</div>
+			<div class="ad-page-end">
+				<?php echo get_theme_mod('ad_code_post_end'); // WPCS: XSS ok. ?>
+			</div>
 		<?php } } ?>
 
 		<div class="post-footer clearfix">
@@ -137,7 +141,7 @@ wp_link_pages();
 			<?php if ( get_theme_mod('social_share_enable', 1) ) :
 			?>
 				<div class="post-share-items">
-					<strong>Share : </strong>
+					<strong><?php echo esc_html_e('Share: ', 'mtwriter'); ?></strong>
 					<ul class="mt-share">
 						<li>
 							<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_html($socialLink); ?>"><i class="fab fa-facebook-f"></i></a>

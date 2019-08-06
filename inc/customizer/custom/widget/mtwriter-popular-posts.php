@@ -171,8 +171,8 @@ class mtwriter_widget extends WP_Widget {
          
 	// Widget Backend
 	public function form( $instance ) {
-		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : __( 'Popular Posts', 'mtwriter' );
-		$totalPosts    = isset( $instance['totalPosts'] ) ? absint( $instance['totalPosts'] ) : 3;
+		$title = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : __( 'Popular Posts', 'mtwriter' );
+		$totalPosts = isset( $instance['totalPosts'] ) ? absint( $instance['totalPosts'] ) : 3;
 		$showThumbnail = isset( $instance['showThumbnail'] ) ? (bool) $instance['showThumbnail'] : true;
 		$showCategory = isset( $instance['showCategory'] ) ? (bool) $instance['showCategory'] : true;
 		$showDate = isset( $instance['showDate'] ) ? (bool) $instance['showDate'] : true;

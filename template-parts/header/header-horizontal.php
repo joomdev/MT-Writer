@@ -45,7 +45,7 @@
                             <span class="search-cross"><i class="fas fa-times icon-cross"></i></span>
                         </button>
                         <div class="search-box">
-                            <input type="search" class="search-field" name="s" id="search" placeholder="Type here and Search...">
+                            <input type="search" class="search-field" name="s" id="search" placeholder="<?php echo _e('Type here and Search...', 'mtwriter'); // WPCS: XSS OK. ?>">
                         </div>
                     </form>
 
@@ -85,7 +85,7 @@
                                 
                                 </button>
                                 <div class="search-box">
-                                    <input type="search" class="search-field" name="s" id="search" placeholder="Type here and Search...">
+                                    <input type="search" class="search-field" name="s" id="search" placeholder="<?php echo _e('Type here and Search...', 'mtwriter'); // WPCS: XSS OK. ?>">
                                 </div>
                             </form>
                         </div> <!-- Header Search End -->

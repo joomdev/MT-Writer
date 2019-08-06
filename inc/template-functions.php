@@ -17,11 +17,6 @@ function mtwriter_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'no-sidebar';
-	}
-
 	return $classes;
 }
 add_filter( 'body_class', 'mtwriter_body_classes' );
@@ -116,10 +111,12 @@ function mtwriter_related_posts_by_categories()
                                         <!-- Post content right-->
                                         <div class="post-meta-footer">
                                             <span class="grid-post-date">
-                                                Post on <?php the_time( 'M j, y' ); ?>
+                                                <?php echo esc_html_e('Posted on', 'mtwriter'); ?>
+                                                <?php the_time( 'M j, y' ); ?>
                                             </span>
                                             <span class="grid-post-author">
-                                                By <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
+                                                <?php echo esc_html_e('By', 'mtwriter'); ?>    
+                                                <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
                                             </span>
                                         </div>
                                         <!-- Post meta footer-->
@@ -193,10 +190,12 @@ function mtwriter_related_posts_by_tags()
                                             <!-- Post content right-->
                                             <div class="post-meta-footer">
                                                 <span class="grid-post-date">
-                                                    Post on <?php the_time( 'M j, y' ); ?>
+                                                    <?php echo esc_html_e('Posted on', 'mtwriter'); ?>
+                                                    <?php the_time( 'M j, y' ); ?>
                                                 </span>
                                                 <span class="grid-post-author">
-                                                    By <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
+                                                    <?php echo esc_html_e('By', 'mtwriter'); ?>
+                                                    <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
                                                 </span>
                                             </div>
                                             <!-- Post meta footer-->

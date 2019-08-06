@@ -56,7 +56,7 @@
 							<span class="list-post-comment">
 								<?php 
 								echo esc_html(mtwriter_CalculateReadTime( get_post_field( 'post_content', $post->ID ) ));
-								echo mtwriter_CalculateReadTime( get_post_field( 'post_content', $post->ID ) ) == 1 ? ' minute' : ' minutes' // WPCS: XSS ok. ?> read.
+								echo mtwriter_CalculateReadTime( get_post_field( 'post_content', $post->ID ) ) == 1 ? ' minute' : ' minutes' // WPCS: XSS ok. ?> <?php echo esc_html_e('read.', 'mtwriter'); ?>
 							</span>
 						<?php endif; ?>
 					</div> <!-- Post meta footer-->
