@@ -1,8 +1,7 @@
 === MTWriter ===
 
 Contributors: mightythemes1
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, theme-options
-
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, theme-options, right-sidebar, left-sidebar
 Requires at least: 4.5
 Tested up to: 5.2
 Stable tag: 1.0.4
@@ -68,3 +67,4 @@ Source: https://fontawesome.com
 * Updated: readme.txt with credits
 * Updated: MT-Popular Widget
 * Fixed: Escaping of customizer options
+* Fixed: Translation ready strings
