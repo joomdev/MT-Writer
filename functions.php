@@ -191,9 +191,10 @@ require get_template_directory() . '/inc/customizer/custom/widget/mtwriter-popul
 require get_template_directory() . '/inc/template-tags.php';
 
 /**
- * MightyThemes Custom Controls
+ * MightyThemes Custom Controls/Sections
  */
-require get_template_directory() . '/inc/customizer/custom/controls/custom-controls.php';
+require get_template_directory() . '/inc/customizer/custom/controls/custom-controls.php'; /* Controls */
+require get_template_directory() . '/inc/customizer/custom/separator.php'; /* Sections */
 
 /**
  * Functions which enhance the theme by hooking into WordPress.

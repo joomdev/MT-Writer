@@ -67,3 +67,4 @@ Source: https://fontawesome.com
 * Updated: Optimized hero image
 * Updated: readme.txt with credits
 * Updated: MT-Popular Widget
+* Fixed: Escaping of customizer options

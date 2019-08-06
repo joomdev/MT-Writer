@@ -297,7 +297,7 @@ if ( ! function_exists( 'getValue' ) ) {
         $defaultFonts = mt_get_default_fonts();
 
         switch( $type ) {
-            case 'defaults': echo get_theme_mod( $property, $defaults[$property] );
+            case 'defaults': echo get_theme_mod( $property, $defaults[$property] ); // WPCS: XSS ok.
             break;
             case 'color': echo esc_html( get_theme_mod( $property, $defaultColors[$property] ) );
             break;

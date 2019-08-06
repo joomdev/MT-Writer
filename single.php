@@ -9,37 +9,35 @@
 get_header();
 
 // URL for social sharing
-$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-$socialLink = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$socialLink = wp_guess_url() . sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])); // WPCS: XSS ok.
 $blogTitle = get_the_title();
 $twitterUrl = $blogTitle." ".$socialLink;
 $encodedTitle = rawurlencode($blogTitle);
 $encodedUrl = rawurlencode($socialLink);
 
+while ( have_posts() ) :
+	the_post();
+
+wp_link_pages(); 
+
 ?>
-	<?php
-	while ( have_posts() ) :
-		the_post();
-	?>
-	
-	<?php wp_link_pages(); ?>
 
 	<ul class="mt-socials d-none d-xl-block">
 		<b>Share</b>
 		<li>
-			<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $socialLink; ?>"><i class="fab fa-facebook-f"></i></a>
+			<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_html($socialLink); ?>"><i class="fab fa-facebook-f"></i></a>
 		</li>
 		<li>
-			<a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo $twitterUrl; ?>"><i class="fab fa-twitter"></i></a>
+			<a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo esc_html($twitterUrl); ?>"><i class="fab fa-twitter"></i></a>
 		</li>
 		<li>
-			<a class="reddit" target="_blank" href="http://www.reddit.com/submit?url=<?php echo $socialLink; ?>"><i class="fab fa-reddit"></i></a>
+			<a class="reddit" target="_blank" href="http://www.reddit.com/submit?url=<?php echo esc_html($socialLink); ?>"><i class="fab fa-reddit"></i></a>
 		</li>
 		<li>
-			<a class="pinterest" target="_blank" href="<?php echo "http://pinterest.com/pin/create/button/?url=$encodedUrl&description=$encodedTitle" ?>"><i class="fab fa-pinterest"></i></a>
+			<a class="pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=<?php echo esc_html($encodedUrl); ?>&description=<?php echo esc_html($encodedTitle); ?>"><i class="fab fa-pinterest"></i></a>
 		</li>
 		<li>
-			<a class="whatsapp" target="_blank" href="https://wa.me/whatsappphonenumber/?text=<?php echo $socialLink; ?>"><i class="fab fa-whatsapp"></i></a>
+			<a class="whatsapp" target="_blank" href="https://wa.me/whatsappphonenumber/?text=<?php echo esc_html($socialLink); ?>"><i class="fab fa-whatsapp"></i></a>
 		</li>
 	</ul>
 	
@@ -61,7 +59,7 @@ $encodedUrl = rawurlencode($socialLink);
 						if (get_theme_mod('ad_code_post_begin')) {
 						?>
 						<div class="ad-page-begin">
-							<?php echo get_theme_mod('ad_code_post_begin'); ?>
+							<?php echo get_theme_mod('ad_code_post_begin');  // WPCS: XSS ok. ?>
 						</div>
 					<?php
 					} }
@@ -87,7 +85,7 @@ $encodedUrl = rawurlencode($socialLink);
 						<?php
 							} else {
 						?>
-								<span itemprop="dateModified" class="list-post-date m-1">Updated on <?php echo get_the_time('F jS, Y'); ?></span>
+								<span itemprop="dateModified" class="list-post-date m-1">Updated on <?php echo esc_html(get_the_time('F jS, Y')); // WPCS: XSS ok. ?></span>
 						<?php
 							}
 						?>
@@ -95,7 +93,7 @@ $encodedUrl = rawurlencode($socialLink);
 						<?php if ( get_theme_mod('show_author', 1) ) : ?>
 							<span class="post-author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">
 								By
-								<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
+								<a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) )); ?>">
 									<?php the_author(); ?>
 								</a>
 							</span>
@@ -103,7 +101,7 @@ $encodedUrl = rawurlencode($socialLink);
 
 						<?php if( get_theme_mod('show_readtime', 1) ) : ?>
 							<span class="list-post-comment">
-								<?php echo mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID )); ?>
+								<?php echo esc_html(mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID ))); ?>
 								<?php echo mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID )) == 1 ? ' minute' : ' minutes'?> read.
 							</span>
 						<?php endif; ?>
@@ -125,7 +123,7 @@ $encodedUrl = rawurlencode($socialLink);
 			if (get_theme_mod('ad_code_post_end')) {
 			?>
 				<div class="ad-page-end">
-					<?php echo get_theme_mod('ad_code_post_end'); ?>
+					<?php echo get_theme_mod('ad_code_post_end'); // WPCS: XSS ok. ?>
 				</div>
 		<?php } } ?>
 
@@ -142,19 +140,19 @@ $encodedUrl = rawurlencode($socialLink);
 					<strong>Share : </strong>
 					<ul class="mt-share">
 						<li>
-							<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $socialLink; ?>"><i class="fab fa-facebook-f"></i></a>
+							<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_html($socialLink); ?>"><i class="fab fa-facebook-f"></i></a>
 						</li>
 						<li>
-							<a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo $twitterUrl; ?>"><i class="fab fa-twitter"></i></a>
+							<a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo esc_html($twitterUrl); ?>"><i class="fab fa-twitter"></i></a>
 						</li>
 						<li>
-							<a class="reddit" target="_blank" href="http://www.reddit.com/submit?url=<?php echo $socialLink; ?>"><i class="fab fa-reddit"></i></a>
+							<a class="reddit" target="_blank" href="http://www.reddit.com/submit?url=<?php echo esc_html($socialLink); ?>"><i class="fab fa-reddit"></i></a>
 						</li>
 						<li>
-							<a class="pinterest" target="_blank" href="<?php echo "http://pinterest.com/pin/create/button/?url=$encodedUrl&description=$encodedTitle" ?>"><i class="fab fa-pinterest"></i></a>
+							<a class="pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=<?php echo esc_html($encodedUrl);?>&description=<?php echo esc_html($encodedTitle); ?>"><i class="fab fa-pinterest"></i></a>
 						</li>
 						<li>
-							<a class="whatsapp" target="_blank" href="https://wa.me/whatsappphonenumber/?text=<?php echo $socialLink; ?>"><i class="fab fa-whatsapp"></i></a>
+							<a class="whatsapp" target="_blank" href="https://wa.me/whatsappphonenumber/?text=<?php echo esc_html($socialLink); ?>"><i class="fab fa-whatsapp"></i></a>
 						</li>
 					</ul>
 				</div><!-- Share items end -->
@@ -170,7 +168,7 @@ $encodedUrl = rawurlencode($socialLink);
 				</div>
 				<div class="author-info">
 					<h4 itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">
-						<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
+						<a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) )); ?>">
 							<?php the_author(); ?>
 						</a>
 					</h4>			
@@ -194,10 +192,10 @@ $encodedUrl = rawurlencode($socialLink);
 					<div class="post-previous">
 						<?php
 							$prev_post = get_adjacent_post(false, '', true);
-							echo "<a href=" . get_permalink($prev_post->ID) . ">
+							echo "<a href=" . esc_url(get_permalink($prev_post->ID)) . ">
 							<span><i class='fa fa-angle-left'></i> Previous Post</span>";
 							if(!empty($prev_post)) {
-							echo '<h4>' . $prev_post->post_title . '</h4></a>'; }
+							echo '<h4>' . esc_html($prev_post->post_title) . '</h4></a>'; }
 						?>
 					</div>
 			<?php
@@ -208,10 +206,10 @@ $encodedUrl = rawurlencode($socialLink);
 				?>
 					<div class="post-next">
 						<?php
-							echo "<a href=" . get_permalink($next_post->ID) . ">
+							echo "<a href=" . esc_url(get_permalink($next_post->ID)) . ">
 							<span>Next Post <i class='fa fa-angle-right'></i></span>";
 							if(!empty($next_post)) {
-							echo '<h4>' . $next_post->post_title . '</h4></a>'; }
+							echo '<h4>' . esc_html($next_post->post_title) . '</h4></a>'; }
 						?>
 					</div>
 				<?php endif; ?>

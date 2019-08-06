@@ -184,8 +184,13 @@
 	}
 ?>
 
-<a class="skip-link screen-reader-text" href="#content">
-<?php _e( 'Skip to content', 'mtwriter' ); ?></a>
+<?php
+// Skip to content link
+printf( '<a class="screen-reader-text skip-link" href="#content" title="%1$s">%2$s</a>',
+	esc_attr__( 'Skip to content', 'mtwriter' ),
+	esc_html__( 'Skip to content', 'mtwriter' )
+);
+?>
 
 <?php
 // Preloader

@@ -147,13 +147,13 @@ class mtwriter_widget extends WP_Widget {
 		$title = apply_filters( 'widget_title', $instance['title'] );
 
 		// before and after widget arguments
-		echo $args['before_widget'];
+		echo $args['before_widget']; // WPCS: XSS ok.
 		if ( ! empty( $title ) )
-		echo $args['before_title'] . $title . $args['after_title'];
+		echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS ok.
 
 		// This is where you run the code and display the output		
 		mtwriter_popular_posts( $instance );
-		echo $args['after_widget'];
+		echo $args['after_widget']; // WPCS: XSS ok.
 	}
 
 	// Updating widget replacing old instances with new
@@ -171,7 +171,7 @@ class mtwriter_widget extends WP_Widget {
          
 	// Widget Backend
 	public function form( $instance ) {
-		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
+		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : __( 'Popular Posts', 'mtwriter' );
 		$totalPosts    = isset( $instance['totalPosts'] ) ? absint( $instance['totalPosts'] ) : 3;
 		$showThumbnail = isset( $instance['showThumbnail'] ) ? (bool) $instance['showThumbnail'] : true;
 		$showCategory = isset( $instance['showCategory'] ) ? (bool) $instance['showCategory'] : true;

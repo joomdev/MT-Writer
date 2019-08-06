@@ -348,7 +348,7 @@ function mtwriter_comment($comment, $args, $depth) {
 			<?php
 				if ( $comment->comment_approved == '0' ) { ?>
 					<em class="comment-awaiting-moderation">
-						<?php esc_html_e( 'Your comment is awaiting moderation.', 'mtwriter' ); ?>
+						<?php esc_htmlesc_html_e( 'Your comment is awaiting moderation.', 'mtwriter' ); // WPCS: XSS ok. ?>
 					</em>
 					<br/>
 			<?php 
@@ -359,12 +359,14 @@ function mtwriter_comment($comment, $args, $depth) {
 				<div class="meta-data">
 					<span class="comment-author"><?php echo get_comment_author_link(); ?></span>
 					<span class="comment-date">
-                        <?php printf( // WPCS: XSS OK.
-                            /* translators: 1: date, 2: time */
-                            _x( '%1$s at %2$s', '1: date, 2: time', 'mtwriter' ),
-                            get_comment_date(),
-                            get_comment_time()
-                        ); ?>
+                        <?php
+                            printf( // WPCS: XSS ok.
+                                /* translators: 1: date, 2: time */
+								__('%1$s at %2$s', 'mtwriter'),
+								get_comment_date(),
+								get_comment_time()
+							);
+						?>
 					</span>
 					|
 					<b>
@@ -402,52 +404,52 @@ add_action( 'show_user_profile', 'custom_fields_user_profile' );
 add_action( 'edit_user_profile', 'custom_fields_user_profile' );
 
 function custom_fields_user_profile( $user ) { ?>
-    <h3><?php _e("Social Handles", 'mtwriter'); // WPCS: XSS ok. ?></h3>
+    <h3><?php esc_html_e("Social Handles", 'mtwriter'); ?></h3>
 
     <table class="form-table">
         <tr>
-            <th><label for="facebook"><?php _e('Facebook', 'mtwriter'); // WPCS: XSS ok. ?></label></th>
+            <th><label for="facebook"><?php esc_html_e( 'Facebook', 'mtwriter' ); ?></label></th>
             <td>
                 <input type="text" name="facebook" id="facebook"
                     value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your facebook profile.', 'mtwriter'); // WPCS: XSS ok. ?></span>
+                <span class="description"><?php esc_html_e('Your facebook profile.', 'mtwriter'); ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="twitter"><?php _e('Twitter', 'mtwriter'); // WPCS: XSS ok. ?></label></th>
+            <th><label for="twitter"><?php esc_html_e('Twitter', 'mtwriter'); ?></label></th>
             <td>
                 <input type="text" name="twitter" id="twitter"
                     value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your twitter profile.', 'mtwriter'); // WPCS: XSS ok. ?></span>
+                <span class="description"><?php esc_html_e('Your twitter profile.', 'mtwriter'); ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="instagram"><?php _e('Instagram', 'mtwriter'); // WPCS: XSS ok. ?></label></th>
+            <th><label for="instagram"><?php esc_html_e('Instagram', 'mtwriter'); ?></label></th>
             <td>
                 <input type="text" name="instagram" id="instagram"
                     value="<?php echo esc_attr( get_the_author_meta( 'instagram', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your instagram profile.', 'mtwriter'); // WPCS: XSS ok. ?></span>
+                <span class="description"><?php esc_html_e('Your instagram profile.', 'mtwriter'); ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="linkedin"><?php _e('LinkedIn', 'mtwriter'); // WPCS: XSS ok. ?></label></th>
+            <th><label for="linkedin"><?php esc_html_e('LinkedIn', 'mtwriter'); ?></label></th>
             <td>
                 <input type="text" name="linkedin" id="linkedin"
                     value="<?php echo esc_attr( get_the_author_meta( 'linkedin', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your linkedin profile.', 'mtwriter'); // WPCS: XSS ok. ?></span>
+                <span class="description"><?php esc_html_e('Your linkedin profile.', 'mtwriter'); ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="youtube"><?php _e('YouTube', 'mtwriter'); // WPCS: XSS ok. ?></label></th>
+            <th><label for="youtube"><?php esc_html_e('YouTube', 'mtwriter'); ?></label></th>
             <td>
                 <input type="text" name="youtube" id="youtube"
                     value="<?php echo esc_attr( get_the_author_meta( 'youtube', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your youtube profile.', 'mtwriter'); // WPCS: XSS ok. ?></span>
+                <span class="description"><?php esc_html_e('Your youtube profile.', 'mtwriter'); ?></span>
             </td>
         </tr>
     </table>
@@ -463,15 +465,9 @@ function save_user_profile_fields( $user_id ) {
     if ( !current_user_can( 'edit_user', $user_id ) ) { 
         return false; 
     }
-    update_user_meta( $user_id, 'facebook', $_POST['facebook'] );
-    update_user_meta( $user_id, 'twitter', $_POST['twitter'] );
-    update_user_meta( $user_id, 'instagram', $_POST['instagram'] );
-    update_user_meta( $user_id, 'linkedin', $_POST['linkedin'] );
-    update_user_meta( $user_id, 'youtube', $_POST['youtube'] );
+    update_user_meta( $user_id, 'facebook', isset( $_POST['facebook'] ) ? sanitize_text_field(wp_unslash($_POST['facebook'])) : '' );
+    update_user_meta( $user_id, 'twitter', isset( $_POST['twitter'] ) ? sanitize_text_field(wp_unslash($_POST['twitter'])) : '' );
+    update_user_meta( $user_id, 'instagram', isset( $_POST['instagram'] ) ? sanitize_text_field(wp_unslash($_POST['instagram'])) : '' );
+    update_user_meta( $user_id, 'linkedin', isset( $_POST['linkedin'] ) ? sanitize_text_field(wp_unslash($_POST['linkedin'])) : '' );
+    update_user_meta( $user_id, 'youtube', isset( $_POST['youtube'] ) ? sanitize_text_field(wp_unslash($_POST['youtube'])) : '' );
 }
-
-
-//
-// ─── CUSTOM CONTROL AND SECTIONS ─────────────────────────────────────────────
-//
-require get_template_directory() . '/inc/customizer/custom/separator.php';
