@@ -48,7 +48,7 @@
                         </button>
                         <div class="search-box">
                             <input type="search" class="search-field" name="s" id="search"
-                                placeholder="Type here and Search...">
+                                placeholder="<?php echo _e('Type here and Search...', 'mtwriter'); // WPCS: XSS OK. ?>" />
                         </div>
                     </form>
 
@@ -66,12 +66,12 @@
             <div class="col-12">
                 <!-- Navbar -->
                 <div itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" class="main-menu">
-                    <?php
-                        wp_nav_menu( array(
-                            'theme_location' => 'menu-1',
-                            'menu_id'        => 'primary-menu',
-                        ) );
-                    ?>
+                <?php if ( has_nav_menu( 'menu-1' ) ) :
+                    wp_nav_menu( array(
+                        'theme_location' => 'menu-1',
+                        'menu_id'        => 'primary-menu',
+                    ) );
+                endif; ?>
                     <!-- Navbar End -->
                     <!-- Header action Items -->
                     <div class="header-action-items d-none d-lg-flex">

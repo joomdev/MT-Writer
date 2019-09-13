@@ -3,22 +3,19 @@ Theme Name: MT Writer
 Theme URI: http://mightythemes.com/themes/mt-writer
 Author: MightyThemes
 Author URI: http://mightythemes.com
-Description: MT Writer brings down the love for bloggers. Yes, MT Writer is a blog theme that is specially designed keeping in mind the interest of bloggers. It is a Highly Responsive, Fully SEO friendly theme. It rolls down with a mobile-friendly layout that helps the user in getting an edge over other competitors with ease of control over the layout.
-Version: 1.0.1
+Description: MT Writer brings down the love for bloggers. MT Writer is a blog theme that is specially designed keeping in mind the interest of bloggers. It is a Highly Responsive, Fully SEO friendly theme. It rolls down with a mobile-friendly layout that helps the user in getting an edge over other competitors with ease of control over the layout.
+Version: 1.0.4
 License: GNU General Public License v2 or later
-License URI: LICENSE
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: mtwriter
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, theme-options
 
 This theme, like WordPress, is licensed under the GPL.
+
+MT-Writer is based on Underscores https://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
 
-/* Table of Content
-=================================================
-1. Typography
-3. Header
-4. Global Style (body, link color, gap, ul, section-title, overlay etc)
-*/
 @import url('https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700,700i,900');
 
@@ -82,10 +79,6 @@ body {
 img {
 	max-width: 100%;
 	height: auto;
-}
-
-.screen-reader-text {
-	display: none;
 }
 
 /* inner body
@@ -1227,6 +1220,7 @@ article.entry-blog:last-child:before {
 	border-radius: 3px;
 	padding: 7px 12px;
 	transition: 400ms;
+	margin: 3px;
 }
 
 .single-entry-header .category-meta a:hover {
@@ -1238,6 +1232,8 @@ article.entry-blog:last-child:before {
 .single-entry-header .category-meta {
 	margin-bottom: 18px;
 	display: inline-block;
+	display: flex;
+    flex-wrap: wrap;
 }
 
 .post-meta {
@@ -1503,6 +1499,11 @@ blockquote p {
 
 .comments-form .form-control:focus {
 	color: #666;
+}
+
+.comments-form .form-submit {
+	width: 100%;
+    text-align: center;
 }
 
 /* reply */
@@ -2472,3 +2473,61 @@ ul.comments-list ul.children {
 .author-details .social-icons ul li {
 	padding: 5px;
 }
+
+/* Floating Social Icons */
+.mt-socials {
+    position: fixed;
+	z-index: 2;
+    list-style: none;
+	padding: 10px;
+	background: white;
+	margin-left: -90px;
+}
+.mt-socials li a {
+	display: flex;
+	justify-content: center;
+    color: var(--site-color);
+    width: 40px;
+    height: 100%;
+	font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* Accessibility */
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+	/* Many screen reader and browser combinations announce broken words as they would appear visually. */
+  }
+  
+  .screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	right: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+	/* Above WP toolbar. */
+  }

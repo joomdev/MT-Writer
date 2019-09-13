@@ -1,7 +1,3 @@
-//
-// ─── CONTEXTUAL CONTROLS ────────────────────────────────────────────────────────
-//
-
 /**
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */

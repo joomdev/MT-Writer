@@ -31,7 +31,7 @@ get_header();
 							if (get_theme_mod('ad_code_post_begin')) {
 							?>
 							<div class="ad-page-begin">
-								<?php echo get_theme_mod('ad_code_post_begin'); ?>
+								<?php echo get_theme_mod('ad_code_post_begin'); // WPCS: XSS ok. ?>
 							</div>
 					<?php } } ?>
 
@@ -69,7 +69,7 @@ get_header();
 			if (get_theme_mod('ad_code_post_end')) {
 			?>
 				<div class="ad-page-end">
-					<?php echo get_theme_mod('ad_code_post_end'); ?>
+					<?php echo get_theme_mod('ad_code_post_end'); // WPCS: XSS ok. ?>
 				</div>
 		<?php } } ?>
 	</div><!-- .page -->

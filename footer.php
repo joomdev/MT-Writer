@@ -71,7 +71,7 @@
 							<div class="footer-wrap">
 								<?php get_template_part( 'template-parts/social', 'profiles' ); ?>
 								<div class="copyright-info">
-									<?php echo get_theme_mod('copyright_text', 'Copyright © 2019, MT Writer. by <a href="https://www.mightythemes.com" target="_blank">Mighty Themes</a>'); ?>
+									<?php echo get_theme_mod('copyright_text', 'Powered by <a href="' .  esc_url( "https://mightythemes.com" ) . '" target="_blank">Mighty Themes</a>'); // WPCS: XSS ok. ?>
 								</div>
 							</div><!-- Footer social end-->
 						</div> <!-- col-md-12 end-->
@@ -87,7 +87,7 @@
 
 <?php if (get_theme_mod('space_before_body') ) : ?>
     <div class="space-before-body-code">
-        <?php echo get_theme_mod('space_before_body'); ?>
+        <?php echo get_theme_mod('space_before_body');  // WPCS: XSS ok. ?>
     </div>
 <?php endif; ?>
 
@@ -95,7 +95,7 @@
 
 <?php 
     if (get_theme_mod('tracking_code') ) :
-        echo get_theme_mod('tracking_code'); 
+        echo get_theme_mod('tracking_code');  // WPCS: XSS ok. 
     endif;
 ?>
 

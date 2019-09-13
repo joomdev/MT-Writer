@@ -35,14 +35,16 @@ get_header();
                             <div class="col-md-4">
                                 <div class="main-author-wrapper">
                                     <div class="mt-img-border">
-                                        <img class="img-fluid" src="<?php echo get_avatar_url(get_the_author_meta('id'), array( "size" => 200 )); ?>">
+                                        <img class="img-fluid" src="<?php echo esc_url(get_avatar_url(get_the_author_meta('id'), array( "size" => 200 ))); ?>">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-8 author-details">
                                 <div class="card-body social-icons">
-                                    <h5 class="card-title">
-                                        <?php printf( __( '%s', 'mtwriter' ), get_the_author() ); ?>
+                                    <h5 class="card-title">                                        
+                                        <?php
+                                            echo esc_html( get_the_author() )
+                                        ?>
                                     </h5>
                                     <?php if ( get_the_author_meta( 'description' ) ) : ?>
                                         <p class="card-text"><?php the_author_meta( 'description' ); ?></p>
