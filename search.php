@@ -9,12 +9,8 @@
 
 get_header();
 ?>
-
-
 	<div class="page">
-
 		<?php if ( have_posts() ) : ?>
-
 			<header itemtype="https://schema.org/WPHeader" itemscope="itemscope" class="page-header text-center">
 				<h3 class="page-title m-4">
 					<?php
@@ -32,7 +28,6 @@ get_header();
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
-
 				/**
 				 * Run the loop for the search to output the results.
 				 * If you want to overload this in a child theme then include a file

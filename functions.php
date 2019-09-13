@@ -105,6 +105,24 @@ function wpdocs_custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 /**
+ * Fix skip link focus in IE11.
+ *
+ * This does not enqueue the script because it is tiny and because it is only for IE11,
+ * thus it does not warrant having an entire dedicated blocking script being loaded.
+ *
+ * @link https://git.io/vWdr2
+ */
+function mtwriter_skip_link_focus_fix() {
+	// The following is minified via `terser --compress --mangle -- js/skip-link-focus-fix.js`.
+	?>
+	<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+	</script>
+	<?php
+}
+add_action( 'wp_print_footer_scripts', 'mtwriter_skip_link_focus_fix' );
+
+/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -142,16 +160,19 @@ add_action( 'widgets_init', 'mtwriter_widgets_init' );
  * Enqueue scripts and styles.
  */
 function mtwriter_scripts() {
-	wp_enqueue_style( 'mtwriter-bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' );
-	wp_enqueue_style( 'mtwriter-fontawesome', '//use.fontawesome.com/releases/v5.8.1/css/all.css' );
+	wp_enqueue_style( 'mtwriter-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
+	wp_enqueue_style( 'mtwriter-fontawesome', get_template_directory_uri() . '/css/fontawesome/css/all.min.css' );
 	wp_enqueue_style( 'mtwriter-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'mtwriter-responsive', get_template_directory_uri() . '/css/responsive.css' );
 
 	// Scripts
-	wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', array(), '20151215', true);
-	wp_enqueue_script('bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery'));
-	wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array('jquery'));
-	wp_enqueue_script( 'infinitescroll', get_template_directory_uri() . '/js/infinite-scroll.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'mtwriter-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery') );
+
+	wp_enqueue_script('mtwriter-main', get_template_directory_uri() . '/js/main.js', array('jquery'));
+	
+	if ( get_theme_mod('pagination_type', 'numbered') == 'infinite-scroll' ) :
+		wp_enqueue_script( 'mtwriter-infinitescroll', get_template_directory_uri() . '/js/infinite-scroll.min.js', array(), '20151215', true );
+	endif;
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -170,9 +191,10 @@ require get_template_directory() . '/inc/customizer/custom/widget/mtwriter-popul
 require get_template_directory() . '/inc/template-tags.php';
 
 /**
- * MightyThemes Custom Controls
+ * MightyThemes Custom Controls/Sections
  */
-require get_template_directory() . '/inc/customizer/custom/controls/custom-controls.php';
+require get_template_directory() . '/inc/customizer/custom/controls/custom-controls.php'; /* Controls */
+require get_template_directory() . '/inc/customizer/custom/separator.php'; /* Sections */
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
@@ -215,14 +237,6 @@ if ( is_admin() ) {
     // ─── CUSTOM METABOXES FOR POST LEVEL EDITOR ─────────────────────────────────────
     //
     require get_template_directory() . '/inc/guten/custom-meta-boxes.php';
-}
-
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
 }
 
 /**

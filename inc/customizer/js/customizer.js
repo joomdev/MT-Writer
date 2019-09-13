@@ -1,7 +1,23 @@
-//
-// ─── LIVE PREVIEW FOR INSTANTANEOUS EFFECTS ─────────────────────────────────────
-//
+/**
+ * File customizer.js.
+ *
+ * Theme Customizer enhancements for a better user experience.
+ *
+ * Contains handlers to make Theme Customizer preview reload changes asynchronously.
+ */
 ( function ( $ ) {
+
+	// Site title and description.
+	wp.customize( 'blogname', function( value ) {
+		value.bind( function( to ) {
+			$( '.mt-logo-text a' ).text( to );
+		} );
+	} );
+	wp.customize( 'blogdescription', function( value ) {
+		value.bind( function( to ) {
+			$( '.mt-logo-text .brand-tagline' ).text( to );
+		} );
+	} );
 
 	// Colors
 	wp.customize( 'color_primary', function( value ) {

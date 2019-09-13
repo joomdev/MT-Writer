@@ -32,23 +32,23 @@ $comments_args = array(
 	'class_form'      => 'row justify-content-center',
     'comment_notes_before' => '',
     'comment_notes_after' => '',
-    'fields' => $fields =  array(
+    'fields' => array(
         'author' =>
             '<div class="col-md-4">
 				<div class="form-group">
-                    <input class="form-control" name="author" id="author" type="text"  placeholder="' . esc_html__('Full Name', 'mtwriter') . '" value="' . esc_attr($commenter['comment_author']) . '" size="19"' . $aria_req . ' required />
+                    <input class="form-control" name="author" id="author" type="text"  placeholder="' . esc_html__('Full Name', 'mtwriter') . '" size="19"' . $aria_req . ' required />
                 </div>
             </div>',
         'email' =>
             '<div class="col-md-4">
                 <div class="form-group">
-					<input id="emailaddress" name="email" class="form-control" placeholder="' . esc_html__('Email Address', 'mtwriter') . '" type="email" value="' . esc_attr($commenter['comment_author_email']) . '" size="19"' . $aria_req . ' required />
+					<input id="emailaddress" name="email" class="form-control" placeholder="' . esc_html__('Email Address', 'mtwriter') . '" type="email" size="19"' . $aria_req . ' required />
                 </div>
             </div>',
         'url' =>
             '<div class="col-md-4">
                 <div class="form-group">
-					<input id="website" name="url" type="text" class="form-control" placeholder="' . esc_html__('Website', 'mtwriter') . '" value="' . esc_attr($commenter['comment_author_url']) . '" size="19" />
+					<input id="website" name="url" type="text" class="form-control" placeholder="' . esc_html__('Website', 'mtwriter') . '" size="19" />
                 </div>
             </div>',
     ),
@@ -73,9 +73,8 @@ if (have_comments()) :
 	$comments_count = wp_count_comments($post->ID)->approved;
 ?>
 	<div id="comments" class="comments-area mt-sept">
-		<h3 class="comments-heading"><?php echo $comments_count ?> Comments</h3>
-
-
+        <h3 class="comments-heading"><?php echo esc_html($comments_count) ?> Comments</h3>
+        
 		<ul class="comments-list">
 		    <?php wp_list_comments( 'type=comment&callback=mtwriter_comment' ); ?>
 		</ul>
@@ -84,7 +83,7 @@ if (have_comments()) :
 			?>
 			<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" class="commentnavi pagination">
 				<h2 class="screen-reader-text">
-					<?php esc_html_e('Comments navigation', 'mtwriter'); ?>
+                    <?php echo _e('Comments navigation.', 'mtwriter'); // WPCS: XSS OK. ?>
 				</h2>
 				<div class="nav-links">
 					<?php paginate_comments_links(); ?>
@@ -101,7 +100,7 @@ if (have_comments()) :
 	<?php else : 
 	?>
 		<!-- If comments are closed. -->
-		<?php echo 'Comments are disabled.'; ?>
+        <?php echo _e('Comments are disabled.', 'mtwriter'); // WPCS: XSS OK. ?>
 	<?php endif; ?>
 
 <?php endif; ?>

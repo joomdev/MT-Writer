@@ -129,7 +129,7 @@ if ( ! class_exists( 'MTWriter_Meta_Boxes' ) ) {
 			// Checks save status.
 			$is_autosave    = wp_is_post_autosave( $post_id );
 			$is_revision    = wp_is_post_revision( $post_id );
-			$is_valid_nonce = ( isset( $_POST['MTWriter_metabox_settings'] ) && wp_verify_nonce( $_POST['MTWriter_metabox_settings'], basename( __FILE__ ) ) ) ? true : false;
+			$is_valid_nonce = ( isset( $_POST['MTWriter_metabox_settings'] ) && wp_verify_nonce( wp_unslash($_POST['MTWriter_metabox_settings']), basename( __FILE__ ) ) ) ? true : false; // WPCS: XSS ok.
 
 			// Exits script depending on save status.
 			if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {

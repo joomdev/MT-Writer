@@ -39,14 +39,13 @@
                 <?php if ( get_theme_mod('show_search', true) ) : ?>
                 <div class="search-link <?php echo ( get_theme_mod('show_search_mobile', true) ? '' : 'd-none d-sm-block' ); ?>">
 
-                    <form role="search" method="get" class="search-form"
-                        action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                         <button type="button">
                             <span class="search-icon"><i class="fas icon-search fa-search"></i></span>
-                            <span class="search-cross"><i class="fas fa-times icon-cross"></i></span>                        
+                            <span class="search-cross"><i class="fas fa-times icon-cross"></i></span>
                         </button>
                         <div class="search-box">
-                            <input type="search" class="search-field" name="s" id="search" placeholder="Type here and Search...">
+                            <input type="search" class="search-field" name="s" id="search" placeholder="<?php echo _e('Type here and Search...', 'mtwriter'); // WPCS: XSS OK. ?>">
                         </div>
                     </form>
 
@@ -63,6 +62,7 @@
             </div> <!-- Header action Items End -->
 
             <!-- Main Menu Area -->
+            <?php if ( has_nav_menu( 'menu-1' ) ) : ?>
             <div class="col-lg-8">
                 <!-- Navbar -->
                 <div itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" class="main-menu">
@@ -77,19 +77,17 @@
                     <?php if ( get_theme_mod('show_search', true) ) : ?>
                     <div class="header-action-items d-none d-lg-flex">
                         <!-- Header Search -->
-                                                <div class="search-link ">
-
-                            <form role="search" method="get" class="search-form" action="http://mtwriter.local/" target="_self"><input type="hidden" name="customize_messenger_channel" value="preview-3"><input type="hidden" name="customize_autosaved" value="on"><input type="hidden" name="customize_changeset_uuid" value="1cb5e548-ee93-4e84-9901-dba7342fbd2d">
+                        <div class="search-link ">
+                            <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" target="_self">
                                 <button type="button">
                                     <span class="search-icon"><i class="fas icon-search fa-search"></i></span>
                                     <span class="search-cross"><i class="fas fa-times icon-cross"></i></span>
                                 
                                 </button>
                                 <div class="search-box">
-                                    <input type="search" class="search-field" name="s" id="search" placeholder="Type here and Search...">
+                                    <input type="search" class="search-field" name="s" id="search" placeholder="<?php echo _e('Type here and Search...', 'mtwriter'); // WPCS: XSS OK. ?>">
                                 </div>
                             </form>
-
                         </div> <!-- Header Search End -->
                     </div>
                     <?php endif; ?>
@@ -97,8 +95,7 @@
                 </div> <!-- Main Menu Area End-->
                 
             </div>
-
-            
+            <?php endif; ?>
         </div> <!-- Row End -->
     </div> <!-- Container End -->
 </header> <!-- End of Header area-->

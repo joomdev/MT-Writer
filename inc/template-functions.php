@@ -17,11 +17,6 @@ function mtwriter_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'no-sidebar';
-	}
-
 	return $classes;
 }
 add_filter( 'body_class', 'mtwriter_body_classes' );
@@ -42,7 +37,7 @@ add_action( 'wp_head', 'mtwriter_pingback_header' );
  * @param array $classes Classes for the body element.
  * @return array
  */
-function calculateReadTime($string)
+function mtwriter_CalculateReadTime($string)
 {
     $speed = 170;
     $word = str_word_count(strip_tags($string));
@@ -63,7 +58,7 @@ function calculateReadTime($string)
 /**
  * Related posts by Categories
  */ 
-function related_posts_by_categories()
+function mtwriter_related_posts_by_categories()
 {
     $post_id = get_the_ID();
     $categories_ids = array();
@@ -116,10 +111,12 @@ function related_posts_by_categories()
                                         <!-- Post content right-->
                                         <div class="post-meta-footer">
                                             <span class="grid-post-date">
-                                                Post on <?php the_time( 'M j, y' ); ?>
+                                                <?php echo esc_html_e('Posted on', 'mtwriter'); ?>
+                                                <?php the_time( 'M j, y' ); ?>
                                             </span>
                                             <span class="grid-post-author">
-                                                By <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
+                                                <?php echo esc_html_e('By', 'mtwriter'); ?>    
+                                                <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
                                             </span>
                                         </div>
                                         <!-- Post meta footer-->
@@ -144,7 +141,7 @@ function related_posts_by_categories()
 /**
  * Related posts by Tags
  */ 
-function related_posts_by_tags()
+function mtwriter_related_posts_by_tags()
 {
     $post_id = get_the_ID();
     $tags = wp_get_post_tags($post_id);
@@ -193,10 +190,12 @@ function related_posts_by_tags()
                                             <!-- Post content right-->
                                             <div class="post-meta-footer">
                                                 <span class="grid-post-date">
-                                                    Post on <?php the_time( 'M j, y' ); ?>
+                                                    <?php echo esc_html_e('Posted on', 'mtwriter'); ?>
+                                                    <?php the_time( 'M j, y' ); ?>
                                                 </span>
                                                 <span class="grid-post-author">
-                                                    By <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
+                                                    <?php echo esc_html_e('By', 'mtwriter'); ?>
+                                                    <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
                                                 </span>
                                             </div>
                                             <!-- Post meta footer-->
@@ -330,7 +329,7 @@ function mtwriter_comment($comment, $args, $depth) {
         $tag       = 'li';
         $add_below = 'div-comment';
     }?>
-    <<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php 
+    <<?php echo esc_html($tag); ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php 
     if ( 'div' != $args['style'] ) { ?>
         <div id="div-comment-<?php comment_ID() ?>" class="comment first"><?php
     } ?>
@@ -348,7 +347,7 @@ function mtwriter_comment($comment, $args, $depth) {
 			<?php
 				if ( $comment->comment_approved == '0' ) { ?>
 					<em class="comment-awaiting-moderation">
-						<?php esc_html_e( 'Your comment is awaiting moderation.', 'mtwriter' ); ?>
+						<?php esc_htmlesc_html_e( 'Your comment is awaiting moderation.', 'mtwriter' ); // WPCS: XSS ok. ?>
 					</em>
 					<br/>
 			<?php 
@@ -359,11 +358,12 @@ function mtwriter_comment($comment, $args, $depth) {
 				<div class="meta-data">
 					<span class="comment-author"><?php echo get_comment_author_link(); ?></span>
 					<span class="comment-date">
-						<?php
-							printf( 
-								__('%1$s at %2$s', 'mtwriter'), 
-								get_comment_date(),  
-								get_comment_time() 
+                        <?php
+                            printf( // WPCS: XSS ok.
+                                /* translators: 1: date, 2: time */
+								__('%1$s at %2$s', 'mtwriter'),
+								get_comment_date(),
+								get_comment_time()
 							);
 						?>
 					</span>
@@ -396,8 +396,6 @@ function mtwriter_comment($comment, $args, $depth) {
     endif;
 }
 
-
-
 /**
  * Custom Fields for User Profile
  */
@@ -405,52 +403,52 @@ add_action( 'show_user_profile', 'custom_fields_user_profile' );
 add_action( 'edit_user_profile', 'custom_fields_user_profile' );
 
 function custom_fields_user_profile( $user ) { ?>
-    <h3><?php _e("Social Handles", 'mtwriter'); ?></h3>
+    <h3><?php esc_html_e("Social Handles", 'mtwriter'); ?></h3>
 
     <table class="form-table">
         <tr>
-            <th><label for="facebook"><?php _e('Facebook', 'mtwriter'); ?></label></th>
+            <th><label for="facebook"><?php esc_html_e( 'Facebook', 'mtwriter' ); ?></label></th>
             <td>
                 <input type="text" name="facebook" id="facebook"
                     value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your facebook profile.', 'mtwriter'); ?></span>
+                <span class="description"><?php esc_html_e('Your facebook profile.', 'mtwriter'); ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="twitter"><?php _e('Twitter', 'mtwriter'); ?></label></th>
+            <th><label for="twitter"><?php esc_html_e('Twitter', 'mtwriter'); ?></label></th>
             <td>
                 <input type="text" name="twitter" id="twitter"
                     value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your twitter profile.', 'mtwriter'); ?></span>
+                <span class="description"><?php esc_html_e('Your twitter profile.', 'mtwriter'); ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="instagram"><?php _e('Instagram', 'mtwriter'); ?></label></th>
+            <th><label for="instagram"><?php esc_html_e('Instagram', 'mtwriter'); ?></label></th>
             <td>
                 <input type="text" name="instagram" id="instagram"
                     value="<?php echo esc_attr( get_the_author_meta( 'instagram', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your instagram profile.', 'mtwriter'); ?></span>
+                <span class="description"><?php esc_html_e('Your instagram profile.', 'mtwriter'); ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="linkedin"><?php _e('LinkedIn', 'mtwriter'); ?></label></th>
+            <th><label for="linkedin"><?php esc_html_e('LinkedIn', 'mtwriter'); ?></label></th>
             <td>
                 <input type="text" name="linkedin" id="linkedin"
                     value="<?php echo esc_attr( get_the_author_meta( 'linkedin', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your linkedin profile.', 'mtwriter'); ?></span>
+                <span class="description"><?php esc_html_e('Your linkedin profile.', 'mtwriter'); ?></span>
             </td>
         </tr>
         <tr>
-            <th><label for="youtube"><?php _e('YouTube', 'mtwriter'); ?></label></th>
+            <th><label for="youtube"><?php esc_html_e('YouTube', 'mtwriter'); ?></label></th>
             <td>
                 <input type="text" name="youtube" id="youtube"
                     value="<?php echo esc_attr( get_the_author_meta( 'youtube', $user->ID ) ); ?>"
                     class="regular-text" /><br />
-                <span class="description"><?php _e('Your youtube profile.', 'mtwriter'); ?></span>
+                <span class="description"><?php esc_html_e('Your youtube profile.', 'mtwriter'); ?></span>
             </td>
         </tr>
     </table>
@@ -466,15 +464,9 @@ function save_user_profile_fields( $user_id ) {
     if ( !current_user_can( 'edit_user', $user_id ) ) { 
         return false; 
     }
-    update_user_meta( $user_id, 'facebook', $_POST['facebook'] );
-    update_user_meta( $user_id, 'twitter', $_POST['twitter'] );
-    update_user_meta( $user_id, 'instagram', $_POST['instagram'] );
-    update_user_meta( $user_id, 'linkedin', $_POST['linkedin'] );
-    update_user_meta( $user_id, 'youtube', $_POST['youtube'] );
+    update_user_meta( $user_id, 'facebook', isset( $_POST['facebook'] ) ? sanitize_text_field(wp_unslash($_POST['facebook'])) : '' );
+    update_user_meta( $user_id, 'twitter', isset( $_POST['twitter'] ) ? sanitize_text_field(wp_unslash($_POST['twitter'])) : '' );
+    update_user_meta( $user_id, 'instagram', isset( $_POST['instagram'] ) ? sanitize_text_field(wp_unslash($_POST['instagram'])) : '' );
+    update_user_meta( $user_id, 'linkedin', isset( $_POST['linkedin'] ) ? sanitize_text_field(wp_unslash($_POST['linkedin'])) : '' );
+    update_user_meta( $user_id, 'youtube', isset( $_POST['youtube'] ) ? sanitize_text_field(wp_unslash($_POST['youtube'])) : '' );
 }
-
-
-//
-// ─── CUSTOM CONTROL AND SECTIONS ─────────────────────────────────────────────
-//
-require get_template_directory() . '/inc/customizer/custom/separator.php';

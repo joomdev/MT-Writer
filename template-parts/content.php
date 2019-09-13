@@ -40,7 +40,7 @@
 						<?php if ( get_theme_mod('show_author_archive', 1) ) : ?>
 							<span class="list-post-author">
 								by
-								<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
+								<a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) )); ?>">
 									<?php the_author(); ?>
 								</a>
 							</span>
@@ -55,8 +55,8 @@
 						<?php if( get_theme_mod('estimated_read_time_archive', 1) ) : ?>
 							<span class="list-post-comment">
 								<?php 
-								echo calculateReadTime(get_post_field( 'post_content', $post->ID ));
-								echo calculateReadTime(get_post_field( 'post_content', $post->ID )) == 1 ? ' minute' : ' minutes'?> read.
+								echo esc_html(mtwriter_CalculateReadTime( get_post_field( 'post_content', $post->ID ) ));
+								echo mtwriter_CalculateReadTime( get_post_field( 'post_content', $post->ID ) ) == 1 ? ' minute' : ' minutes' // WPCS: XSS ok. ?> <?php echo esc_html_e('read.', 'mtwriter'); ?>
 							</span>
 						<?php endif; ?>
 					</div> <!-- Post meta footer-->
@@ -68,7 +68,7 @@
 					<?php if ( get_theme_mod('enable_read_more', true) ) : ?>
 						<div class="post-btn">
 							<a href="<?php the_permalink(); ?>" class="btn btn-primary more-btn">
-								<?php echo get_theme_mod( 'read_more_text', 'Read More'); ?>
+								<?php echo get_theme_mod( 'read_more_text', 'Read More'); // WPCS: XSS ok. ?>
 							</a>
 						</div>
 					<?php endif; ?>
