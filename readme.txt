@@ -4,11 +4,12 @@ Contributors: mightythemes1
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, theme-options, right-sidebar, left-sidebar
 Requires at least: 4.5
 Tested up to: 5.2
+Requires PHP: 7.2
 Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Free WordPress Blog Theme MT-Writer.
+Free WordPress Blog Theme MT-Writer
 
 == Description ==
 
@@ -36,15 +37,31 @@ MT-Writer uses infinite-scroll by https://infinite-scroll.com.
  * Licensed GPLv3 for open source use (https://creativecommons.org/licenses/by/3.0/)
 
 == Media Licenses ==
-The Logos used are not affiliated with MightyThemes.
-https://medium.com, https://csstricks.com, https://forbes.com, https://smashingmagazine.com, https://thenextweb.com
+The Logos used are not affiliated with MightyThemes and are property of their respective owners. Use of these names, logos, and brands does not imply endorsement.
 
-https://elements.envato.com/female-freelancer-QS9DHC4
+* Medium (https://medium.com)
+* CSSTricks (https://csstricks.com)
+* Forbes (https://forbes.com)
+* Smashing Magazine (https://smashingmagazine.com)
+* The Next Web (https://thenextweb.com)
 
-== FontAwesome ==
+== About Section Image (Female Student) ==
+* Creator: Woman photo created by pressfoto - www.freepik.com
+* Licence: Freepik License
+* Source: https://www.freepik.com/free-photo/waist-up-shot-caucasian-female-student-making-notes-looking-sideways-thoughtfully_5839718.htm
+
+== Font Awesome Free v5.10.0 ==
 FontAwesome Free is free, open source, and GPL friendly.
-FontAwesome icons destributed under SIL OFL 1.1 - (http://scripts.sil.org/OFL)
-Source: https://fontawesome.com
+* License: https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+* Source: https://fontawesome.com
+
+== Bootstrap v4.3.1 ==
+* License: https://github.com/twbs/bootstrap/blob/master/LICENSE (MIT Licence)
+* Source: https://getbootstrap.com/
+
+== Infinite Scroll ==
+* Licence: https://infinite-scroll.com/license.html (GPLv3 Licence)
+* Source: https://infinite-scroll.com
 
 == Changelog ==
 

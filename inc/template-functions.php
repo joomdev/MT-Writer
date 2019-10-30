@@ -75,7 +75,7 @@ function mtwriter_related_posts_by_categories()
         'category__in'   => $categories_ids,
         'post_type'      => $current_post_type,
         'post_not_in'    => array($post_id),
-        'posts_per_page'  => esc_html(get_theme_mod('related_post_count', 3)),
+        'posts_per_page'  => esc_attr(get_theme_mod('related_post_count', 3)),
         'ignore_sticky_posts' => 1,
     );
 
@@ -156,7 +156,7 @@ function mtwriter_related_posts_by_tags()
         $args = array(
             'tag_in' => $tag_ids,
             'post_not_in' => array($post->ID),
-            'posts_per_page' => esc_html(get_theme_mod('related_post_count', 3)), // Number of related posts that will be shown.
+            'posts_per_page' => esc_attr(get_theme_mod('related_post_count', 3)), // Number of related posts that will be shown.
             'ignore_sticky_posts' => 1
         );
         
@@ -322,6 +322,7 @@ function custom_sanitize_fonts($input)
  * Comments Template
  */
 function mtwriter_comment($comment, $args, $depth) {
+    
     if ( 'div' === $args['style'] ) {
         $tag       = 'div';
         $add_below = 'comment';
@@ -347,7 +348,7 @@ function mtwriter_comment($comment, $args, $depth) {
 			<?php
 				if ( $comment->comment_approved == '0' ) { ?>
 					<em class="comment-awaiting-moderation">
-						<?php esc_htmlesc_html_e( 'Your comment is awaiting moderation.', 'mtwriter' ); // WPCS: XSS ok. ?>
+						<?php esc_html( 'Your comment is awaiting moderation.', 'mtwriter' ); // WPCS: XSS ok. ?>
 					</em>
 					<br/>
 			<?php 

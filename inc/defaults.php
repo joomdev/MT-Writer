@@ -2,19 +2,19 @@
 /**
  * Default values of Customizer options
  *
- * @package MT_Writer
+ * @package Mighty Themes
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'mt_get_defaults' ) ) {
+if ( ! function_exists( 'mtwriter_get_defaults' ) ) {
 	/**
 	 * Set default options
 	 */
-	function mt_get_defaults() {
-		return apply_filters( 'mt_option_defaults',
+	function mtwriter_get_defaults() {
+		return apply_filters( 'mtwriter_option_defaults',
 			array(
                 'site_identity_status' => true,
                 'preloader_status' => false,
@@ -28,8 +28,9 @@ if ( ! function_exists( 'mt_get_defaults' ) ) {
                 'backtotop_mobile' => false,
 
                 'show_hero_area' => true,
-                'hero_title' => '<h2>Hello, I am <strong>Jane Doe</strong> </h2>',
-                'hero_bio' => '<div>A <strong>creative content writer</strong> and a passionate blogger who loves marketing and technology. I can help you with copywriting, UI/UX design and grow your <strong class="bio-color">agency</strong> speedily.</div>',
+                'hero_title' => __('<h2>Hello, I am <strong>Jane Doe</strong></h2>', 'mtwriter' ),
+                'hero_bio' => __('<div>A <strong>creative content writer</strong> and a passionate blogger who loves marketing and technology. I can help you with copywriting, UI/UX design and grow your <strong class="bio-color">agency</strong> speedily.</div>', 'mtwriter' ),
+                
                 'show_profile_pic' => true,
                 'hero_profile_pic' => '',
                 'show_hero_brands' => true,
@@ -75,10 +76,10 @@ if ( ! function_exists( 'mt_get_defaults' ) ) {
                 'show_excerpt' => true,
                 'excerpt_length' => 30,
                 'enable_read_more' => true,
-                'read_more_text' => 'Read More',
-                '404_page_content' => '<h1>404</h1>',
-                'calltoaction' => 'Back To Home',
-                'copyright_text' => 'Powered by Mighty Themes.',
+                'read_more_text' => __('Read More', 'mtwriter' ),
+                '404_page_content' => __('<h1>404</h1>', 'mtwriter' ),
+                'calltoaction' => __('Back To Home', 'mtwriter' ),
+                'copyright_text' =>  __('Powered by Mighty Themes.', 'mtwriter' ),
 
                 'facebook' => '#',
                 'twitter' => '#',
@@ -99,12 +100,12 @@ if ( ! function_exists( 'mt_get_defaults' ) ) {
 	}
 }
 
-if ( ! function_exists( 'mt_get_color_defaults' ) ) {
+if ( ! function_exists( 'mtwriter_get_color_defaults' ) ) {
 	/**
 	 * Set default options
 	 */
-	function mt_get_color_defaults() {
-		return apply_filters( 'mt_color_option_defaults',
+	function mtwriter_get_color_defaults() {
+		return apply_filters( 'mtwriter_color_option_defaults',
 			array(
                 'color_preloader' => '#5A4692',
                 'backtotop_color' => '#fff',
@@ -133,16 +134,11 @@ if ( ! function_exists( 'mt_get_color_defaults' ) ) {
 	}
 }
 
-if ( ! function_exists( 'mt_get_default_fonts' ) ) {
+if ( ! function_exists( 'mtwriter_get_default_fonts' ) ) {
 	/**
 	 * Set default options.
-	 *
-	 * @since 0.1
-	 *
-	 * @param bool $filter Whether to return the filtered values or original values.
-	 * @return array Option defaults.
 	 */
-	function mt_get_default_fonts( ) {
+	function mtwriter_get_default_fonts( ) {
 		$defaults = array(
 			'body_fontfamily' => 'Roboto',
 			'body_fontsize' => '16',
@@ -285,23 +281,23 @@ if ( ! function_exists( 'mt_get_default_fonts' ) ) {
 }
 
 
-if ( ! function_exists( 'getValue' ) ) {
+if ( ! function_exists( 'getOption' ) ) {
     /**
 	 * Get customizer values if set else return default values
 	 */
 
     function getOption($type, $property) {
 
-        $defaults = mt_get_defaults();
-        $defaultColors = mt_get_color_defaults();
-        $defaultFonts = mt_get_default_fonts();
+        $defaults = mtwriter_get_defaults();
+        $defaultColors = mtwriter_get_color_defaults();
+        $defaultFonts = mtwriter_get_default_fonts();
 
         switch( $type ) {
             case 'defaults': echo get_theme_mod( $property, $defaults[$property] ); // WPCS: XSS ok.
             break;
-            case 'color': echo esc_html( get_theme_mod( $property, $defaultColors[$property] ) );
+            case 'color': echo esc_attr( get_theme_mod( $property, $defaultColors[$property] ) );
             break;
-            case 'fonts': echo esc_html( get_theme_mod( $property, $defaultFonts[$property] ) );
+            case 'fonts': echo esc_attr( get_theme_mod( $property, $defaultFonts[$property] ) );
             break;
         }
 

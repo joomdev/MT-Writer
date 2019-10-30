@@ -5,12 +5,14 @@
                 <div class="mt-author-bio">
                     <div class="hero-title">
                         <?php
-                            echo get_theme_mod('hero_title', '<h2>Hello, I am <strong>Jane Doe</strong> </h2>'); // WPCS: XSS OK.
+                            getOption('defaults', 'hero_title'); // WPCS: XSS OK.
                         ?>
                     </div>
 
                     <div class="hero-bio">
-                        <?php echo get_theme_mod('hero_bio', '<div>A <strong>creative content writer</strong> and a passionate blogger who loves marketing and technology. I can help you with copywriting, UI/UX design and grow your <strong class="bio-color">agency</strong> speedily.</div>'); // WPCS: XSS OK. ?>
+                        <?php
+                            getOption('defaults', 'hero_bio'); // WPCS: XSS OK.
+                        ?>
                     </div>
                     
                     <div class="bio-share">

@@ -8,9 +8,9 @@ function mtwriter_customize_register($wp_customize)
     $googleFonts = getGoogleFonts();
 
     // Defaults
-    $defaults = mt_get_defaults();
-    $defaultColors = mt_get_color_defaults();
-    $defaultFonts = mt_get_default_fonts();
+    $defaults = mtwriter_get_defaults();
+    $defaultColors = mtwriter_get_color_defaults();
+    $defaultFonts = mtwriter_get_default_fonts();
     
     //
     // ─── CHECKING FOR CUSTOM SECTION AND CONTROLS STATUS ────────────────────────────
@@ -3645,7 +3645,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Related posts by control
     $wp_customize->add_setting('related_post_by', array (
-        'default' => 'related_post_by',
+        'default' => $defaults['related_post_by'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -3767,7 +3767,7 @@ function mtwriter_customize_register($wp_customize)
             'section' => 'archive',
             'input_attrs' => array(
                 'min' => 1,
-                'max' => 1000,
+                'max' => 500,
                 'step' => 1,
                 'default' => $defaults['excerpt_length'],
             ),
