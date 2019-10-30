@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package MT_Writer
+ * @package Mighty Themes
  */
 
 if ( ! function_exists( 'mtwriter_setup' ) ) :
@@ -94,15 +94,15 @@ function mtwriter_content_width() {
 add_action( 'after_setup_theme', 'mtwriter_content_width', 0 );
 
 /**
- * Filter the except length to 20 words.
+ * Filter the excerpt length to 20 words.
  *
  * @param int $length Excerpt length.
  * @return int (Maybe) modified excerpt length.
  */
-function wpdocs_custom_excerpt_length( $length ) {
+function mtwriter_custom_excerpt_length( $length ) {
     return get_theme_mod( 'excerpt_length', 30);
 }
-add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'mtwriter_custom_excerpt_length', 999 );
 
 /**
  * Fix skip link focus in IE11.
@@ -205,9 +205,9 @@ require get_template_directory() . '/inc/template-functions.php';
  * Theme Customizer Defaults
  */
 require get_template_directory() . '/inc/defaults.php';
-$defaults = mt_get_defaults();
-$defaultColors = mt_get_color_defaults();
-$defaultFonts = mt_get_default_fonts();
+$defaults = mtwriter_get_defaults();
+$defaultColors = mtwriter_get_color_defaults();
+$defaultFonts = mtwriter_get_default_fonts();
 	
 /**
  * Functions to sanitize customizer controls

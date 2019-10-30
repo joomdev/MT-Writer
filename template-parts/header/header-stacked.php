@@ -5,8 +5,6 @@
  * @link https://mightythemes.com
  *
  * @package Mighty Themes
- * @subpackage MT_Writer
- * @since 1.0.0
  */
 
 ?>

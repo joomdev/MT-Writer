@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package MT_Writer
+ * @package Mighty Themes
  */
 
 get_header();

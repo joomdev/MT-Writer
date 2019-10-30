@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package MT_Writer
+ * @package Mighty Themes
  */
 
 ?>

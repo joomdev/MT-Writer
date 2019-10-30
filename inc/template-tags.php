@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package MT_Writer
+ * @package Mighty Themes
  */
 if ( ! function_exists( 'mtwriter_entry_footer' ) ) :
 	/**
