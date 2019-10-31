@@ -75,7 +75,7 @@ function mtwriter_related_posts_by_categories()
         'category__in'   => $categories_ids,
         'post_type'      => $current_post_type,
         'post_not_in'    => array($post_id),
-        'posts_per_page'  => esc_attr(get_theme_mod('related_post_count', 3)),
+        'posts_per_page'  => get_theme_mod('related_post_count', 3),
         'ignore_sticky_posts' => 1,
     );
 
@@ -156,7 +156,7 @@ function mtwriter_related_posts_by_tags()
         $args = array(
             'tag_in' => $tag_ids,
             'post_not_in' => array($post->ID),
-            'posts_per_page' => esc_attr(get_theme_mod('related_post_count', 3)), // Number of related posts that will be shown.
+            'posts_per_page' => get_theme_mod('related_post_count', 3), // Number of related posts that will be shown.
             'ignore_sticky_posts' => 1
         );
         
@@ -321,80 +321,69 @@ function custom_sanitize_fonts($input)
 /**
  * Comments Template
  */
-function mtwriter_comment($comment, $args, $depth) {
-    
-    if ( 'div' === $args['style'] ) {
-        $tag       = 'div';
-        $add_below = 'comment';
-    } else {
-        $tag       = 'li';
-        $add_below = 'div-comment';
-    }?>
-    <<?php echo esc_html($tag); ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php 
-    if ( 'div' != $args['style'] ) { ?>
-        <div id="div-comment-<?php comment_ID() ?>" class="comment first"><?php
-    } ?>
-			<div class="author-box">
-				<div class="mt-author-bio-img">
-					<div class="mt-img-border">
-						<?php
-							echo get_avatar( $comment );
-							get_comment_author_link();
-						?>
-					</div>
-				</div>
-			</div>
-			
-			<?php
-				if ( $comment->comment_approved == '0' ) { ?>
-					<em class="comment-awaiting-moderation">
-						<?php esc_html( 'Your comment is awaiting moderation.', 'mtwriter' ); // WPCS: XSS ok. ?>
-					</em>
-					<br/>
-			<?php 
-				}
-			?>
+function mtwriter_comment($comment, $args, $depth) { ?>
 
-			<div class="comment-body">
-				<div class="meta-data">
-					<span class="comment-author"><?php echo get_comment_author_link(); ?></span>
-					<span class="comment-date">
-                        <?php
-                            printf( // WPCS: XSS ok.
-                                /* translators: 1: date, 2: time */
-								__('%1$s at %2$s', 'mtwriter'),
-								get_comment_date(),
-								get_comment_time()
-							);
-						?>
-					</span>
-					|
-					<b>
-						<?php 
-							comment_reply_link(
-								array_merge( $args, 
-									array( 
-										'add_below' => $add_below, 
-										'depth'     => $depth, 
-										'max_depth' => $args['max_depth'],
-										'class' => 'text-secondary'
-									) 
-								) 
-							);
-						?>
-					</b>
-					
-					<?php edit_comment_link( __( '(Edit)', 'mtwriter' ), '  | ', '' ); ?>
-				</div>
-				<div class="comment-content">
-					<?php comment_text(); ?>
-				</div>
-			</div>
-			
-	<?php
-    if ( 'div' != $args['style'] ) : ?>
-        </div><?php 
-    endif;
+    <li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>">
+
+        <?php if ( 'div' != $args['style'] ) { ?>
+            <div id="div-comment-<?php comment_ID() ?>" class="comment first">
+        <?php } ?>
+
+        <div class="author-box">
+            <div class="mt-author-bio-img">
+                <div class="mt-img-border">
+                    <?php
+                        echo get_avatar( $comment );
+                        get_comment_author_link();
+                    ?>
+                </div>
+            </div>
+        </div>
+        
+        <?php if ( $comment->comment_approved == '0' ) { ?>
+            <em class="comment-awaiting-moderation">
+                <?php esc_html( 'Your comment is awaiting moderation.', 'mtwriter' ); // WPCS: XSS ok. ?>
+            </em>
+            <br/>
+        <?php } ?>
+
+        <div class="comment-body">
+            <div class="meta-data">
+                <span class="comment-author"><?php echo get_comment_author_link(); ?></span>
+                <span class="comment-date">
+                    <?php
+                        printf( // WPCS: XSS ok.
+                            /* translators: 1: date, 2: time */
+                            __('%1$s at %2$s', 'mtwriter'),
+                            get_comment_date(),
+                            get_comment_time()
+                        );
+                    ?>
+                </span>
+                |
+                <b>
+                    <?php 
+                        comment_reply_link(
+                            array_merge( $args, 
+                                array( 
+                                    'add_below' => $add_below, 
+                                    'depth'     => $depth, 
+                                    'max_depth' => $args['max_depth'],
+                                    'class' => 'text-secondary'
+                                ) 
+                            ) 
+                        );
+                    ?>
+                </b>
+                
+                <?php edit_comment_link( __( '(Edit)', 'mtwriter' ), '  | ', '' ); ?>
+            </div>
+            <div class="comment-content">
+                <?php comment_text(); ?>
+            </div>
+        </div>
+    </li>
+<?php
 }
 
 /**
