@@ -8,13 +8,6 @@
  */
 get_header();
 
-// URL for social sharing
-$mtwriterSocialLink = wp_guess_url() . sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])); // WPCS: XSS ok.
-$mtwriterBlogTitle = get_the_title();
-$mtwriterTwitterUrl = $mtwriterBlogTitle." ".$mtwriterSocialLink;
-$mtwriterEncodedTitle = rawurlencode($mtwriterBlogTitle);
-$mtwriterEncodedUrl = rawurlencode($mtwriterSocialLink);
-
 while ( have_posts() ) :
 	the_post();
 
@@ -118,30 +111,6 @@ wp_link_pages();
 					<?php the_tags('','',''); ?>
 				</div><!-- Post tags end -->
 			<?php endif; ?>
-
-			<?php if ( get_theme_mod('social_share_enable', 1) ) :
-			?>
-				<div class="post-share-items">
-					<strong><?php echo esc_html_e('Share: ', 'mtwriter'); ?></strong>
-					<ul class="mt-share">
-						<li>
-							<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_html($mtwriterSocialLink); ?>"><i class="fab fa-facebook-f"></i></a>
-						</li>
-						<li>
-							<a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo esc_html($mtwriterTwitterUrl); ?>"><i class="fab fa-twitter"></i></a>
-						</li>
-						<li>
-							<a class="reddit" target="_blank" href="http://www.reddit.com/submit?url=<?php echo esc_html($mtwriterSocialLink); ?>"><i class="fab fa-reddit"></i></a>
-						</li>
-						<li>
-							<a class="pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=<?php echo esc_html($mtwriterEncodedUrl);?>&description=<?php echo esc_html($mtwriterEncodedTitle); ?>"><i class="fab fa-pinterest"></i></a>
-						</li>
-						<li>
-							<a class="whatsapp" target="_blank" href="https://wa.me/whatsappphonenumber/?text=<?php echo esc_html($mtwriterSocialLink); ?>"><i class="fab fa-whatsapp"></i></a>
-						</li>
-					</ul>
-				</div><!-- Share items end -->
-		<?php endif; ?>
 		</div><!-- Post footer end -->
 			
 		<?php if ( get_theme_mod('show_authorinfobox', 1) ) : ?>

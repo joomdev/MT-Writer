@@ -1,6 +1,7 @@
 === MTWriter ===
 
 Contributors: mightythemes1
+Donate link: https://mightythemes.com/
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, theme-options, right-sidebar, left-sidebar
 Requires at least: 4.5
 Tested up to: 5.2
@@ -65,7 +66,7 @@ FontAwesome Free is free, open source, and GPL friendly.
 
 == Changelog ==
 
-== 1.1.4 =
+= 1.1.4 =
 * Added: wp_body_open() theme hook (WP recommendation)
 * Added: Added Social share floating menu
 * Added: Added skip-links accessibility
