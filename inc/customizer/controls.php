@@ -5,12 +5,12 @@
 function mtwriter_customize_register($wp_customize)
 {
     // Google Web Fonts
-    $googleFonts = getGoogleFonts();
+    $mtwriterGoogleFonts = getGoogleFonts();
 
     // Defaults
-    $defaults = mtwriter_get_defaults();
-    $defaultColors = mtwriter_get_color_defaults();
-    $defaultFonts = mtwriter_get_default_fonts();
+    $mtwriterDefaults = mtwriter_get_defaults();
+    $mtwriterDefaultColors = mtwriter_get_color_defaults();
+    $mtwriterDefaultFonts = mtwriter_get_default_fonts();
     
     //
     // ─── CHECKING FOR CUSTOM SECTION AND CONTROLS STATUS ────────────────────────────
@@ -19,7 +19,7 @@ function mtwriter_customize_register($wp_customize)
         $wp_customize->register_section_type( 'Horizontal_Separator' );
     }
 
-    $altFontFamily = array(
+    $mtwriterAltFontFamily = array(
         "Arial" => "Arial",
         "Arial Black" => "Arial Black",
         "Bookman Old Style" => "Bookman Old Style",
@@ -60,7 +60,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Enable/Disable Title and tagline fron site identity
     $wp_customize->add_setting('site_identity_status', array (
-        'default' => $defaults['site_identity_status'],
+        'default' => $mtwriterDefaults['site_identity_status'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -89,7 +89,7 @@ function mtwriter_customize_register($wp_customize)
     
     // Enable Preloader
 	$wp_customize->add_setting( 'preloader_status', array(
-        'default' => $defaults['preloader_status'],
+        'default' => $mtwriterDefaults['preloader_status'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -105,7 +105,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Types of preloader
     $wp_customize->add_setting( 'preloader_type', array(
-        'default' => $defaults['preloader_type'],
+        'default' => $mtwriterDefaults['preloader_type'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -239,7 +239,7 @@ function mtwriter_customize_register($wp_customize)
     
     // Preloader Color
     $wp_customize->add_setting('color_preloader', array (
-        'default' => $defaultColors['color_preloader'],
+        'default' => $mtwriterDefaultColors['color_preloader'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -254,7 +254,7 @@ function mtwriter_customize_register($wp_customize)
     );
     // Preloader size
     $wp_customize->add_setting( 'preloader_size', array(
-        'default' => $defaults['preloader_size'],
+        'default' => $mtwriterDefaults['preloader_size'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -269,7 +269,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 1,
                 'max' => 500,
                 'step' => 1,
-                'default' => $defaults['preloader_size'],
+                'default' => $mtwriterDefaults['preloader_size'],
             ),
         )
     ));
@@ -281,7 +281,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Back to top (Enable/Disable)    
     $wp_customize->add_setting( 'backtotop_status', array(
-        'default' => $defaults['backtotop_status'],
+        'default' => $mtwriterDefaults['backtotop_status'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -297,7 +297,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Icons for Back to top
     $wp_customize->add_setting('backtotop_icon', array (
-        'default' => $defaults['backtotop_icon'],
+        'default' => $mtwriterDefaults['backtotop_icon'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -323,7 +323,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Back to top font size
     $wp_customize->add_setting( 'backtotop_size', array(
-        'default' => $defaults['backtotop_size'],
+        'default' => $mtwriterDefaults['backtotop_size'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -338,13 +338,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 1,
                 'max' => 200 ,
                 'step' => 1,
-                'default' => $defaults['backtotop_size'],
+                'default' => $mtwriterDefaults['backtotop_size'],
             ),
         )
     ));
     // Back to top font color
     $wp_customize->add_setting('backtotop_color', array (
-        'default' => $defaultColors['backtotop_color'],
+        'default' => $mtwriterDefaultColors['backtotop_color'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -359,7 +359,7 @@ function mtwriter_customize_register($wp_customize)
     );
     // Back to top Background color
     $wp_customize->add_setting('backtotop_bgcolor', array (
-        'default' => $defaultColors['backtotop_bgcolor'],
+        'default' => $mtwriterDefaultColors['backtotop_bgcolor'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -374,7 +374,7 @@ function mtwriter_customize_register($wp_customize)
     );
     // Back to top shape
     $wp_customize->add_setting('backtotop_shape', array (
-        'default' => $defaults['backtotop_shape'],
+        'default' => $mtwriterDefaults['backtotop_shape'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -392,7 +392,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Enable Back to top on mobile
     $wp_customize->add_setting( 'backtotop_mobile', array(
-        'default' => $defaults['backtotop_mobile'],
+        'default' => $mtwriterDefaults['backtotop_mobile'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -415,7 +415,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Hide/Show hero area
     $wp_customize->add_setting( 'show_hero_area', array(
-        'default' => $defaults['show_hero_area'],
+        'default' => $mtwriterDefaults['show_hero_area'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -431,7 +431,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Hero Area Title
     $wp_customize->add_setting('hero_title', array (
-        'default' => $defaults['hero_title'],
+        'default' => $mtwriterDefaults['hero_title'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));
@@ -445,7 +445,7 @@ function mtwriter_customize_register($wp_customize)
     );
     // Hero Area Bio
     $wp_customize->add_setting('hero_bio', array (        
-        'default' => $defaults['hero_bio'],        
+        'default' => $mtwriterDefaults['hero_bio'],        
         'transport' => 'postMessage',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));
@@ -462,7 +462,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Show Brands checkbox
     $wp_customize->add_setting( 'show_profile_pic', array(
-        'default' => $defaults['show_profile_pic'],
+        'default' => $mtwriterDefaults['show_profile_pic'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -478,7 +478,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Admin profile picture
     $wp_customize->add_setting('hero_profile_pic', array (
-        'default' => $defaults['hero_profile_pic'],
+        'default' => $mtwriterDefaults['hero_profile_pic'],
         'transport' => 'refresh',
         'sanitize_callback' => 'esc_url_raw'
     ));
@@ -493,7 +493,7 @@ function mtwriter_customize_register($wp_customize)
     );
     // Show Brands checkbox
     $wp_customize->add_setting( 'show_hero_brands', array(
-        'default' => $defaults['show_hero_brands'],
+        'default' => $mtwriterDefaults['show_hero_brands'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -509,7 +509,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Brands
     $wp_customize->add_setting('brand_one', array (
-        'default' => $defaults['brand_one'],
+        'default' => $mtwriterDefaults['brand_one'],
         'transport' => 'refresh',
         'sanitize_callback' => 'esc_url_raw'
     ));
@@ -524,7 +524,7 @@ function mtwriter_customize_register($wp_customize)
     );
 
     $wp_customize->add_setting('brand_two', array (
-        'default' => $defaults['brand_two'],
+        'default' => $mtwriterDefaults['brand_two'],
         'transport' => 'refresh',
         'sanitize_callback' => 'esc_url_raw'
     ));
@@ -539,7 +539,7 @@ function mtwriter_customize_register($wp_customize)
     );
 
     $wp_customize->add_setting('brand_three', array (
-        'default' => $defaults['brand_three'],
+        'default' => $mtwriterDefaults['brand_three'],
         'transport' => 'refresh',
         'sanitize_callback' => 'esc_url_raw'
     ));
@@ -554,7 +554,7 @@ function mtwriter_customize_register($wp_customize)
     );
     
     $wp_customize->add_setting('brand_four', array (
-        'default' => $defaults['brand_four'],
+        'default' => $mtwriterDefaults['brand_four'],
         'transport' => 'refresh',
         'sanitize_callback' => 'esc_url_raw'
     ));
@@ -569,7 +569,7 @@ function mtwriter_customize_register($wp_customize)
     );
     
     $wp_customize->add_setting('brand_five', array (
-        'default' => $defaults['brand_five'],
+        'default' => $mtwriterDefaults['brand_five'],
         'transport' => 'refresh',
         'sanitize_callback' => 'esc_url_raw'
     ));
@@ -597,7 +597,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Color controls
     $wp_customize->add_setting('color_primary', array (
-        'default' => $defaultColors['color_primary'],
+        'default' => $mtwriterDefaultColors['color_primary'],
         'transport'   => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -612,7 +612,7 @@ function mtwriter_customize_register($wp_customize)
     );
 
     $wp_customize->add_setting('color_site', array (
-        'default' => $defaultColors['color_site'],
+        'default' => $mtwriterDefaultColors['color_site'],
         'transport'   => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -632,7 +632,7 @@ function mtwriter_customize_register($wp_customize)
         'panel' => 'colors_mgt',
     ));
     $wp_customize->add_setting('color_logo_text', array (
-        'default' => $defaultColors['color_logo_text'],
+        'default' => $mtwriterDefaultColors['color_logo_text'],
         'transport'   => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -652,7 +652,7 @@ function mtwriter_customize_register($wp_customize)
         'panel' => 'colors_mgt',
     ));
     $wp_customize->add_setting('color_header_text', array (
-        'default' => $defaultColors['color_header_text'],
+        'default' => $mtwriterDefaultColors['color_header_text'],
         'transport'   => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -667,7 +667,7 @@ function mtwriter_customize_register($wp_customize)
     );
 
     $wp_customize->add_setting('color_header_background', array (
-        'default' => $defaultColors['color_header_background'],
+        'default' => $mtwriterDefaultColors['color_header_background'],
         'transport'   => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -687,7 +687,7 @@ function mtwriter_customize_register($wp_customize)
         'panel' => 'colors_mgt',
     ));
     $wp_customize->add_setting('color_background', array (
-        'default' => $defaultColors['color_background'],
+        'default' => $mtwriterDefaultColors['color_background'],
         'transport'   => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -702,7 +702,7 @@ function mtwriter_customize_register($wp_customize)
     );
 
     $wp_customize->add_setting('color_boxed_background', array (
-        'default' => $defaultColors['color_boxed_background'],
+        'default' => $mtwriterDefaultColors['color_boxed_background'],
         'transport'   => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -722,7 +722,7 @@ function mtwriter_customize_register($wp_customize)
         'panel' => 'colors_mgt',
     ));
     $wp_customize->add_setting('color_menu', array (
-        'default' => $defaultColors['color_menu'],
+        'default' => $mtwriterDefaultColors['color_menu'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -736,7 +736,7 @@ function mtwriter_customize_register($wp_customize)
         ) )
     );
     $wp_customize->add_setting('color_menu_hover', array (
-        'default' => $defaultColors['color_menu_hover'],
+        'default' => $mtwriterDefaultColors['color_menu_hover'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -750,7 +750,7 @@ function mtwriter_customize_register($wp_customize)
         ) )
     );
     $wp_customize->add_setting('color_menu_active', array (
-        'default' => $defaultColors['color_menu_active'],
+        'default' => $mtwriterDefaultColors['color_menu_active'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -766,7 +766,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Dropdown Colors
     $wp_customize->add_setting('color_dropdown_background', array (
-        'default' => $defaultColors['color_dropdown_background'],
+        'default' => $mtwriterDefaultColors['color_dropdown_background'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -780,7 +780,7 @@ function mtwriter_customize_register($wp_customize)
         ) )
     );
     $wp_customize->add_setting('color_dropdown_link', array (
-        'default' => $defaultColors['color_dropdown_link'],
+        'default' => $mtwriterDefaultColors['color_dropdown_link'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -794,7 +794,7 @@ function mtwriter_customize_register($wp_customize)
         ) )
     );
     $wp_customize->add_setting('color_dropdown_activelink', array (
-        'default' => $defaultColors['color_dropdown_activelink'],
+        'default' => $mtwriterDefaultColors['color_dropdown_activelink'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -808,7 +808,7 @@ function mtwriter_customize_register($wp_customize)
         ) )
     );
     $wp_customize->add_setting('color_link_hover', array (
-        'default' => $defaultColors['color_link_hover'],
+        'default' => $mtwriterDefaultColors['color_link_hover'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -828,7 +828,7 @@ function mtwriter_customize_register($wp_customize)
         'panel' => 'colors_mgt',
     ));
     $wp_customize->add_setting('color_copyright', array (
-        'default' => $defaultColors['color_copyright'],
+        'default' => $mtwriterDefaultColors['color_copyright'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -843,7 +843,7 @@ function mtwriter_customize_register($wp_customize)
     );
     
     $wp_customize->add_setting('color_copyright_link', array (
-        'default' => $defaultColors['color_copyright_link'],
+        'default' => $mtwriterDefaultColors['color_copyright_link'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -858,7 +858,7 @@ function mtwriter_customize_register($wp_customize)
     );
     // Link hover
     $wp_customize->add_setting('color_copyright_linkhover', array (
-        'default' => $defaultColors['color_copyright_linkhover'],
+        'default' => $mtwriterDefaultColors['color_copyright_linkhover'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_hex_color'
     ));
@@ -888,18 +888,18 @@ function mtwriter_customize_register($wp_customize)
 
     $wp_customize->add_setting('body_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['body_fontfamily'],
+        'default' => $mtwriterDefaultFonts['body_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'body_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'body_typography',
         'type' => 'select',
-        'choices' => $googleFonts,
+        'choices' => $mtwriterGoogleFonts,
     ));
 
     $wp_customize->add_setting( 'body_fontsize', array(
-        'default' => $defaultFonts['body_fontsize'],
+        'default' => $mtwriterDefaultFonts['body_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -914,13 +914,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['body_fontsize'],
+                'default' => $mtwriterDefaultFonts['body_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('body_fontsize_unit', array (
-        'default' => $defaultFonts['body_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['body_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -934,7 +934,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('body_texttransform', array (
-        'default' => $defaultFonts['body_texttransform'],
+        'default' => $mtwriterDefaultFonts['body_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -952,18 +952,18 @@ function mtwriter_customize_register($wp_customize)
 
     $wp_customize->add_setting('body_alt_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['body_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['body_alt_fontfamily'],
         'sanitize_callback' => 'mtwriter_sanitize_select',
     ));
     $wp_customize->add_control( 'body_alt_fontfamily', array (
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'body_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'body_letterspacing', array(
-        'default' => $defaultFonts['body_letterspacing'],
+        'default' => $mtwriterDefaultFonts['body_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -978,13 +978,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['body_letterspacing'],
+                'default' => $mtwriterDefaultFonts['body_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('body_fontweight', array (
-        'default' => $defaultFonts['body_fontweight'],
+        'default' => $mtwriterDefaultFonts['body_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1007,7 +1007,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'body_lineheight', array(
-        'default' => $defaultFonts['body_lineheight'],
+        'default' => $mtwriterDefaultFonts['body_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1022,7 +1022,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['body_lineheight'],
+                'default' => $mtwriterDefaultFonts['body_lineheight'],
             ),
         )
     ));
@@ -1057,18 +1057,18 @@ function mtwriter_customize_register($wp_customize)
     /* Heading 1 */
     $wp_customize->add_setting('h1_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['h1_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h1_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h1_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $googleFonts,
+        'choices' => $mtwriterGoogleFonts,
     ));
 
     $wp_customize->add_setting( 'h1_fontsize', array(
-        'default' => $defaultFonts['h1_fontsize'],
+        'default' => $mtwriterDefaultFonts['h1_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1089,7 +1089,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h1_fontsize_unit', array (
-        'default' => $defaultFonts['h1_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['h1_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1103,7 +1103,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h1_texttransform', array (
-        'default' => $defaultFonts['h1_texttransform'],
+        'default' => $mtwriterDefaultFonts['h1_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1120,7 +1120,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h1_alt_fontfamily', array (
-        'default' => $defaultFonts['h1_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h1_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1128,11 +1128,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'h1_letterspacing', array(
-        'default' => $defaultFonts['h1_letterspacing'],
+        'default' => $mtwriterDefaultFonts['h1_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1147,13 +1147,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h1_letterspacing'],
+                'default' => $mtwriterDefaultFonts['h1_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('h1_fontweight', array (
-        'default' => $defaultFonts['h1_fontweight'],
+        'default' => $mtwriterDefaultFonts['h1_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1176,7 +1176,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'h1_lineheight', array(
-        'default' => $defaultFonts['h1_lineheight'],
+        'default' => $mtwriterDefaultFonts['h1_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1191,7 +1191,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h1_lineheight'],
+                'default' => $mtwriterDefaultFonts['h1_lineheight'],
             ),
         )
     ));
@@ -1214,18 +1214,18 @@ function mtwriter_customize_register($wp_customize)
     /* Heading 2 */
     $wp_customize->add_setting('h2_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['h2_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h2_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h2_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $googleFonts,
+        'choices' => $mtwriterGoogleFonts,
     ));
 
     $wp_customize->add_setting( 'h2_fontsize', array(
-        'default' => $defaultFonts['h2_fontsize'],
+        'default' => $mtwriterDefaultFonts['h2_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1240,13 +1240,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h2_fontsize'],
+                'default' => $mtwriterDefaultFonts['h2_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('h2_fontsize_unit', array (
-        'default' => $defaultFonts['h2_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['h2_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1260,7 +1260,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h2_texttransform', array (
-        'default' => $defaultFonts['h2_texttransform'],
+        'default' => $mtwriterDefaultFonts['h2_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1277,7 +1277,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h2_alt_fontfamily', array (
-        'default' => $defaultFonts['h2_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h2_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1285,11 +1285,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'h2_letterspacing', array(
-        'default' => $defaultFonts['h2_letterspacing'],
+        'default' => $mtwriterDefaultFonts['h2_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1304,13 +1304,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h2_letterspacing'],
+                'default' => $mtwriterDefaultFonts['h2_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('h2_fontweight', array (
-        'default' => $defaultFonts['h2_fontweight'],
+        'default' => $mtwriterDefaultFonts['h2_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1333,7 +1333,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'h2_lineheight', array(
-        'default' => $defaultFonts['h2_lineheight'],
+        'default' => $mtwriterDefaultFonts['h2_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1348,7 +1348,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h2_lineheight'],
+                'default' => $mtwriterDefaultFonts['h2_lineheight'],
             ),
         )
     ));
@@ -1371,18 +1371,18 @@ function mtwriter_customize_register($wp_customize)
     /* Heading 3 */
     $wp_customize->add_setting('h3_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['h3_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h3_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h3_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $googleFonts,
+        'choices' => $mtwriterGoogleFonts,
     ));
 
     $wp_customize->add_setting( 'h3_fontsize', array(
-        'default' => $defaultFonts['h3_fontsize'],
+        'default' => $mtwriterDefaultFonts['h3_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1397,13 +1397,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h3_fontsize'],
+                'default' => $mtwriterDefaultFonts['h3_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('h3_fontsize_unit', array (
-        'default' => $defaultFonts['h3_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['h3_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1417,7 +1417,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h3_texttransform', array (
-        'default' => $defaultFonts['h3_texttransform'],
+        'default' => $mtwriterDefaultFonts['h3_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1434,7 +1434,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h3_alt_fontfamily', array (
-        'default' => $defaultFonts['h3_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h3_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1442,11 +1442,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'h3_letterspacing', array(
-        'default' => $defaultFonts['h3_letterspacing'],
+        'default' => $mtwriterDefaultFonts['h3_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1461,13 +1461,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h3_letterspacing'],
+                'default' => $mtwriterDefaultFonts['h3_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('h3_fontweight', array (
-        'default' => $defaultFonts['h3_fontweight'],
+        'default' => $mtwriterDefaultFonts['h3_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1490,7 +1490,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'h3_lineheight', array(
-        'default' => $defaultFonts['h3_lineheight'],
+        'default' => $mtwriterDefaultFonts['h3_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1505,7 +1505,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h3_lineheight'],
+                'default' => $mtwriterDefaultFonts['h3_lineheight'],
             ),
         )
     ));
@@ -1528,18 +1528,18 @@ function mtwriter_customize_register($wp_customize)
     /* Heading 4 */
     $wp_customize->add_setting('h4_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['h4_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h4_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h4_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $googleFonts,
+        'choices' => $mtwriterGoogleFonts,
     ));
 
     $wp_customize->add_setting( 'h4_fontsize', array(
-        'default' => $defaultFonts['h4_fontsize'],
+        'default' => $mtwriterDefaultFonts['h4_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1554,13 +1554,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h4_fontsize'],
+                'default' => $mtwriterDefaultFonts['h4_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('h4_fontsize_unit', array (
-        'default' => $defaultFonts['h4_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['h4_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1574,7 +1574,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h4_texttransform', array (
-        'default' => $defaultFonts['h4_texttransform'],
+        'default' => $mtwriterDefaultFonts['h4_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1591,7 +1591,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h4_alt_fontfamily', array (
-        'default' => $defaultFonts['h4_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h4_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1599,11 +1599,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'h4_letterspacing', array(
-        'default' => $defaultFonts['h4_letterspacing'],
+        'default' => $mtwriterDefaultFonts['h4_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1618,13 +1618,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h4_letterspacing'],
+                'default' => $mtwriterDefaultFonts['h4_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('h4_fontweight', array (
-        'default' => $defaultFonts['h4_fontweight'],
+        'default' => $mtwriterDefaultFonts['h4_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1647,7 +1647,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'h4_lineheight', array(
-        'default' => $defaultFonts['h4_lineheight'],
+        'default' => $mtwriterDefaultFonts['h4_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1662,7 +1662,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h4_lineheight'],
+                'default' => $mtwriterDefaultFonts['h4_lineheight'],
             ),
         )
     ));
@@ -1685,18 +1685,18 @@ function mtwriter_customize_register($wp_customize)
     /* Heading 4 */
     $wp_customize->add_setting('h5_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['h5_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h5_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h5_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $googleFonts,
+        'choices' => $mtwriterGoogleFonts,
     ));
 
     $wp_customize->add_setting( 'h5_fontsize', array(
-        'default' => $defaultFonts['h5_fontsize'],
+        'default' => $mtwriterDefaultFonts['h5_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1711,13 +1711,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h5_fontsize'],
+                'default' => $mtwriterDefaultFonts['h5_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('h5_fontsize_unit', array (
-        'default' => $defaultFonts['h5_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['h5_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1731,7 +1731,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h5_texttransform', array (
-        'default' => $defaultFonts['h5_texttransform'],
+        'default' => $mtwriterDefaultFonts['h5_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1748,7 +1748,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h5_alt_fontfamily', array (
-        'default' => $defaultFonts['h5_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h5_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1756,11 +1756,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'h5_letterspacing', array(
-        'default' => $defaultFonts['h5_letterspacing'],
+        'default' => $mtwriterDefaultFonts['h5_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1775,13 +1775,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h5_letterspacing'],
+                'default' => $mtwriterDefaultFonts['h5_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('h5_fontweight', array (
-        'default' => $defaultFonts['h5_fontweight'],
+        'default' => $mtwriterDefaultFonts['h5_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1804,7 +1804,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'h5_lineheight', array(
-        'default' => $defaultFonts['h5_lineheight'],
+        'default' => $mtwriterDefaultFonts['h5_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1819,7 +1819,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h5_lineheight'],
+                'default' => $mtwriterDefaultFonts['h5_lineheight'],
             ),
         )
     ));
@@ -1842,18 +1842,18 @@ function mtwriter_customize_register($wp_customize)
     /* Heading 4 */
     $wp_customize->add_setting('h6_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['h6_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h6_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h6_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $googleFonts,
+        'choices' => $mtwriterGoogleFonts,
     ));
 
     $wp_customize->add_setting( 'h6_fontsize', array(
-        'default' => $defaultFonts['h6_fontsize'],
+        'default' => $mtwriterDefaultFonts['h6_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1868,13 +1868,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h6_fontsize'],
+                'default' => $mtwriterDefaultFonts['h6_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('h6_fontsize_unit', array (
-        'default' => $defaultFonts['h6_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['h6_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1888,7 +1888,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h6_texttransform', array (
-        'default' => $defaultFonts['h6_texttransform'],
+        'default' => $mtwriterDefaultFonts['h6_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1905,7 +1905,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('h6_alt_fontfamily', array (
-        'default' => $defaultFonts['h6_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['h6_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1913,11 +1913,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'heading_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'h6_letterspacing', array(
-        'default' => $defaultFonts['h6_letterspacing'],
+        'default' => $mtwriterDefaultFonts['h6_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1932,13 +1932,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h6_letterspacing'],
+                'default' => $mtwriterDefaultFonts['h6_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('h6_fontweight', array (
-        'default' => $defaultFonts['h6_fontweight'],
+        'default' => $mtwriterDefaultFonts['h6_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -1961,7 +1961,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'h6_lineheight', array(
-        'default' => $defaultFonts['h6_lineheight'],
+        'default' => $mtwriterDefaultFonts['h6_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -1976,7 +1976,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['h6_lineheight'],
+                'default' => $mtwriterDefaultFonts['h6_lineheight'],
             ),
         )
     ));
@@ -1992,18 +1992,18 @@ function mtwriter_customize_register($wp_customize)
 
     $wp_customize->add_setting('logo_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['logo_fontfamily'],
+        'default' => $mtwriterDefaultFonts['logo_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'logo_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'logo_typography',
         'type' => 'select',
-        'choices' => $googleFonts,
+        'choices' => $mtwriterGoogleFonts,
     ));
 
     $wp_customize->add_setting( 'logo_fontsize', array(
-        'default' => $defaultFonts['logo_fontsize'],
+        'default' => $mtwriterDefaultFonts['logo_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2018,13 +2018,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['logo_fontsize'],
+                'default' => $mtwriterDefaultFonts['logo_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('logo_fontsize_unit', array (
-        'default' => $defaultFonts['logo_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['logo_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2038,7 +2038,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('logo_texttransform', array (
-        'default' => $defaultFonts['logo_texttransform'],
+        'default' => $mtwriterDefaultFonts['logo_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2055,7 +2055,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('logo_alt_fontfamily', array (
-        'default' => $defaultFonts['logo_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['logo_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2063,11 +2063,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'logo_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'logo_letterspacing', array(
-        'default' => $defaultFonts['logo_letterspacing'],
+        'default' => $mtwriterDefaultFonts['logo_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2082,13 +2082,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['logo_letterspacing'],
+                'default' => $mtwriterDefaultFonts['logo_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('logo_fontweight', array (
-        'default' => $defaultFonts['logo_fontweight'],
+        'default' => $mtwriterDefaultFonts['logo_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2111,7 +2111,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'logo_lineheight', array(
-        'default' => $defaultFonts['logo_lineheight'],
+        'default' => $mtwriterDefaultFonts['logo_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2126,7 +2126,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['logo_lineheight'],
+                'default' => $mtwriterDefaultFonts['logo_lineheight'],
             ),
         )
     ));
@@ -2140,18 +2140,18 @@ function mtwriter_customize_register($wp_customize)
 
     $wp_customize->add_setting('mainmenu_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['mainmenu_fontfamily'],
+        'default' => $mtwriterDefaultFonts['mainmenu_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'mainmenu_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'mainmenu_typography',
         'type' => 'select',
-        'choices' => $googleFonts,
+        'choices' => $mtwriterGoogleFonts,
     ));
 
     $wp_customize->add_setting( 'mainmenu_fontsize', array(
-        'default' => $defaultFonts['mainmenu_fontsize'],
+        'default' => $mtwriterDefaultFonts['mainmenu_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2166,13 +2166,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['mainmenu_fontsize'],
+                'default' => $mtwriterDefaultFonts['mainmenu_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('mainmenu_fontsize_unit', array (
-        'default' => $defaultFonts['mainmenu_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['mainmenu_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2186,7 +2186,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('mainmenu_texttransform', array (
-        'default' => $defaultFonts['mainmenu_texttransform'],
+        'default' => $mtwriterDefaultFonts['mainmenu_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2203,7 +2203,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('mainmenu_alt_fontfamily', array (
-        'default' => $defaultFonts['mainmenu_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['mainmenu_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2211,11 +2211,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'mainmenu_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'mainmenu_letterspacing', array(
-        'default' => $defaultFonts['mainmenu_letterspacing'],
+        'default' => $mtwriterDefaultFonts['mainmenu_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2230,13 +2230,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['mainmenu_letterspacing'],
+                'default' => $mtwriterDefaultFonts['mainmenu_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('mainmenu_fontweight', array (
-        'default' => $defaultFonts['mainmenu_fontweight'],
+        'default' => $mtwriterDefaultFonts['mainmenu_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2259,7 +2259,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'mainmenu_lineheight', array(
-        'default' => $defaultFonts['mainmenu_lineheight'],
+        'default' => $mtwriterDefaultFonts['mainmenu_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2274,7 +2274,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['mainmenu_lineheight'],
+                'default' => $mtwriterDefaultFonts['mainmenu_lineheight'],
             ),
         )
     ));
@@ -2286,7 +2286,7 @@ function mtwriter_customize_register($wp_customize)
         'panel' => 'typography_mgt',
     ));
     $wp_customize->add_setting('dropdown_fontfamily', array (
-        'default' => $defaultFonts['dropdown_fontfamily'],
+        'default' => $mtwriterDefaultFonts['dropdown_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
@@ -2294,11 +2294,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'dropdown_typography',
         'type' => 'select',
-        'choices' => $googleFonts,
+        'choices' => $mtwriterGoogleFonts,
     ));
 
     $wp_customize->add_setting( 'dropdown_fontsize', array(
-        'default' => $defaultFonts['dropdown_fontsize'],
+        'default' => $mtwriterDefaultFonts['dropdown_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2313,13 +2313,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['dropdown_fontsize'],
+                'default' => $mtwriterDefaultFonts['dropdown_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('dropdown_fontsize_unit', array (
-        'default' => $defaultFonts['dropdown_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['dropdown_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2333,7 +2333,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('dropdown_texttransform', array (
-        'default' => $defaultFonts['dropdown_texttransform'],
+        'default' => $mtwriterDefaultFonts['dropdown_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2350,7 +2350,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('dropdown_alt_fontfamily', array (
-        'default' => $defaultFonts['dropdown_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['dropdown_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2358,11 +2358,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'dropdown_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'dropdown_letterspacing', array(
-        'default' => $defaultFonts['dropdown_letterspacing'],
+        'default' => $mtwriterDefaultFonts['dropdown_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2377,13 +2377,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['dropdown_letterspacing'],
+                'default' => $mtwriterDefaultFonts['dropdown_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('dropdown_fontweight', array (
-        'default' => $defaultFonts['dropdown_fontweight'],
+        'default' => $mtwriterDefaultFonts['dropdown_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2406,7 +2406,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'dropdown_lineheight', array(
-        'default' => $defaultFonts['dropdown_lineheight'],
+        'default' => $mtwriterDefaultFonts['dropdown_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2421,7 +2421,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['dropdown_lineheight'],
+                'default' => $mtwriterDefaultFonts['dropdown_lineheight'],
             ),
         )
     ));
@@ -2434,18 +2434,18 @@ function mtwriter_customize_register($wp_customize)
     ));
     $wp_customize->add_setting('entrytitle_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['entrytitle_fontfamily'],
+        'default' => $mtwriterDefaultFonts['entrytitle_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'entrytitle_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'entrytitle_typography',
         'type' => 'select',
-        'choices' => $googleFonts
+        'choices' => $mtwriterGoogleFonts
     ));
 
     $wp_customize->add_setting( 'entrytitle_fontsize', array(
-        'default' => $defaultFonts['entrytitle_fontsize'],
+        'default' => $mtwriterDefaultFonts['entrytitle_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2460,13 +2460,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['entrytitle_fontsize'],
+                'default' => $mtwriterDefaultFonts['entrytitle_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('entrytitle_fontsize_unit', array (
-        'default' => $defaultFonts['entrytitle_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['entrytitle_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2480,7 +2480,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('entrytitle_texttransform', array (
-        'default' => $defaultFonts['entrytitle_texttransform'],
+        'default' => $mtwriterDefaultFonts['entrytitle_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2497,7 +2497,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('entrytitle_alt_fontfamily', array (
-        'default' => $defaultFonts['entrytitle_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['entrytitle_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2505,11 +2505,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'entrytitle_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'entrytitle_letterspacing', array(
-        'default' => $defaultFonts['entrytitle_letterspacing'],
+        'default' => $mtwriterDefaultFonts['entrytitle_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2524,13 +2524,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['entrytitle_letterspacing'],
+                'default' => $mtwriterDefaultFonts['entrytitle_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('entrytitle_fontweight', array (
-        'default' => $defaultFonts['entrytitle_fontweight'],
+        'default' => $mtwriterDefaultFonts['entrytitle_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2553,7 +2553,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'entrytitle_lineheight', array(
-        'default' => $defaultFonts['entrytitle_lineheight'],
+        'default' => $mtwriterDefaultFonts['entrytitle_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2568,7 +2568,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['entrytitle_lineheight'],
+                'default' => $mtwriterDefaultFonts['entrytitle_lineheight'],
             ),
         )
     ));
@@ -2581,18 +2581,18 @@ function mtwriter_customize_register($wp_customize)
     ));
     $wp_customize->add_setting('posttitle_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['posttitle_fontfamily'],
+        'default' => $mtwriterDefaultFonts['posttitle_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'posttitle_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'posttitle_typography',
         'type' => 'select',
-        'choices' => $googleFonts
+        'choices' => $mtwriterGoogleFonts
     ));
 
     $wp_customize->add_setting( 'posttitle_fontsize', array(
-        'default' => $defaultFonts['posttitle_fontsize'],
+        'default' => $mtwriterDefaultFonts['posttitle_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2607,13 +2607,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['posttitle_fontsize'],
+                'default' => $mtwriterDefaultFonts['posttitle_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('posttitle_fontsize_unit', array (
-        'default' => $defaultFonts['posttitle_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['posttitle_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2627,7 +2627,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('posttitle_texttransform', array (
-        'default' => $defaultFonts['posttitle_texttransform'],
+        'default' => $mtwriterDefaultFonts['posttitle_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2644,7 +2644,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('posttitle_alt_fontfamily', array (
-        'default' => $defaultFonts['posttitle_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['posttitle_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2652,11 +2652,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'posttitle_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'posttitle_letterspacing', array(
-        'default' => $defaultFonts['posttitle_letterspacing'],
+        'default' => $mtwriterDefaultFonts['posttitle_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2671,13 +2671,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['posttitle_letterspacing'],
+                'default' => $mtwriterDefaultFonts['posttitle_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('posttitle_fontweight', array (
-        'default' => $defaultFonts['posttitle_fontweight'],
+        'default' => $mtwriterDefaultFonts['posttitle_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2700,7 +2700,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'posttitle_lineheight', array(
-        'default' => $defaultFonts['posttitle_lineheight'],
+        'default' => $mtwriterDefaultFonts['posttitle_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2715,7 +2715,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['posttitle_lineheight'],
+                'default' => $mtwriterDefaultFonts['posttitle_lineheight'],
             ),
         )
     ));
@@ -2728,18 +2728,18 @@ function mtwriter_customize_register($wp_customize)
     ));
     $wp_customize->add_setting('meta_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['meta_fontfamily'],
+        'default' => $mtwriterDefaultFonts['meta_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'meta_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'meta_typography',
         'type' => 'select',
-        'choices' => $googleFonts
+        'choices' => $mtwriterGoogleFonts
     ));
 
     $wp_customize->add_setting( 'meta_fontsize', array(
-        'default' => $defaultFonts['meta_fontsize'],
+        'default' => $mtwriterDefaultFonts['meta_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2754,13 +2754,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['meta_fontsize'],
+                'default' => $mtwriterDefaultFonts['meta_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('meta_fontsize_unit', array (
-        'default' => $defaultFonts['meta_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['meta_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2774,7 +2774,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('meta_texttransform', array (
-        'default' => $defaultFonts['meta_texttransform'],
+        'default' => $mtwriterDefaultFonts['meta_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2791,7 +2791,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('meta_alt_fontfamily', array (
-        'default' => $defaultFonts['meta_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['meta_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2799,11 +2799,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'meta_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'meta_letterspacing', array(
-        'default' => $defaultFonts['meta_letterspacing'],
+        'default' => $mtwriterDefaultFonts['meta_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2818,13 +2818,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['meta_letterspacing'],
+                'default' => $mtwriterDefaultFonts['meta_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('meta_fontweight', array (
-        'default' => $defaultFonts['meta_fontweight'],
+        'default' => $mtwriterDefaultFonts['meta_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2847,7 +2847,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'meta_lineheight', array(
-        'default' => $defaultFonts['meta_lineheight'],
+        'default' => $mtwriterDefaultFonts['meta_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2862,7 +2862,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['meta_lineheight'],
+                'default' => $mtwriterDefaultFonts['meta_lineheight'],
             ),
         )
     ));
@@ -2875,18 +2875,18 @@ function mtwriter_customize_register($wp_customize)
     ));
     $wp_customize->add_setting('widgettitle_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['widgettitle_fontfamily'],
+        'default' => $mtwriterDefaultFonts['widgettitle_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'widgettitle_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'widgettitle_typography',
         'type' => 'select',
-        'choices' => $googleFonts
+        'choices' => $mtwriterGoogleFonts
     ));
 
     $wp_customize->add_setting( 'widgettitle_fontsize', array(
-        'default' => $defaultFonts['widgettitle_fontsize'],
+        'default' => $mtwriterDefaultFonts['widgettitle_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2901,13 +2901,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['widgettitle_fontsize'],
+                'default' => $mtwriterDefaultFonts['widgettitle_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('widgettitle_fontsize_unit', array (
-        'default' => $defaultFonts['widgettitle_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['widgettitle_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2921,7 +2921,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('widgettitle_texttransform', array (
-        'default' => $defaultFonts['widgettitle_texttransform'],
+        'default' => $mtwriterDefaultFonts['widgettitle_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2938,7 +2938,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('widgettitle_alt_fontfamily', array (
-        'default' => $defaultFonts['widgettitle_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['widgettitle_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2946,11 +2946,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'widgettitle_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'widgettitle_letterspacing', array(
-        'default' => $defaultFonts['widgettitle_letterspacing'],
+        'default' => $mtwriterDefaultFonts['widgettitle_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -2965,13 +2965,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['widgettitle_letterspacing'],
+                'default' => $mtwriterDefaultFonts['widgettitle_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('widgettitle_fontweight', array (
-        'default' => $defaultFonts['widgettitle_fontweight'],
+        'default' => $mtwriterDefaultFonts['widgettitle_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -2994,7 +2994,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'widgettitle_lineheight', array(
-        'default' => $defaultFonts['widgettitle_lineheight'],
+        'default' => $mtwriterDefaultFonts['widgettitle_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -3009,7 +3009,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['widgettitle_lineheight'],
+                'default' => $mtwriterDefaultFonts['widgettitle_lineheight'],
             ),
         )
     ));
@@ -3022,18 +3022,18 @@ function mtwriter_customize_register($wp_customize)
     ));
     $wp_customize->add_setting('copyright_fontfamily', array (
         'transport' => 'refresh',
-        'default' => $defaultFonts['copyright_fontfamily'],
+        'default' => $mtwriterDefaultFonts['copyright_fontfamily'],
         'sanitize_callback' => 'custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'copyright_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
         'section' => 'copyright_typography',
         'type' => 'select',
-        'choices' => $googleFonts
+        'choices' => $mtwriterGoogleFonts
     ));
 
     $wp_customize->add_setting( 'copyright_fontsize', array(
-        'default' => $defaultFonts['copyright_fontsize'],
+        'default' => $mtwriterDefaultFonts['copyright_fontsize'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -3048,13 +3048,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['copyright_fontsize'],
+                'default' => $mtwriterDefaultFonts['copyright_fontsize'],
             ),
         )
     ));
 
     $wp_customize->add_setting('copyright_fontsize_unit', array (
-        'default' => $defaultFonts['copyright_fontsize_unit'],
+        'default' => $mtwriterDefaultFonts['copyright_fontsize_unit'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -3068,7 +3068,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('copyright_texttransform', array (
-        'default' => $defaultFonts['copyright_texttransform'],
+        'default' => $mtwriterDefaultFonts['copyright_texttransform'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -3085,7 +3085,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('copyright_alt_fontfamily', array (
-        'default' => $defaultFonts['copyright_alt_fontfamily'],
+        'default' => $mtwriterDefaultFonts['copyright_alt_fontfamily'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -3093,11 +3093,11 @@ function mtwriter_customize_register($wp_customize)
         'label' => __('Alt Font Family', 'mtwriter'),
         'section' => 'copyright_typography',
         'type' => 'select',
-        'choices' => $altFontFamily,
+        'choices' => $mtwriterAltFontFamily,
     ));
 
     $wp_customize->add_setting( 'copyright_letterspacing', array(
-        'default' => $defaultFonts['copyright_letterspacing'],
+        'default' => $mtwriterDefaultFonts['copyright_letterspacing'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -3112,13 +3112,13 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['copyright_letterspacing'],
+                'default' => $mtwriterDefaultFonts['copyright_letterspacing'],
             ),
         )
     ));
 
     $wp_customize->add_setting('copyright_fontweight', array (
-        'default' => $defaultFonts['copyright_fontweight'],
+        'default' => $mtwriterDefaultFonts['copyright_fontweight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -3141,7 +3141,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'copyright_lineheight', array(
-        'default' => $defaultFonts['copyright_lineheight'],
+        'default' => $mtwriterDefaultFonts['copyright_lineheight'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -3156,7 +3156,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 0,
                 'max' => 100,
                 'step' => 1,
-                'default' => $defaultFonts['copyright_lineheight'],
+                'default' => $mtwriterDefaultFonts['copyright_lineheight'],
             ),
         )
     ));
@@ -3176,7 +3176,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Homepage Sidebar
     $wp_customize->add_setting('default_sidebar', array (
-        'default' => $defaults['default_sidebar'],
+        'default' => $mtwriterDefaults['default_sidebar'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -3193,7 +3193,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Single post sidebar
     $wp_customize->add_setting('singlepost_sidebar', array (
-        'default' => $defaults['singlepost_sidebar'],
+        'default' => $mtwriterDefaults['singlepost_sidebar'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -3204,13 +3204,13 @@ function mtwriter_customize_register($wp_customize)
         'choices' => array (
             'right' => 'Right Sidebar',
             'left' => 'Left Sidebar',
-            'default' => $defaults['singlepost_sidebar'],
+            'default' => $mtwriterDefaults['singlepost_sidebar'],
         ),
     ));
 
     // Single page sidebar
     $wp_customize->add_setting('singlepage_sidebar', array (
-        'default' => $defaults['singlepage_sidebar'],
+        'default' => $mtwriterDefaults['singlepage_sidebar'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -3221,13 +3221,13 @@ function mtwriter_customize_register($wp_customize)
         'choices' => array (
             'right' => 'Right Sidebar',
             'left' => 'Left Sidebar',
-            'default' => $defaults['singlepage_sidebar'],
+            'default' => $mtwriterDefaults['singlepage_sidebar'],
         ),
     ));
 
     // Archive sidebar
     $wp_customize->add_setting('archive_sidebar', array (
-        'default' => $defaults['archive_sidebar'],
+        'default' => $mtwriterDefaults['archive_sidebar'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -3238,13 +3238,13 @@ function mtwriter_customize_register($wp_customize)
         'choices' => array (
             'right' => 'Right Sidebar',
             'left' => 'Left Sidebar',
-            'default' => $defaults['archive_sidebar'],
+            'default' => $mtwriterDefaults['archive_sidebar'],
         ),
     ));
 
     // Sidebar Width
     $wp_customize->add_setting( 'sidebar_width', array(
-        'default' => $defaults['sidebar_width'],
+        'default' => $mtwriterDefaults['sidebar_width'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -3259,7 +3259,7 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 200,
                 'max' => 400,
                 'step' => 1,
-                'default' => $defaults['sidebar_width'],
+                'default' => $mtwriterDefaults['sidebar_width'],
             ),
         )
     ));
@@ -3280,7 +3280,7 @@ function mtwriter_customize_register($wp_customize)
 
     $wp_customize->add_setting( 'header_style',
         array(
-            'default' => $defaults['header_style'],
+            'default' => $mtwriterDefaults['header_style'],
             'transport' => 'refresh',
             'sanitize_callback' => 'mtwriter_sanitize_select'
         )
@@ -3308,7 +3308,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Header Tagline
     $wp_customize->add_setting('header_tagline', array (
-        'default' => $defaults['header_tagline'],
+        'default' => $mtwriterDefaults['header_tagline'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3320,7 +3320,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Enable/Disable search in header
     $wp_customize->add_setting( 'show_search', array(
-        'default' => $defaults['show_search'],
+        'default' => $mtwriterDefaults['show_search'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3335,7 +3335,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Enable/Disable search in mobile view
     $wp_customize->add_setting( 'show_search_mobile', array(
-        'default' => $defaults['show_search_mobile'],
+        'default' => $mtwriterDefaults['show_search_mobile'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3364,7 +3364,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     
     $wp_customize->add_setting( 'ads_posts', array(
-        'default' => $defaults['ads_posts'],
+        'default' => $mtwriterDefaults['ads_posts'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3379,7 +3379,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'ads_pages', array(
-        'default' => $defaults['ads_pages'],
+        'default' => $mtwriterDefaults['ads_pages'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3401,7 +3401,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Adverts on Beginning of Post/Page
     $wp_customize->add_setting('ad_code_post_begin', array (
-        'default' => $defaults['ad_code_post_begin'],
+        'default' => $mtwriterDefaults['ad_code_post_begin'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));
@@ -3412,7 +3412,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Adverts on Middle of Post/Page
     $wp_customize->add_setting('ad_code_post_middle', array (
-        'default' => $defaults['ad_code_post_middle'],
+        'default' => $mtwriterDefaults['ad_code_post_middle'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));
@@ -3423,7 +3423,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Adverts on End of Post/Page
     $wp_customize->add_setting('ad_code_post_end', array (
-        'default' => $defaults['ad_code_post_end'],
+        'default' => $mtwriterDefaults['ad_code_post_end'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));
@@ -3434,7 +3434,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Adverts on Right before the last paragraph
     $wp_customize->add_setting('ad_before_last_paragraph', array (
-        'default' => $defaults['ad_before_last_paragraph'],
+        'default' => $mtwriterDefaults['ad_before_last_paragraph'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));
@@ -3445,7 +3445,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Adverts on [number] paragraph
     $wp_customize->add_setting('paragraph_number', array (
-        'default' => $defaults['paragraph_number'],
+        'default' => $mtwriterDefaults['paragraph_number'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -3461,7 +3461,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('ad_after_numbered_paragraph', array (
-        'default' => $defaults['ad_after_numbered_paragraph'],
+        'default' => $mtwriterDefaults['ad_after_numbered_paragraph'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));
@@ -3484,7 +3484,7 @@ function mtwriter_customize_register($wp_customize)
         'panel' => 'misc',
     ));
     $wp_customize->add_setting('pagination_type', array (
-        'default' => $defaults['pagination_type'],
+        'default' => $mtwriterDefaults['pagination_type'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -3508,7 +3508,7 @@ function mtwriter_customize_register($wp_customize)
     
     // Post-meta options
     $wp_customize->add_setting( 'show_author', array(
-        'default' => $defaults['show_author'],
+        'default' => $mtwriterDefaults['show_author'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3523,7 +3523,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'show_readtime', array(
-        'default' => $defaults['show_readtime'],
+        'default' => $mtwriterDefaults['show_readtime'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3538,7 +3538,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'show_date', array(
-        'default' => $defaults['show_date'],
+        'default' => $mtwriterDefaults['show_date'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3553,7 +3553,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'show_category', array(
-        'default' => $defaults['show_category'],
+        'default' => $mtwriterDefaults['show_category'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3568,7 +3568,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'show_tags', array(
-        'default' => $defaults['show_tags'],
+        'default' => $mtwriterDefaults['show_tags'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3584,7 +3584,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Enable/Disable Social Share Icon
     $wp_customize->add_setting( 'social_share_enable', array(
-        'default' => $defaults['social_share_enable'],
+        'default' => $mtwriterDefaults['social_share_enable'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3599,7 +3599,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'show_authorinfobox', array(
-        'default' => $defaults['show_authorinfobox'],
+        'default' => $mtwriterDefaults['show_authorinfobox'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3614,7 +3614,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'show_comments', array(
-        'default' => $defaults['show_comments'],
+        'default' => $mtwriterDefaults['show_comments'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3630,7 +3630,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Enable/Disable Related Posts
     $wp_customize->add_setting( 'related_post_enable', array(
-        'default' => $defaults['related_post_enable'],
+        'default' => $mtwriterDefaults['related_post_enable'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3645,7 +3645,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Related posts by control
     $wp_customize->add_setting('related_post_by', array (
-        'default' => $defaults['related_post_by'],
+        'default' => $mtwriterDefaults['related_post_by'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_select'
     ));
@@ -3660,7 +3660,7 @@ function mtwriter_customize_register($wp_customize)
     ));
     // Related posts count control
     $wp_customize->add_setting('related_post_count', array (
-        'default' => $defaults['related_post_count'],
+        'default' => $mtwriterDefaults['related_post_count'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -3678,7 +3678,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'estimated_read_time_archive', array(
-        'default' => $defaults['estimated_read_time_archive'],
+        'default' => $mtwriterDefaults['estimated_read_time_archive'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3693,7 +3693,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'show_author_archive', array(
-        'default' => $defaults['show_author_archive'],
+        'default' => $mtwriterDefaults['show_author_archive'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3708,7 +3708,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'show_category_archive', array(
-        'default' => $defaults['show_category_archive'],
+        'default' => $mtwriterDefaults['show_category_archive'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3723,7 +3723,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'show_date_archive', array(
-        'default' => $defaults['show_date_archive'],
+        'default' => $mtwriterDefaults['show_date_archive'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3738,7 +3738,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting( 'show_excerpt', array(
-        'default' => $defaults['show_excerpt'],
+        'default' => $mtwriterDefaults['show_excerpt'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3754,7 +3754,7 @@ function mtwriter_customize_register($wp_customize)
     
     // Excerpt length (when enabled)
     $wp_customize->add_setting( 'excerpt_length', array(
-        'default' => $defaults['excerpt_length'],
+        'default' => $mtwriterDefaults['excerpt_length'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
@@ -3769,14 +3769,14 @@ function mtwriter_customize_register($wp_customize)
                 'min' => 1,
                 'max' => 500,
                 'step' => 1,
-                'default' => $defaults['excerpt_length'],
+                'default' => $mtwriterDefaults['excerpt_length'],
             ),
         )
     ));
 
     // Enable Read more
     $wp_customize->add_setting( 'enable_read_more', array(
-        'default' => $defaults['enable_read_more'],
+        'default' => $mtwriterDefaults['enable_read_more'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
@@ -3792,7 +3792,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Read more text
     $wp_customize->add_setting('read_more_text', array (
-        'default' => $defaults['read_more_text'],
+        'default' => $mtwriterDefaults['read_more_text'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3810,7 +3810,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('404_page_content', array (
-        'default' => $defaults['404_page_content'],
+        'default' => $mtwriterDefaults['404_page_content'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));
@@ -3821,7 +3821,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('calltoaction', array (
-        'default' => $defaults['calltoaction'],
+        'default' => $mtwriterDefaults['calltoaction'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3840,7 +3840,7 @@ function mtwriter_customize_register($wp_customize)
     
     // Copyright Text
     $wp_customize->add_setting('copyright_text', array (
-        'default' => $defaults['copyright_text'],
+        'default' => $mtwriterDefaults['copyright_text'],
         'transport' => 'postMessage',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));
@@ -3862,7 +3862,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Social Profiles Controls
     $wp_customize->add_setting('facebook', array (
-        'default' => $defaults['facebook'],
+        'default' => $mtwriterDefaults['facebook'],
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3872,7 +3872,7 @@ function mtwriter_customize_register($wp_customize)
         'type' => 'text'
     ));
     $wp_customize->add_setting('twitter', array (
-        'default' => $defaults['twitter'],
+        'default' => $mtwriterDefaults['twitter'],
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3882,7 +3882,7 @@ function mtwriter_customize_register($wp_customize)
         'type' => 'text'
     ));
     $wp_customize->add_setting('instagram', array (
-        'default' => $defaults['instagram'],
+        'default' => $mtwriterDefaults['instagram'],
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3892,7 +3892,7 @@ function mtwriter_customize_register($wp_customize)
         'type' => 'text'
     ));
     $wp_customize->add_setting('youtube', array (
-        'default' => $defaults['youtube'],
+        'default' => $mtwriterDefaults['youtube'],
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3902,7 +3902,7 @@ function mtwriter_customize_register($wp_customize)
         'type' => 'text'
     ));
     $wp_customize->add_setting('linkedin', array (
-        'default' => $defaults['linkedin'],
+        'default' => $mtwriterDefaults['linkedin'],
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3912,7 +3912,7 @@ function mtwriter_customize_register($wp_customize)
         'type' => 'text'
     ));
     $wp_customize->add_setting('spotify', array (
-        'default' => $defaults['spotify'],
+        'default' => $mtwriterDefaults['spotify'],
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3922,7 +3922,7 @@ function mtwriter_customize_register($wp_customize)
         'type' => 'text'
     ));
     $wp_customize->add_setting('messenger', array (
-        'default' => $defaults['messenger'],
+        'default' => $mtwriterDefaults['messenger'],
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3932,7 +3932,7 @@ function mtwriter_customize_register($wp_customize)
         'type' => 'text'
     ));
     $wp_customize->add_setting('github', array (
-        'default' => $defaults['github'],
+        'default' => $mtwriterDefaults['github'],
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3942,7 +3942,7 @@ function mtwriter_customize_register($wp_customize)
         'type' => 'text'
     ));
     $wp_customize->add_setting('whatsapp', array (
-        'default' => $defaults['whatsapp'],
+        'default' => $mtwriterDefaults['whatsapp'],
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3952,7 +3952,7 @@ function mtwriter_customize_register($wp_customize)
         'type' => 'text'
     ));
     $wp_customize->add_setting('telegram', array (
-        'default' => $defaults['telegram'],
+        'default' => $mtwriterDefaults['telegram'],
         'transport' => 'refresh',
         'sanitize_callback' => 'sanitize_text_field'
     ));
@@ -3973,7 +3973,7 @@ function mtwriter_customize_register($wp_customize)
 
     // Custom Code Controls
     $wp_customize->add_setting('tracking_code', array (
-        'default' => $defaults['tracking_code'],
+        'default' => $mtwriterDefaults['tracking_code'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));
@@ -3984,7 +3984,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('space_before_head', array (
-        'default' => $defaults['space_before_head'],
+        'default' => $mtwriterDefaults['space_before_head'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));
@@ -3995,7 +3995,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('space_before_body', array (
-        'default' => $defaults['space_before_body'],
+        'default' => $mtwriterDefaults['space_before_body'],
         'transport' => 'refresh',
         'sanitize_callback' => 'mtwriter_sanitize_textarea'
     ));

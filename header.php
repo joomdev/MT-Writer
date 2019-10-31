@@ -26,12 +26,12 @@
 <?php
 	/* Left Sidebar */
 	// Metabox Sidebar Status (Gutenberg)
-	$metabox_sidebar_status = get_post_meta(get_the_ID(), 'mtwriter-sidebar-status', true) ? get_post_meta(get_the_ID(), 'mtwriter-sidebar-status', true) : "default";
+	$mtwriter_metabox_sidebar_status = get_post_meta(get_the_ID(), 'mtwriter-sidebar-status', true) ? get_post_meta(get_the_ID(), 'mtwriter-sidebar-status', true) : "default";
 
 	// Post Level
 	if(is_single()) :
 		// Sidebar Left
-		if ( $metabox_sidebar_status == "default" ) {
+		if ( $mtwriter_metabox_sidebar_status == "default" ) {
 			if ( get_theme_mod('singlepost_sidebar', 'default') == 'default' ) {
 				if ( get_theme_mod('default_sidebar', 'none') == 'left' ) {
 				?> 
@@ -44,14 +44,14 @@
 			<?php
 			}
 		}
-		elseif ( $metabox_sidebar_status == "left" ) {
+		elseif ( $mtwriter_metabox_sidebar_status == "left" ) {
 		?> 
 			<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-left'); ?> >
 		<?php
 		}
 
 		// Sidebar Right
-		if ( $metabox_sidebar_status == "default" ) {
+		if ( $mtwriter_metabox_sidebar_status == "default" ) {
 			if ( get_theme_mod('singlepost_sidebar', 'default') == 'default' ) {
 				if ( get_theme_mod('default_sidebar', 'none') == 'right' ) {
 				?> 
@@ -64,7 +64,7 @@
 			<?php
 			}
 		}
-		elseif ( $metabox_sidebar_status == "right" ) {
+		elseif ( $mtwriter_metabox_sidebar_status == "right" ) {
 		?> 
 				<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
 		<?php
@@ -83,7 +83,7 @@
 	// Page Level
 	if(is_page()) :
 		// Sidebar Left
-		if( $metabox_sidebar_status == "default" ) {
+		if( $mtwriter_metabox_sidebar_status == "default" ) {
 			if ( get_theme_mod('singlepage_sidebar', 'default') == 'default' ) {
 				if ( get_theme_mod('default_sidebar', 'none') == 'left' ) {
 				?> 
@@ -96,14 +96,14 @@
 			<?php
 			}
 		}
-		elseif( $metabox_sidebar_status == "left" ) {
+		elseif( $mtwriter_metabox_sidebar_status == "left" ) {
 		?> 
 			<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-left'); ?> >
 		<?php
 		}
 
 		// Sidebar Right
-		if( $metabox_sidebar_status == "default" ) {
+		if( $mtwriter_metabox_sidebar_status == "default" ) {
 			if ( get_theme_mod('singlepage_sidebar', 'default') == 'default' ) {
 				if ( get_theme_mod('default_sidebar', 'none') == 'right' ) {
 					?> 
@@ -116,7 +116,7 @@
 				<?php
 			}
 		}
-		elseif( $metabox_sidebar_status == "right" ) {
+		elseif( $mtwriter_metabox_sidebar_status == "right" ) {
 			?> 
 				<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
 			<?php
@@ -209,6 +209,26 @@ endif;
 
 <div class="inner-body-wrap">
 	<div class="inner-body container">
+	
+		<ul class="mt-socials d-none d-xl-block">
+			<b>Share</b>
+			<li>
+				<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u="><i class="fab fa-facebook-f"></i></a>
+			</li>
+			<li>
+				<a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text="><i class="fab fa-twitter"></i></a>
+			</li>
+			<li>
+				<a class="reddit" target="_blank" href="http://www.reddit.com/submit?url="><i class="fab fa-reddit"></i></a>
+			</li>
+			<li>
+				<a class="pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=&amp;description="><i class="fab fa-pinterest"></i></a>
+			</li>
+			<li>
+				<a class="whatsapp" target="_blank" href="https://wa.me/whatsappphonenumber/?text="><i class="fab fa-whatsapp"></i></a>
+			</li>
+		</ul>
+
 		<?php
 			// Header Options
 			switch(get_theme_mod('header_style', 'horizontal')):
@@ -234,11 +254,11 @@ endif;
 			<?php
 				/* Left Sidebar */
 				// Metabox Sidebar Status (Gutenberg)
-				$metabox_sidebar_status = get_post_meta(get_the_ID(), 'mtwriter-sidebar-status', true) ? get_post_meta(get_the_ID(), 'mtwriter-sidebar-status', true) : "default";
+				$mtwriter_metabox_sidebar_status = get_post_meta(get_the_ID(), 'mtwriter-sidebar-status', true) ? get_post_meta(get_the_ID(), 'mtwriter-sidebar-status', true) : "default";
 				
 				// Post Level
 				if(is_single()) :
-					if ( $metabox_sidebar_status == "default" ) {
+					if ( $mtwriter_metabox_sidebar_status == "default" ) {
 						if ( get_theme_mod('singlepost_sidebar', 'default') == 'default' ) {
 							if ( get_theme_mod('default_sidebar', 'none') == 'left' ) {
 								get_template_part( 'template-parts/sidebar/sidebar', 'left' );
@@ -247,14 +267,14 @@ endif;
 							get_template_part( 'template-parts/sidebar/sidebar', 'left' );
 						}
 					}
-					elseif ( $metabox_sidebar_status == "left" ) {
+					elseif ( $mtwriter_metabox_sidebar_status == "left" ) {
 						get_template_part( 'template-parts/sidebar/sidebar', 'left' );
 					}
 				endif;
 				
 				// Page Level
 				if(is_page()) :
-					if( $metabox_sidebar_status == "default" ) {
+					if( $mtwriter_metabox_sidebar_status == "default" ) {
 						if ( get_theme_mod('singlepage_sidebar', 'default') == 'default' ) {
 							if ( get_theme_mod('default_sidebar', 'none') == 'left' ) {
 								get_template_part( 'template-parts/sidebar/sidebar', 'left' );
@@ -263,7 +283,7 @@ endif;
 							get_template_part( 'template-parts/sidebar/sidebar', 'left' );
 						}
 					}
-					elseif( $metabox_sidebar_status == "left" ) {
+					elseif( $mtwriter_metabox_sidebar_status == "left" ) {
 						get_template_part( 'template-parts/sidebar/sidebar', 'left' );
 					}
 				endif;

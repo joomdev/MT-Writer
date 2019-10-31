@@ -9,11 +9,11 @@
 get_header();
 
 // URL for social sharing
-$socialLink = wp_guess_url() . sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])); // WPCS: XSS ok.
-$blogTitle = get_the_title();
-$twitterUrl = $blogTitle." ".$socialLink;
-$encodedTitle = rawurlencode($blogTitle);
-$encodedUrl = rawurlencode($socialLink);
+$mtwriterSocialLink = wp_guess_url() . sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])); // WPCS: XSS ok.
+$mtwriterBlogTitle = get_the_title();
+$mtwriterTwitterUrl = $mtwriterBlogTitle." ".$mtwriterSocialLink;
+$mtwriterEncodedTitle = rawurlencode($mtwriterBlogTitle);
+$mtwriterEncodedUrl = rawurlencode($mtwriterSocialLink);
 
 while ( have_posts() ) :
 	the_post();
@@ -21,25 +21,6 @@ while ( have_posts() ) :
 wp_link_pages(); 
 
 ?>
-
-	<ul class="mt-socials d-none d-xl-block">
-		<b>Share</b>
-		<li>
-			<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_html($socialLink); ?>"><i class="fab fa-facebook-f"></i></a>
-		</li>
-		<li>
-			<a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo esc_html($twitterUrl); ?>"><i class="fab fa-twitter"></i></a>
-		</li>
-		<li>
-			<a class="reddit" target="_blank" href="http://www.reddit.com/submit?url=<?php echo esc_html($socialLink); ?>"><i class="fab fa-reddit"></i></a>
-		</li>
-		<li>
-			<a class="pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=<?php echo esc_html($encodedUrl); ?>&description=<?php echo esc_html($encodedTitle); ?>"><i class="fab fa-pinterest"></i></a>
-		</li>
-		<li>
-			<a class="whatsapp" target="_blank" href="https://wa.me/whatsappphonenumber/?text=<?php echo esc_html($socialLink); ?>"><i class="fab fa-whatsapp"></i></a>
-		</li>
-	</ul>
 	
 	<div class="page">
 		<div class="post-single">
@@ -144,19 +125,19 @@ wp_link_pages();
 					<strong><?php echo esc_html_e('Share: ', 'mtwriter'); ?></strong>
 					<ul class="mt-share">
 						<li>
-							<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_html($socialLink); ?>"><i class="fab fa-facebook-f"></i></a>
+							<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_html($mtwriterSocialLink); ?>"><i class="fab fa-facebook-f"></i></a>
 						</li>
 						<li>
-							<a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo esc_html($twitterUrl); ?>"><i class="fab fa-twitter"></i></a>
+							<a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo esc_html($mtwriterTwitterUrl); ?>"><i class="fab fa-twitter"></i></a>
 						</li>
 						<li>
-							<a class="reddit" target="_blank" href="http://www.reddit.com/submit?url=<?php echo esc_html($socialLink); ?>"><i class="fab fa-reddit"></i></a>
+							<a class="reddit" target="_blank" href="http://www.reddit.com/submit?url=<?php echo esc_html($mtwriterSocialLink); ?>"><i class="fab fa-reddit"></i></a>
 						</li>
 						<li>
-							<a class="pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=<?php echo esc_html($encodedUrl);?>&description=<?php echo esc_html($encodedTitle); ?>"><i class="fab fa-pinterest"></i></a>
+							<a class="pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=<?php echo esc_html($mtwriterEncodedUrl);?>&description=<?php echo esc_html($mtwriterEncodedTitle); ?>"><i class="fab fa-pinterest"></i></a>
 						</li>
 						<li>
-							<a class="whatsapp" target="_blank" href="https://wa.me/whatsappphonenumber/?text=<?php echo esc_html($socialLink); ?>"><i class="fab fa-whatsapp"></i></a>
+							<a class="whatsapp" target="_blank" href="https://wa.me/whatsappphonenumber/?text=<?php echo esc_html($mtwriterSocialLink); ?>"><i class="fab fa-whatsapp"></i></a>
 						</li>
 					</ul>
 				</div><!-- Share items end -->
