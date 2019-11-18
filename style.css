@@ -2474,26 +2474,6 @@ ul.comments-list ul.children {
 	padding: 5px;
 }
 
-/* Floating Social Icons */
-.mt-socials {
-    position: fixed;
-	z-index: 2;
-    list-style: none;
-	padding: 10px;
-	background: white;
-	margin-left: -90px;
-}
-.mt-socials li a {
-	display: flex;
-	justify-content: center;
-    color: var(--site-color);
-    width: 40px;
-    height: 100%;
-	font-size: 20px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
 /* Accessibility */
 /* Text meant only for screen readers. */
 .screen-reader-text {

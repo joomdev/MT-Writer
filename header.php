@@ -207,25 +207,6 @@ endif;
 
 <div class="inner-body-wrap">
 	<div class="inner-body container">
-	
-		<ul class="mt-socials d-none d-xl-block">
-			<b>Share</b>
-			<li>
-				<a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u="><i class="fab fa-facebook-f"></i></a>
-			</li>
-			<li>
-				<a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text="><i class="fab fa-twitter"></i></a>
-			</li>
-			<li>
-				<a class="reddit" target="_blank" href="http://www.reddit.com/submit?url="><i class="fab fa-reddit"></i></a>
-			</li>
-			<li>
-				<a class="pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=&amp;description="><i class="fab fa-pinterest"></i></a>
-			</li>
-			<li>
-				<a class="whatsapp" target="_blank" href="https://wa.me/whatsappphonenumber/?text="><i class="fab fa-whatsapp"></i></a>
-			</li>
-		</ul>
 
 		<?php
 			// Header Options
