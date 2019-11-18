@@ -111,11 +111,11 @@ function mtwriter_related_posts_by_categories()
                                         <!-- Post content right-->
                                         <div class="post-meta-footer">
                                             <span class="grid-post-date">
-                                                <?php echo esc_html_e('Updated on ', 'mtwriter'); ?>
+                                                <?php esc_html_e('Updated on ', 'mtwriter'); ?>
                                                 <?php mtwriter_get_date(); ?>
                                             </span>
                                             <span class="grid-post-author">
-                                                <?php echo esc_html_e('By', 'mtwriter'); ?>    
+                                                <?php esc_html_e('By', 'mtwriter'); ?>    
                                                 <a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) )); ?>" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
                                             </span>
                                         </div>
@@ -190,11 +190,11 @@ function mtwriter_related_posts_by_tags()
                                             <!-- Post content right-->
                                             <div class="post-meta-footer">
                                                 <span class="grid-post-date">
-                                                    <?php echo esc_html_e('Updated on', 'mtwriter'); ?>
+                                                    <?php esc_html_e('Updated on', 'mtwriter'); ?>
                                                     <?php mtwriter_get_date(); ?>
                                                 </span>
                                                 <span class="grid-post-author">
-                                                    <?php echo esc_html_e('By', 'mtwriter'); ?>
+                                                    <?php esc_html_e('By', 'mtwriter'); ?>
                                                     <a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) )); ?>" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
                                                 </span>
                                             </div>

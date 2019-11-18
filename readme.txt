@@ -46,10 +46,10 @@ The Logos used are not affiliated with MightyThemes and are property of their re
 * Smashing Magazine (https://smashingmagazine.com)
 * The Next Web (https://thenextweb.com)
 
-== About Section Image (Female Student) ==
-* Creator: Woman photo created by pressfoto - www.freepik.com
-* Licence: Freepik License
-* Source: https://www.freepik.com/free-photo/waist-up-shot-caucasian-female-student-making-notes-looking-sideways-thoughtfully_5839718.htm
+== About Section Image (Asian woman) ==
+* Creator: Asian woman created by asawin - https://pxhere.com
+* Licence: Creative Commons CC0.
+* Source: https://pxhere.com/en/photo/1575609
 
 == Font Awesome Free v5.10.0 ==
 FontAwesome Free is free, open source, and GPL friendly.

@@ -83,7 +83,7 @@ if (have_comments()) :
 			?>
 			<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" class="commentnavi pagination">
 				<h2 class="screen-reader-text">
-                    <?php echo _e('Comments navigation.', 'mtwriter'); // WPCS: XSS OK. ?>
+                    <?php _e('Comments navigation.', 'mtwriter'); // WPCS: XSS OK. ?>
 				</h2>
 				<div class="nav-links">
 					<?php paginate_comments_links(); ?>
@@ -100,7 +100,7 @@ if (have_comments()) :
 	<?php else : 
 	?>
 		<!-- If comments are closed. -->
-        <?php echo _e('Comments are disabled.', 'mtwriter'); // WPCS: XSS OK. ?>
+        <?php _e('Comments are disabled.', 'mtwriter'); // WPCS: XSS OK. ?>
 	<?php endif; ?>
 
 <?php endif; ?>

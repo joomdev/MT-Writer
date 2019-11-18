@@ -16,7 +16,7 @@
                     </div>
                     
                     <div class="bio-share">
-                        <span><?php echo esc_html_e('Follow Me', 'mtwriter'); ?></span>
+                        <span><?php esc_html_e('Follow Me', 'mtwriter'); ?></span>
                         <?php get_template_part( 'template-parts/social', 'profiles' ); ?>
                     </div>
                 </div>

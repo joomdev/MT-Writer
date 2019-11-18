@@ -23,10 +23,7 @@ wp_link_pages();
 						<?php the_category( ' ' ); ?>
 					</span>
 				<?php endif; ?>
-				<h2 class="entry-title">
-					<?php the_title(); ?>
-				</h2>
-
+				<h2 class="entry-title"><?php the_title(); ?></h2>
 				<?php
 					/* Assigning Ad in the Beginning of Post */
 					if (get_theme_mod('ads_pages')) {
@@ -53,12 +50,12 @@ wp_link_pages();
 						
 						<?php if ( get_theme_mod('show_date', 1) ) : ?>
 							<span class="list-post-date m-1">
-								<?php echo esc_html_e('Updated on ', 'mtwriter'); mtwriter_get_date(); ?>
+								<?php esc_html_e('Updated on ', 'mtwriter'); mtwriter_get_date(); ?>
 							</span>
 						<?php endif; ?>
 						<?php if ( get_theme_mod('show_author', 1) ) : ?>
 							<span class="post-author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">
-								<?php echo esc_html_e('By', 'mtwriter'); ?>
+								<?php esc_html_e('By', 'mtwriter'); ?>
 								<a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) )); ?>">
 									<?php the_author(); ?>
 								</a>
@@ -68,7 +65,7 @@ wp_link_pages();
 						<?php if( get_theme_mod('show_readtime', 1) ) : ?>
 							<span class="list-post-comment">
 								<?php echo esc_html(mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID ))); ?>
-								<?php echo mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID )) == 1 ? ' minute' : ' minutes'?> <?php echo esc_html_e('read.', 'mtwriter'); ?>
+								<?php echo mtwriter_CalculateReadTime(get_post_field( 'post_content', $post->ID )) == 1 ? ' minute' : ' minutes'?> <?php esc_html_e('read.', 'mtwriter'); ?>
 							</span>
 						<?php endif; ?>
 					</div>
@@ -160,7 +157,6 @@ wp_link_pages();
 				<?php endif; ?>
 		</nav>
 
-		
 		<?php
 			if ( get_theme_mod('show_comments', 1) ) :
 				// If comments are open or we have at least one comment, load up the comment template.

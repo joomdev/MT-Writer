@@ -54,9 +54,9 @@
 
 						<?php if( get_theme_mod('estimated_read_time_archive', 1) ) : ?>
 							<span class="list-post-comment">
-								<?php 
+								<?php
 								echo esc_html(mtwriter_CalculateReadTime( get_post_field( 'post_content', $post->ID ) ));
-								echo mtwriter_CalculateReadTime( get_post_field( 'post_content', $post->ID ) ) == 1 ? ' minute' : ' minutes' // WPCS: XSS ok. ?> <?php echo esc_html_e('read.', 'mtwriter'); ?>
+								echo mtwriter_CalculateReadTime( get_post_field( 'post_content', $post->ID ) ) == 1 ? ' minute' : ' minutes' // WPCS: XSS ok. ?> <?php esc_html_e('read.', 'mtwriter'); ?>
 							</span>
 						<?php endif; ?>
 					</div> <!-- Post meta footer-->
