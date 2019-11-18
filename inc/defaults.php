@@ -71,7 +71,6 @@ if ( ! function_exists( 'mtwriter_get_defaults' ) ) {
                 'read_more_text' => __('Read More', 'mtwriter' ),
                 '404_page_content' => __('<h1>404</h1>', 'mtwriter' ),
                 'calltoaction' => __('Back To Home', 'mtwriter' ),
-                'copyright_text' =>  __('Powered by Mighty Themes.', 'mtwriter' ),
 
                 'facebook' => '#',
                 'twitter' => '#',

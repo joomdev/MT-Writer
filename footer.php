@@ -71,7 +71,7 @@
 							<div class="footer-wrap">
 								<?php get_template_part( 'template-parts/social', 'profiles' ); ?>
 								<div class="copyright-info">
-									<?php echo get_theme_mod('copyright_text', 'Powered by <a href="' .  esc_url( "https://mightythemes.com" ) . '" target="_blank">Mighty Themes</a>'); // WPCS: XSS ok. ?>
+									<?php mtwriter_footer_info(); ?>
 								</div>
 							</div><!-- Footer social end-->
 						</div> <!-- col-md-12 end-->

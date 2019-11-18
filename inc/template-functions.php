@@ -351,6 +351,24 @@ function mtwriter_get_date() {
 }
 
 /**
+ * Adds the copyright to the footer
+ */
+if ( ! function_exists( 'mtwriter_footer_info' ) ) {
+	
+	function mtwriter_footer_info() {
+		$copyright = sprintf( '&copy; %1$s %2$s &bull; %4$s <a href="%3$s" itemprop="url">%5$s</a>',
+			date( 'Y' ),
+			get_bloginfo( 'name' ),
+			esc_url( 'https://mightythemes.com/themes/' ),
+			_x( 'Powered by', 'MT Writer', 'mtwriter' ),
+			__( 'MT Writer', 'mtwriter' )
+        );
+        
+        echo $copyright; // WPCS: XSS ok.
+	}
+}
+
+/**
  * Comments Template
  */
 function mtwriter_comment($comment, $args, $depth) { ?>

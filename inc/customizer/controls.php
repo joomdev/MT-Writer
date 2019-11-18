@@ -3715,18 +3715,6 @@ function mtwriter_customize_register($wp_customize)
         'description' => '',
         'panel' => 'misc',
     ));
-    
-    // Copyright Text
-    $wp_customize->add_setting('copyright_text', array (
-        'default' => $mtwriterDefaults['copyright_text'],
-        'transport' => 'postMessage',
-        'sanitize_callback' => 'mtwriter_sanitize_textarea'
-    ));
-    $wp_customize->add_control( 'copyright_text', array (
-        'label' => __('Copyright Text', 'mtwriter'),
-        'section' => 'footer_options',
-        'type' => 'textarea',
-    ));
 
     //
     // ─── SOCIAL PROFILES ────────────────────────────────────────────────────────────
