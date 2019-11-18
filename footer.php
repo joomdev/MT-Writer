@@ -85,18 +85,5 @@
 
 <?php wp_footer(); ?>
 
-<?php if (get_theme_mod('space_before_body') ) : ?>
-    <div class="space-before-body-code">
-        <?php echo get_theme_mod('space_before_body');  // WPCS: XSS ok. ?>
-    </div>
-<?php endif; ?>
-
 </body>
-
-<?php 
-    if (get_theme_mod('tracking_code') ) :
-        echo get_theme_mod('tracking_code');  // WPCS: XSS ok. 
-    endif;
-?>
-
 </html>

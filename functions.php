@@ -235,15 +235,3 @@ if ( is_admin() ) {
     //
     require get_template_directory() . '/inc/guten/custom-meta-boxes.php';
 }
-
-/**
- * Core Update Features
- */
-require get_template_directory() . '/inc/mt-core/mt-checker.php';
-$mtupdater = Puc_v4_Factory::buildUpdateChecker(
-	'https://github.com/mightythemes/mt-writer/',
-	__FILE__,
-	'mtwriter'
-);
-
-$mtupdater->setBranch('master');

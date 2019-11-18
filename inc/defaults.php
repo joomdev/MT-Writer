@@ -82,10 +82,6 @@ if ( ! function_exists( 'mtwriter_get_defaults' ) ) {
                 'github' => '',
                 'whatsapp' => '',
                 'telegram' => '',
-
-                'tracking_code' => '',
-                'space_before_head' => '',
-                'space_before_body' => ''
 			)
 		);
 	}

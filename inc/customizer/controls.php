@@ -3827,49 +3827,6 @@ function mtwriter_customize_register($wp_customize)
         'section' => 'social_profiles',
         'type' => 'text'
     ));
-
-    //
-    // ─── CUSTOM CODE ────────────────────────────────────────────────────────────
-    //
-    // Custom Code Section
-    $wp_customize->add_section( 'custom_code', array(
-        'title' => __('Custom Code', 'mtwriter'),
-        'description' => '',
-    ));
-
-    // Custom Code Controls
-    $wp_customize->add_setting('tracking_code', array (
-        'default' => $mtwriterDefaults['tracking_code'],
-        'transport' => 'refresh',
-        'sanitize_callback' => 'mtwriter_sanitize_textarea'
-    ));
-    $wp_customize->add_control( 'tracking_code', array(
-        'label' => __('Tracking Code', 'mtwriter'),
-        'section' => 'custom_code',
-        'type' => 'textarea',
-    ));
-
-    $wp_customize->add_setting('space_before_head', array (
-        'default' => $mtwriterDefaults['space_before_head'],
-        'transport' => 'refresh',
-        'sanitize_callback' => 'mtwriter_sanitize_textarea'
-    ));
-    $wp_customize->add_control( 'space_before_head', array(
-        'label' => __('Space Before </head>', 'mtwriter'),
-        'section' => 'custom_code',
-        'type' => 'textarea',
-    ));
-
-    $wp_customize->add_setting('space_before_body', array (
-        'default' => $mtwriterDefaults['space_before_body'],
-        'transport' => 'refresh',
-        'sanitize_callback' => 'mtwriter_sanitize_textarea'
-    ));
-    $wp_customize->add_control( 'space_before_body', array(
-        'label' => __('Space Before </body>', 'mtwriter'),
-        'section' => 'custom_code',
-        'type' => 'textarea',
-    ));
 }
 add_action('customize_register', 'mtwriter_customize_register');
 
