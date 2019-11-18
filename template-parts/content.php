@@ -48,7 +48,7 @@
 
 						<?php if ( get_theme_mod('show_date_archive', 1) ) : ?>							
 							<span class="list-post-date">
-								<?php echo get_the_date(); ?>
+								<?php mtwriter_get_date(); ?>
 							</span>							
 						<?php endif; ?>
 

@@ -111,12 +111,12 @@ function mtwriter_related_posts_by_categories()
                                         <!-- Post content right-->
                                         <div class="post-meta-footer">
                                             <span class="grid-post-date">
-                                                <?php echo esc_html_e('Posted on', 'mtwriter'); ?>
-                                                <?php the_time( 'M j, y' ); ?>
+                                                <?php echo esc_html_e('Updated on ', 'mtwriter'); ?>
+                                                <?php mtwriter_get_date(); ?>
                                             </span>
                                             <span class="grid-post-author">
                                                 <?php echo esc_html_e('By', 'mtwriter'); ?>    
-                                                <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
+                                                <a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) )); ?>" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
                                             </span>
                                         </div>
                                         <!-- Post meta footer-->
@@ -190,12 +190,12 @@ function mtwriter_related_posts_by_tags()
                                             <!-- Post content right-->
                                             <div class="post-meta-footer">
                                                 <span class="grid-post-date">
-                                                    <?php echo esc_html_e('Posted on', 'mtwriter'); ?>
-                                                    <?php the_time( 'M j, y' ); ?>
+                                                    <?php echo esc_html_e('Updated on', 'mtwriter'); ?>
+                                                    <?php mtwriter_get_date(); ?>
                                                 </span>
                                                 <span class="grid-post-author">
                                                     <?php echo esc_html_e('By', 'mtwriter'); ?>
-                                                    <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
+                                                    <a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) )); ?>" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
                                                 </span>
                                             </div>
                                             <!-- Post meta footer-->
@@ -315,6 +315,38 @@ function custom_sanitize_fonts($input)
         return $input;
     } else {
         return '';
+    }
+}
+
+/**
+ * Date Template
+ */
+
+function mtwriter_get_date() {
+    $mt_modified_date = apply_filters( 'mtwriter_date', true );
+
+    $time_string = '<time class="entry-date published" datetime="%1$s" itemprop="datePublished">%2$s</time>';
+
+    if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+        $time_string = '<time class="updated" datetime="%3$s" itemprop="dateModified">%4$s</time>';
+    }
+
+    $time_string = sprintf( $time_string,
+        esc_attr( get_the_date( 'c' ) ),
+        esc_html( get_the_date() ),
+        esc_attr( get_the_modified_date( 'c' ) ),
+        esc_html( get_the_modified_date() )
+    );
+
+    // If our date is enabled, show it.
+    if ( $mt_modified_date ) {
+        echo apply_filters( 'mtwriter_date_output', sprintf( '%1$s', // WPCS: XSS ok, sanitization ok.
+            sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
+                esc_url( get_permalink() ),
+                esc_attr( get_the_time() ),
+                $time_string
+            )
+        ), $time_string );
     }
 }
 

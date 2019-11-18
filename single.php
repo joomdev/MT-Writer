@@ -50,23 +50,11 @@ wp_link_pages();
 					<?php endif; ?>
 
 					<div class="post-meta-content">
-						<?php if ( get_theme_mod('show_date', 1) ) : 
-							$u_time = get_the_time('U');
-							$u_modified_time = get_the_modified_time('U');
-							if ($u_modified_time >= $u_time + 86400) {
-						?>
-								<span itemprop="dateModified" class="list-post-date m-1">
-								<?php echo esc_html_e('Updated on', 'mtwriter'); ?>
-								<?php the_modified_time('F jS, Y'); ?></span>
-						<?php
-							} else {
-						?>
-								<span itemprop="dateModified" class="list-post-date m-1">
-								<?php echo esc_html_e('Updated on', 'mtwriter'); ?>
-								<?php echo esc_html(get_the_time('F jS, Y')); // WPCS: XSS ok. ?></span>
-						<?php
-							}
-						?>
+						
+						<?php if ( get_theme_mod('show_date', 1) ) : ?>
+							<span class="list-post-date m-1">
+								<?php echo esc_html_e('Updated on ', 'mtwriter'); mtwriter_get_date(); ?>
+							</span>
 						<?php endif; ?>
 						<?php if ( get_theme_mod('show_author', 1) ) : ?>
 							<span class="post-author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">
@@ -86,11 +74,14 @@ wp_link_pages();
 					</div>
 				</div>
 			</div><!-- header end -->
-			<div class="featured-image">
-				<?php if ( function_exists( 'add_theme_support' ) ) the_post_thumbnail(); ?>
-			</div>
+			
+			<?php if ( has_post_thumbnail() ) { ?>
+				<div class="featured-image">
+					<?php if ( function_exists( 'add_theme_support' ) ) the_post_thumbnail(); ?>
+				</div>
+			<?php }	?>
 
-			<div class="entry-content">				
+			<div class="entry-content">
 				<?php the_content(); ?>
 			</div><!-- entry content end -->
 		</div><!-- Post content end -->
