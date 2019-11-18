@@ -1,6 +1,6 @@
 <?php
 /**
- * Famous Posts Custom Widget For MT-Minimag
+ * Famous Posts Custom Widget For MT-Writer
  */
 
  // Popular posts meta
@@ -72,7 +72,7 @@ function mtwriter_popular_posts($instance) {
                 <div class="post-grid">
                     <div class="post-grid-view post-grid-view-md">
 
-                        <?php if ( $instance['showThumbnail'] == 'on' ) : ?>
+						<?php if ( has_post_thumbnail() && $instance['showThumbnail'] == 'on' ) : ?>
                             <div class="post-grid-image">
                                 <?php the_post_thumbnail(); ?>
                             </div>
@@ -99,8 +99,8 @@ function mtwriter_popular_posts($instance) {
                                 <div class="post-meta-footer">
                                     <?php if ( $instance['showDate'] == 'on' ) : ?>
                                         <span class="grid-post-date">
-                                            Post on <?php the_time( 'M j, y' ); ?>
-                                        </span>
+                                            Updated on <?php mtwriter_get_date(); ?>
+										</span>
                                     <?php endif; ?>
 
                                     <?php if ( $instance['showAuthor'] == 'on' ) : ?>
@@ -135,7 +135,7 @@ class mtwriter_widget extends WP_Widget {
 		'mtwriter_widget',
 		
 		// Widget name will appear in UI
-		__('Popular Posts (MT-Minimag)', 'mtwriter'),
+		__('Popular Posts (MT-Writer)', 'mtwriter'),
 		
 		// Widget description
 		array( 'description' => __( 'Popular posts widget by MightyThemes', 'mtwriter' ), )

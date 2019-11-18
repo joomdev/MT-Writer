@@ -24,17 +24,6 @@ get_header();
 					<h2 class="entry-single-title">
 						<?php the_title(); ?>
 					</h2>
-
-					<?php
-						/* Assigning Ad in the Beginning of Post */
-						if (get_theme_mod('ads_pages')) {
-							if (get_theme_mod('ad_code_post_begin')) {
-							?>
-							<div class="ad-page-begin">
-								<?php echo get_theme_mod('ad_code_post_begin'); // WPCS: XSS ok. ?>
-							</div>
-					<?php } } ?>
-
 				</div><!-- Col End -->
 			</div><!-- Main Row End -->
 		</div><!-- Container End -->
@@ -62,16 +51,6 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-
-		<?php
-		/* Assigning Ad in the End of Post */
-		if (get_theme_mod('ads_pages')) {
-			if (get_theme_mod('ad_code_post_end')) {
-			?>
-				<div class="ad-page-end">
-					<?php echo get_theme_mod('ad_code_post_end'); // WPCS: XSS ok. ?>
-				</div>
-		<?php } } ?>
 	</div><!-- .page -->
 
 <?php

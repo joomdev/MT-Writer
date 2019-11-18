@@ -48,7 +48,7 @@ The Logos used are not affiliated with MightyThemes and are property of their re
 
 == About Section Image (Asian woman) ==
 * Creator: Asian woman created by asawin - https://pxhere.com
-* Licence: Creative Commons CC0.
+* Licence: https://creativecommons.org/publicdomain/zero/1.0/ (Creative Commons CC0)
 * Source: https://pxhere.com/en/photo/1575609
 
 == Font Awesome Free v5.10.0 ==

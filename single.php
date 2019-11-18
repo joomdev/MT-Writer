@@ -24,20 +24,8 @@ wp_link_pages();
 					</span>
 				<?php endif; ?>
 				<h2 class="entry-title"><?php the_title(); ?></h2>
-				<?php
-					/* Assigning Ad in the Beginning of Post */
-					if (get_theme_mod('ads_pages')) {
-						if (get_theme_mod('ad_code_post_begin')) {
-						?>
-						<div class="ad-page-begin">
-							<?php echo get_theme_mod('ad_code_post_begin');  // WPCS: XSS ok. ?>
-						</div>
-					<?php
-					} }
-				?>
 				
 				<div class="post-meta author-box">
-
 					<?php if ( get_theme_mod('show_author', 1) ) : ?>
 						<div class="mt-author-bio-img">
 							<div class="mt-img-border">
@@ -82,16 +70,6 @@ wp_link_pages();
 				<?php the_content(); ?>
 			</div><!-- entry content end -->
 		</div><!-- Post content end -->
-
-		<?php
-		/* Assigning Ad in the End of Post */
-		if (get_theme_mod('ads_pages')) {
-			if (get_theme_mod('ad_code_post_end')) {
-			?>
-			<div class="ad-page-end">
-				<?php echo get_theme_mod('ad_code_post_end'); // WPCS: XSS ok. ?>
-			</div>
-		<?php } } ?>
 
 		<div class="post-footer clearfix">
 			<?php if ( get_theme_mod('show_tags', 1) ) : ?>

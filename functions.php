@@ -217,11 +217,6 @@ $defaultFonts = mtwriter_get_default_fonts();
 require get_template_directory() . '/inc/sanitize-functions.php';
 
 /**
- * Advertisement Manager
- */
-require get_template_directory() . '/inc/customizer/ad-manager.php';
-
-/**
  * Customizer Menu Options
  */
 require get_template_directory() . '/inc/customizer/controls.php';
