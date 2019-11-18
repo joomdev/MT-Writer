@@ -268,12 +268,12 @@ if ( ! function_exists( 'mtwriter_get_default_fonts' ) ) {
 }
 
 
-if ( ! function_exists( 'getOption' ) ) {
+if ( ! function_exists( 'mtGetOption' ) ) {
     /**
 	 * Get customizer values if set else return default values
 	 */
 
-    function getOption($type, $property) {
+    function mtGetOption($type, $property) {
 
         $defaults = mtwriter_get_defaults();
         $defaultColors = mtwriter_get_color_defaults();

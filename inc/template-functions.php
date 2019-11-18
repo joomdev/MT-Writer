@@ -222,8 +222,8 @@ function mtwriter_related_posts_by_tags()
  * Pagination
  */ 
 if (get_theme_mod('pagination_type', 'numbered') == 'prev-next') {
-    if( ! function_exists( 'my_post_queries' ) ) :
-        function my_post_queries( $query ) {
+    if( ! function_exists( 'mtwriter_my_post_queries' ) ) :
+        function mtwriter_my_post_queries( $query ) {
             // do not alter the query on wp-admin pages and only alter it if it's the main query
             if (!is_admin() && $query->is_main_query()){
                 // alter the query for the home and category pages
@@ -236,7 +236,7 @@ if (get_theme_mod('pagination_type', 'numbered') == 'prev-next') {
                 }
             }
         }
-        add_action( 'pre_get_posts', 'my_post_queries' );
+        add_action( 'pre_get_posts', 'mtwriter_my_post_queries' );
     endif;
 }
 
@@ -287,7 +287,7 @@ if ( ! function_exists( 'mtwriter_pagination' ) ) :
 endif;
 
 // Google Web Fonts
-function getJSONData($name)
+function mtwriter_getJSONData($name)
 {
     $fontsJSON = wp_remote_get(get_template_directory_uri() . '/inc/customizer/json/webfonts.json');
     $response = wp_remote_retrieve_body( $fontsJSON );
@@ -295,9 +295,9 @@ function getJSONData($name)
     return json_decode($response, true);
 }
 
-function getGoogleFonts()
+function mtwriter_getGoogleFonts()
 {
-    $fonts = getJSONData('webfonts');
+    $fonts = mtwriter_getJSONData('webfonts');
 
     foreach ($fonts['items'] as $font) {
         $googleFonts["$font[family]"] = $font['family'];
@@ -307,9 +307,9 @@ function getGoogleFonts()
 }
 
 // Sanitize Fonts
-function custom_sanitize_fonts($input)
+function mtwriter_custom_sanitize_fonts($input)
 {
-    $valid = getGoogleFonts();
+    $valid = mtwriter_getGoogleFonts();
     
     if (array_key_exists($input, $valid)) {
         return $input;
@@ -439,10 +439,10 @@ function mtwriter_comment($comment, $args, $depth) { ?>
 /**
  * Custom Fields for User Profile
  */
-add_action( 'show_user_profile', 'custom_fields_user_profile' );
-add_action( 'edit_user_profile', 'custom_fields_user_profile' );
+add_action( 'show_user_profile', 'mtwriter_custom_fields_user_profile' );
+add_action( 'edit_user_profile', 'mtwriter_custom_fields_user_profile' );
 
-function custom_fields_user_profile( $user ) { ?>
+function mtwriter_custom_fields_user_profile( $user ) { ?>
     <h3><?php esc_html_e("Social Handles", 'mtwriter'); ?></h3>
 
     <table class="form-table">
@@ -497,10 +497,10 @@ function custom_fields_user_profile( $user ) { ?>
 /**
  * Saving custom fields values to Database
  */
-add_action( 'personal_options_update', 'save_user_profile_fields' );
-add_action( 'edit_user_profile_update', 'save_user_profile_fields' );
+add_action( 'personal_options_update', 'mtwriter_save_user_profile_fields' );
+add_action( 'edit_user_profile_update', 'mtwriter_save_user_profile_fields' );
 
-function save_user_profile_fields( $user_id ) {
+function mtwriter_save_user_profile_fields( $user_id ) {
     if ( !current_user_can( 'edit_user', $user_id ) ) { 
         return false; 
     }

@@ -5,7 +5,7 @@
 function mtwriter_customize_register($wp_customize)
 {
     // Google Web Fonts
-    $mtwriterGoogleFonts = getGoogleFonts();
+    $mtwriterGoogleFonts = mtwriter_getGoogleFonts();
 
     // Defaults
     $mtwriterDefaults = mtwriter_get_defaults();
@@ -889,7 +889,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('body_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['body_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'body_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -1058,7 +1058,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('h1_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['h1_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h1_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -1215,7 +1215,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('h2_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['h2_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h2_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -1372,7 +1372,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('h3_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['h3_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h3_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -1529,7 +1529,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('h4_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['h4_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h4_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -1686,7 +1686,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('h5_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['h5_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h5_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -1843,7 +1843,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('h6_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['h6_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'h6_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -1993,7 +1993,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('logo_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['logo_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'logo_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -2141,7 +2141,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('mainmenu_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['mainmenu_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'mainmenu_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -2288,7 +2288,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('dropdown_fontfamily', array (
         'default' => $mtwriterDefaultFonts['dropdown_fontfamily'],
         'transport' => 'refresh',
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'dropdown_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -2435,7 +2435,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('entrytitle_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['entrytitle_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'entrytitle_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -2582,7 +2582,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('posttitle_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['posttitle_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'posttitle_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -2729,7 +2729,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('meta_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['meta_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'meta_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -2876,7 +2876,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('widgettitle_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['widgettitle_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'widgettitle_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -3023,7 +3023,7 @@ function mtwriter_customize_register($wp_customize)
     $wp_customize->add_setting('copyright_fontfamily', array (
         'transport' => 'refresh',
         'default' => $mtwriterDefaultFonts['copyright_fontfamily'],
-        'sanitize_callback' => 'custom_sanitize_fonts',
+        'sanitize_callback' => 'mtwriter_custom_sanitize_fonts',
     ));
     $wp_customize->add_control( 'copyright_fontfamily', array (
         'label' => __('Font Family', 'mtwriter'),
@@ -3849,7 +3849,7 @@ add_action( 'customize_controls_enqueue_scripts', 'mtwriter_panels_js' );
 //
 // ─── FONT FAMILY OF ELEMENTS ────────────────────────────────────────────────────
 //
-function add_font_styles()
+function mtwriter_add_font_styles()
 {
     $fontsRequested = array(
         get_theme_mod( 'body_fontfamily' ),
@@ -3875,4 +3875,4 @@ function add_font_styles()
         wp_enqueue_style( 'mtwriter-fonts', '//fonts.googleapis.com/css?family=' . $fonts );
     }
 }
-add_action('wp_enqueue_scripts', 'add_font_styles');
+add_action('wp_enqueue_scripts', 'mtwriter_add_font_styles');
