@@ -82,9 +82,7 @@ function mtwriter_popular_posts($instance) {
                             <div class="post-header">
                                 <?php if ( $instance['showCategory'] == 'on' ) : ?>
                                     <span class="category-meta">
-                                        <a href="#" rel="category tag">
-                                            <?php the_category( ',' ); ?>
-                                        </a>
+										<?php the_category( ', ' ); ?>
                                     </span>
                                 <?php endif; ?>
 
@@ -105,7 +103,8 @@ function mtwriter_popular_posts($instance) {
 
                                     <?php if ( $instance['showAuthor'] == 'on' ) : ?>
                                         <span class="grid-post-author">
-                                            By <a href="#" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
+											<?php esc_html_e('by', 'mtwriter') ?>
+                                            <a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) )); ?>" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"><?php the_author(); ?></a>
                                         </span>
                                     <?php endif; ?>
                                 </div>

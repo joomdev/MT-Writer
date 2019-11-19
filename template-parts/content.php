@@ -24,7 +24,7 @@
 					
 					<div class="post-header">
 						<?php if( get_theme_mod('show_category_archive', true) ) : ?>
-							<span class="category-meta"><a href="#" rel="category tag"><?php the_category(', '); ?></a></span>
+							
 						<?php endif; ?>
 						<?php
 							if ( is_singular() ) :

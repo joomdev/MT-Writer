@@ -98,9 +98,7 @@ function mtwriter_related_posts_by_categories()
                                     <div class="post-content post-content-overlay">
                                         <div class="post-header">
                                             <span class="category-meta">
-                                                <a href="#" rel="category tag">
-                                                    <?php the_category( ',' ); ?>
-                                                </a>
+                                                <?php the_category( ', ' ); ?>
                                             </span>
                                             <h3 class="entry-post-title">
                                                 <a href="<?php the_permalink() ?>">
@@ -177,9 +175,7 @@ function mtwriter_related_posts_by_tags()
                                         <div class="post-content post-content-overlay">
                                             <div class="post-header">
                                                 <span class="category-meta">
-                                                    <a href="#" rel="category tag">
-                                                        <?php the_category( ',' ); ?>
-                                                    </a>
+                                                    <?php the_category( ', ' ); ?>
                                                 </span>
                                                 <h3 class="entry-post-title">
                                                     <a href="<?php the_permalink() ?>">
@@ -404,7 +400,7 @@ function mtwriter_comment($comment, $args, $depth) { ?>
                     <?php
                         printf( // WPCS: XSS ok.
                             /* translators: 1: date, 2: time */
-                            __('%1$s at %2$s', 'mtwriter'),
+                            esc_html__('%1$s at %2$s', 'mtwriter'),
                             get_comment_date(),
                             get_comment_time()
                         );
