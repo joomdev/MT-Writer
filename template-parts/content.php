@@ -39,7 +39,7 @@
 					<div class="post-meta-list">
 						<?php if ( get_theme_mod('show_author_archive', 1) ) : ?>
 							<span class="list-post-author">
-								by
+								<?php esc_html_e('by', 'mtwriter') ?>
 								<a href="<?php echo esc_url(get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) )); ?>">
 									<?php the_author(); ?>
 								</a>
@@ -68,7 +68,7 @@
 					<?php if ( get_theme_mod('enable_read_more', true) ) : ?>
 						<div class="post-btn">
 							<a href="<?php the_permalink(); ?>" class="btn btn-primary more-btn">
-								<?php echo get_theme_mod( 'read_more_text', 'Read More'); // WPCS: XSS ok. ?>
+								<?php echo wp_kses_post(get_theme_mod( 'read_more_text', 'Read More')); // WPCS: XSS ok. ?>
 							</a>
 						</div>
 					<?php endif; ?>

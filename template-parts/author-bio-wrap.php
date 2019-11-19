@@ -4,15 +4,11 @@
             <div class="col-lg-8 col-md-12 order-2 order-lg-1">
                 <div class="mt-author-bio">
                     <div class="hero-title">
-                        <?php
-                            echo mtGetOption('defaults', 'hero_title'); // WPCS: XSS OK.
-                        ?>
+                        <?php echo wp_kses_post( mtGetOption('defaults', 'hero_title') ); // WPCS: XSS OK. ?>
                     </div>
 
                     <div class="hero-bio">
-                        <?php
-                            echo mtGetOption('defaults', 'hero_bio'); // WPCS: XSS OK.
-                        ?>
+                        <?php echo wp_kses_post( mtGetOption('defaults', 'hero_bio') ); // WPCS: XSS OK. ?>
                     </div>
                     
                     <div class="bio-share">

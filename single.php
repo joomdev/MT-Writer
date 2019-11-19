@@ -113,9 +113,10 @@ wp_link_pages();
 						<?php
 							$prev_post = get_adjacent_post(false, '', true);
 							echo "<a href=" . esc_url(get_permalink($prev_post->ID)) . ">
-							<span><i class='fa fa-angle-left'></i> Previous Post</span>";
-							if(!empty($prev_post)) {
-							echo '<h4>' . esc_html($prev_post->post_title) . '</h4></a>'; }
+							<span><i class='fa fa-angle-left'></i>" . __(' Previous Post', 'mtwriter') . "</span>";
+							if( !empty($prev_post) ) {
+								echo '<h4>' . esc_html($prev_post->post_title) . '</h4></a>';
+							}
 						?>
 					</div>
 			<?php
@@ -127,7 +128,7 @@ wp_link_pages();
 					<div class="post-next">
 						<?php
 							echo "<a href=" . esc_url(get_permalink($next_post->ID)) . ">
-							<span>Next Post <i class='fa fa-angle-right'></i></span>";
+							<span>" . __('Next Post ', 'mtwriter') . "<i class='fa fa-angle-right'></i></span>";
 							if(!empty($next_post)) {
 							echo '<h4>' . esc_html($next_post->post_title) . '</h4></a>'; }
 						?>

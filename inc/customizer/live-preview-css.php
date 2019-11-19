@@ -18,11 +18,11 @@ function mtwriter_customizer_css()
                 --header-text-color: <?php echo mtGetOption('color', 'color_header_text'); ?>;
                 --body-bg-color: <?php echo mtGetOption('color', 'color_background'); ?>;
 
-                --body-bg-img: url(<?php echo esc_html(get_theme_mod('background_image', '')); ?>);
-                --body-bg-size: <?php echo esc_html(get_theme_mod('background_size', '')); ?>;
-                --body-bg-position: <?php echo esc_html(get_theme_mod('background_position', '')); ?>;
-                --body-bg-repeat: <?php echo esc_html(get_theme_mod('background_repeat', '')); ?>;
-                --body-bg-attachment: <?php echo esc_html(get_theme_mod('background_attachment', '')); ?>;
+                --body-bg-img: url(<?php echo esc_attr(get_theme_mod('background_image', '')); ?>);
+                --body-bg-size: <?php echo esc_attr(get_theme_mod('background_size', '')); ?>;
+                --body-bg-position: <?php echo esc_attr(get_theme_mod('background_position', '')); ?>;
+                --body-bg-repeat: <?php echo esc_attr(get_theme_mod('background_repeat', '')); ?>;
+                --body-bg-attachment: <?php echo esc_attr(get_theme_mod('background_attachment', '')); ?>;
 
                 --link-color: <?php echo mtGetOption('color', 'color_menu'); ?>;
                 --link-hover-color: <?php echo mtGetOption('color', 'color_menu_hover'); ?>;
