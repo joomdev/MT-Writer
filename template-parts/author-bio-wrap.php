@@ -5,13 +5,13 @@
                 <div class="mt-author-bio">
                     <div class="hero-title">
                         <?php
-                            mtGetOption('defaults', 'hero_title'); // WPCS: XSS OK.
+                            echo mtGetOption('defaults', 'hero_title'); // WPCS: XSS OK.
                         ?>
                     </div>
 
                     <div class="hero-bio">
                         <?php
-                            mtGetOption('defaults', 'hero_bio'); // WPCS: XSS OK.
+                            echo mtGetOption('defaults', 'hero_bio'); // WPCS: XSS OK.
                         ?>
                     </div>
                     

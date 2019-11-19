@@ -61,7 +61,7 @@
 						<?php endif; ?>
 					</div> <!-- Post meta footer-->
 					<?php if ( get_theme_mod('show_excerpt', true) ) : ?>
-						<div class="post-intro-text">
+						<div class="post-intro-text" itemprop="text">
 							<?php the_excerpt(); ?>
 						</div>
 					<?php endif; ?>

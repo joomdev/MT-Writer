@@ -102,7 +102,10 @@ add_action( 'after_setup_theme', 'mtwriter_content_width', 0 );
  * @return int (Maybe) modified excerpt length.
  */
 function mtwriter_custom_excerpt_length( $length ) {
-    return get_theme_mod( 'excerpt_length', 30);
+	if ( is_user_logged_in() ) {
+		return $length;
+	}
+	return mtGetOption( 'defaults', 'excerpt_length' );
 }
 add_filter( 'excerpt_length', 'mtwriter_custom_excerpt_length', 999 );
 

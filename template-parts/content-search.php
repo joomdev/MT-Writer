@@ -24,7 +24,7 @@
 
 	<?php mtwriter_post_thumbnail(); ?>
 
-	<div class="entry-summary">
+	<div class="entry-summary" itemprop="text">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 
