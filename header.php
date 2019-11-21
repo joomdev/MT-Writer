@@ -53,27 +53,27 @@
 			if ( get_theme_mod('singlepost_sidebar', 'default') == 'default' ) {
 				if ( get_theme_mod('default_sidebar', 'none') == 'right' ) {
 				?> 
-						<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
+					<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
 				<?php
 				}
 			} elseif ( get_theme_mod('singlepost_sidebar', 'default') == 'right') {
 			?> 
-					<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
+				<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
 			<?php
 			}
 		}
 		elseif ( $mtwriter_metabox_sidebar_status == "right" ) {
 		?> 
-				<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
+			<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
 		<?php
 		}
 
 		// No Sidebar Enabled
 		if ( get_theme_mod('default_sidebar', 'none') == 'none' ) {
 			if ( get_theme_mod('singlepost_sidebar', 'default') == 'default' ) {
-				?>
-					<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class(); ?> >
-				<?php
+			?>
+				<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class(); ?> >
+			<?php
 			}
 		}
 	endif;
@@ -104,28 +104,28 @@
 		if( $mtwriter_metabox_sidebar_status == "default" ) {
 			if ( get_theme_mod('singlepage_sidebar', 'default') == 'default' ) {
 				if ( get_theme_mod('default_sidebar', 'none') == 'right' ) {
-					?> 
-						<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
-					<?php
-				}
-			} elseif ( get_theme_mod('singlepage_sidebar', 'default') == 'right') {
 				?> 
 					<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
 				<?php
-			}
-		}
-		elseif( $mtwriter_metabox_sidebar_status == "right" ) {
+				}
+			} elseif ( get_theme_mod('singlepage_sidebar', 'default') == 'right') {
 			?> 
 				<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
 			<?php
+			}
+		}
+		elseif( $mtwriter_metabox_sidebar_status == "right" ) {
+		?> 
+			<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class('widthsidebar sidebar-right'); ?> >
+		<?php
 		}
 
 		// No Sidebar Enabled
 		if ( get_theme_mod('default_sidebar', 'none') == 'none' ) {
 			if ( get_theme_mod('singlepage_sidebar', 'default') == 'default' ) {
-				?>
-					<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class(); ?> >
-				<?php
+			?>
+				<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class(); ?> >
+			<?php
 			}
 		}
 	endif;
@@ -161,9 +161,9 @@
 		// No Sidebar Enabled
 		if ( get_theme_mod('default_sidebar', 'none') == 'none' ) {
 			if ( get_theme_mod('archive_sidebar', 'default') == 'default' ) {
-				?>
-					<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class(); ?> >
-				<?php
+			?>
+				<body itemtype="https://schema.org/Blog" itemscope="itemscope" <?php body_class(); ?> >
+			<?php
 			}
 		}
 	endif;

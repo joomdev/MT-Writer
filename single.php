@@ -109,16 +109,16 @@ wp_link_pages();
 				$prev_post = get_adjacent_post(false, '', true);
 				if ( !empty($prev_post->post_title) ) :
 			?>
-					<div class="post-previous">
-						<?php
-							$prev_post = get_adjacent_post(false, '', true);
-							echo "<a href=" . esc_url(get_permalink($prev_post->ID)) . ">
-							<span><i class='fa fa-angle-left'></i>" . esc_html__(' Previous Post', 'mtwriter') . "</span>";
-							if( !empty($prev_post) ) {
-								echo '<h4>' . esc_html($prev_post->post_title) . '</h4></a>';
-							}
-						?>
-					</div>
+				<div class="post-previous">
+					<?php
+						$prev_post = get_adjacent_post(false, '', true);
+						echo "<a href=" . esc_url(get_permalink($prev_post->ID)) . ">
+						<span><i class='fa fa-angle-left'></i>" . esc_html__(' Previous Post', 'mtwriter') . "</span>";
+						if( !empty($prev_post) ) {
+							echo '<h4>' . esc_html($prev_post->post_title) . '</h4></a>';
+						}
+					?>
+				</div>
 			<?php
 				endif;
 

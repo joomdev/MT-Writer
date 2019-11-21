@@ -44,9 +44,6 @@ get_header();
 
 					endwhile;
 
-					// Pagination for posts
-					mtwriter_pagination();
-
 				else :
 
 					get_template_part( 'template-parts/content', 'none' );
@@ -59,6 +56,8 @@ get_header();
 		<?php endif; ?>
 
 	</div><!-- page -->
+
+	<?php mtwriter_pagination(); ?>
 
 <?php
 get_sidebar();

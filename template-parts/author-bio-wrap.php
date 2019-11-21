@@ -40,7 +40,6 @@
             <?php }
             }
             ?>
-
         </div>
         <!-- Main Row End -->
         <?php if ( get_theme_mod('show_hero_brands', true)) { ?>

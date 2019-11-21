@@ -37,7 +37,7 @@ get_header();
                             <div class="mt-img-border">
                                 <img class="img-fluid" src="<?php echo esc_url( get_avatar_url(get_the_author_meta('id'), array( "size" => 200 ))); ?>">
                             </div>
-                        </div>
+                         </div>
                     </div>
                     <div class="col-md-8 author-details">
                         <div class="card-body social-icons">
@@ -118,8 +118,6 @@ get_header();
 
             endwhile;
 
-            mtwriter_pagination();
-
         else :
 
             get_template_part( 'template-parts/content', 'none' );
@@ -132,6 +130,8 @@ get_header();
         <?php endif; ?>
 
     </div><!-- .page -->
+
+    <?php mtwriter_pagination(); ?>
 
 <?php
 get_sidebar();
