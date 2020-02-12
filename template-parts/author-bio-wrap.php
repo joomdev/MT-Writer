@@ -48,23 +48,23 @@
                     <div class="featured-in">
                         
                         <?php if ( get_theme_mod('brand_one', 1) ) : ?>
-                            <img src="<?php echo esc_url(get_theme_mod('brand_one', get_template_directory_uri() . '/inc/assets/images/medium.jpg' )); ?>">
+                            <img src="<?php echo esc_url(get_theme_mod('brand_one', get_template_directory_uri() . '/inc/assets/images/logo (1).png' )); ?>">
                         <?php endif; ?>
 
                         <?php if ( get_theme_mod('brand_two', 1) ) : ?>
-                            <img src="<?php echo esc_url(get_theme_mod('brand_two', get_template_directory_uri() . '/inc/assets/images/csstricks.png' )); ?>">
+                            <img src="<?php echo esc_url(get_theme_mod('brand_two', get_template_directory_uri() . '/inc/assets/images/logo (2).png' )); ?>">
                         <?php endif; ?>
 
                         <?php if ( get_theme_mod('brand_three', 1) ) : ?>
-                            <img src="<?php echo esc_url(get_theme_mod('brand_three', get_template_directory_uri() . '/inc/assets/images/forbes.jpg' )); ?>">
+                            <img src="<?php echo esc_url(get_theme_mod('brand_three', get_template_directory_uri() . '/inc/assets/images/logo (3).png' )); ?>">
                         <?php endif; ?>
 
                         <?php if ( get_theme_mod('brand_four', 1) ) : ?>
-                            <img src="<?php echo esc_url(get_theme_mod('brand_four', get_template_directory_uri() . '/inc/assets/images/smashing.png' )); ?>">
+                            <img src="<?php echo esc_url(get_theme_mod('brand_four', get_template_directory_uri() . '/inc/assets/images/logo (4).png' )); ?>">
                         <?php endif; ?>
 
                         <?php if ( get_theme_mod('brand_five', 1) ) : ?>
-                            <img src="<?php echo esc_url(get_theme_mod('brand_five', get_template_directory_uri() . '/inc/assets/images/tnw.png' )); ?>">
+                            <img src="<?php echo esc_url(get_theme_mod('brand_five', get_template_directory_uri() . '/inc/assets/images/logo (5).png' )); ?>">
                         <?php endif; ?>
                     </div>
                 </div>
