@@ -6,7 +6,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 Requires at least: 4.5
 Tested up to: 5.2
 Requires PHP: 7.2
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,14 +38,6 @@ MT-Writer uses infinite-scroll by https://infinite-scroll.com.
  * Licensed GPLv3 for open source use (https://creativecommons.org/licenses/by/3.0/)
 
 == Media Licenses ==
-The Logos used are not affiliated with MightyThemes and are property of their respective owners. Use of these names, logos, and brands does not imply endorsement.
-
-* Medium (https://medium.com)
-* CSSTricks (https://csstricks.com)
-* Forbes (https://forbes.com)
-* Smashing Magazine (https://smashingmagazine.com)
-* The Next Web (https://thenextweb.com)
-
 == About Section Image (Asian woman) ==
 * Creator: Asian woman created by asawin - https://pxhere.com
 * Licence: https://creativecommons.org/publicdomain/zero/1.0/ (Creative Commons CC0)
@@ -65,6 +57,9 @@ FontAwesome Free is free, open source, and GPL friendly.
 * Source: https://infinite-scroll.com
 
 == Changelog ==
+
+= 1.1.7 =
+* Updated: Screenshots and Logos
 
 = 1.1.6 =
 * Fixed: Trac Recommendations
