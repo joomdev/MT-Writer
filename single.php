@@ -29,7 +29,7 @@ wp_link_pages();
 					<?php if ( get_theme_mod('show_author', 1) ) : ?>
 						<div class="mt-author-bio-img">
 							<div class="mt-img-border">
-								<?php echo get_avatar(get_the_author_meta('id')); ?>
+								<?php echo get_avatar( get_the_author_meta( 'ID' ) ); ?>
 							</div>
 						</div>
 					<?php endif; ?>
@@ -83,7 +83,7 @@ wp_link_pages();
 			<div class="mt-author-box author-box mt-sept">
 				<div class="mt-author-bio-img">
 					<div class="mt-img-border">
-						<?php echo get_avatar(get_the_author_meta('id')); ?>
+						<?php echo get_avatar(get_the_author_meta('ID')); ?>
 					</div>
 				</div>
 				<div class="author-info">

@@ -35,7 +35,7 @@ get_header();
                     <div class="col-md-4">
                         <div class="main-author-wrapper">
                             <div class="mt-img-border">
-                                <img class="img-fluid" src="<?php echo esc_url( get_avatar_url(get_the_author_meta('id'), array( "size" => 200 ))); ?>">
+                                <img class="img-fluid" src="<?php echo esc_url( get_avatar_url(get_the_author_meta('ID'), array( "size" => 200 ))); ?>">
                             </div>
                          </div>
                     </div>

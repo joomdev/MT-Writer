@@ -4,7 +4,7 @@ Theme URI: http://mightythemes.com/products/mt-writer-theme/
 Author: MightyThemes
 Author URI: http://mightythemes.com
 Description: MT Writer brings down the love for bloggers. MT Writer is a blog theme that is specially designed keeping in mind the interest of bloggers. It is a Highly Responsive, Fully SEO friendly theme. It rolls down with a mobile-friendly layout that helps the user in getting an edge over other competitors with ease of control over the layout.
-Version: 1.1.8
+Version: 1.1.9
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: mtwriter
@@ -227,15 +227,6 @@ textarea {
 	font-size: 15px;
 }
 
-a:focus,
-input[type="text"]:focus,
-input[type="search"]:focus,
-select:focus,
-textarea:focus {
-	box-shadow: none;
-	outline: none;
-}
-
 /* Form Stylling end */
 .widthsidebar .mt-container {
 	display: grid;
@@ -402,28 +393,12 @@ section,
 
 /* Global styles
 ==================== */
-a,
-a:active,
-a:focus,
-a:hover,
-a:visited {
-	text-decoration: none;
-	outline: 0 solid;
-}
-
 a {
 	color: var(--main-color);
 }
 
 a:hover {
 	color: var(--main-color);
-}
-
-button:focus,
-.btn:focus {
-	outline: 0 solid;
-	-webkit-box-shadow: none;
-	box-shadow: none;
 }
 
 .btn-primary:not([disabled]):not(.disabled):active {
@@ -588,14 +563,14 @@ button:hover {
 	padding-right: 0;
 }
 
-.main-menu .menu li.menu-item-has-children span{
+.main-menu .menu li.menu-item-has-children button {
 	padding-left: 15px;
 	padding-right: 15px;
 	cursor: pointer;
 	display: inline-flex;
 }
 
-.main-menu .menu li.menu-item-has-children span:after {
+.main-menu .menu li.menu-item-has-children button:after {
 	content: "\f107";
 	font-family: var(--fontawesome);
 	font-weight: bold;
@@ -657,16 +632,16 @@ button:hover {
 		top: 1px;
 	}
 
-	.main-menu .menu > li.menu-item-has-children > span{
+	.main-menu .menu > li.menu-item-has-children > button{
 		padding: 7px;
 	}
 	
 
-	.main-menu .menu > li.menu-item-has-children:hover > span:after {
+	.main-menu .menu > li.menu-item-has-children:hover > button:after {
 		transform: rotate(-180deg);
 	}
 
-	.main-menu .menu ul li.menu-item-has-children:hover > span:after {
+	.main-menu .menu ul li.menu-item-has-children:hover > button:after {
 		transform: rotate(-90deg);
 	}
 
@@ -689,17 +664,17 @@ button:hover {
 		background-color: var(--link-bgcolor-mobile);
 	}
 
-	.main-menu .menu li.menu-item-has-children span{
+	.main-menu .menu li.menu-item-has-children button{
 		top: 12px;
 		position: absolute;
 		right: 0;
 	}
 
-	.main-menu .menu > li.menu-item-has-children > span{
+	.main-menu .menu > li.menu-item-has-children > button{
 		top: 15px;
 	}
 
-	.main-menu .menu li.menu-item-has-children.open > span:after{
+	.main-menu .menu li.menu-item-has-children.open > button:after{
 		transform: rotate(-180deg);
 	}
 
@@ -879,10 +854,6 @@ button:hover {
 	font-weight: 300;
 	font-style: italic;
 	letter-spacing: .5px;
-}
-
-.search-link form .search-box input:focus {
-	outline: 0 solid;
 }
 
 /* author

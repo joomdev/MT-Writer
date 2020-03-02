@@ -3,7 +3,7 @@ jQuery(function ($) {
     /* ---------------------------------------------
     Menu Toggle 
     ------------------------------------------------ */
-    $('.nav-toggler').click(function(){
+    $('.nav-toggler').on('click', function () {
         $('.main-menu').toggleClass('show');
     });
 
@@ -11,18 +11,26 @@ jQuery(function ($) {
     Mobile Menus
     ------------------------------------------------ */
 
-    $('li.menu-item-has-children').append('<span/>');
-    $('li.menu-item-has-children span').click(function(){
+    $('li.menu-item-has-children').append('<button/>');
+    $('li.menu-item-has-children button').click(function () {
         $(this).parent().toggleClass('open');
     });
 
 
     /* ---------------------------------------------
     Site Search 
-    ------------------------------------------------ */    
-  
-    $('.search-link span[class*="search"]').click(function(){
+    ------------------------------------------------ */
+
+    $('.search-link span[class*="search"]').on('click', function () {
         $('.search-link .search-form').toggleClass('active');
+    });
+
+    $('.search-link button').keypress(function (e) {
+        var key = e.which;
+        if(key == 13)  // the enter key code
+        {
+            $('.search-link .search-form').toggleClass('active');
+        }
     });
 
     /* post grid image color */
@@ -34,7 +42,7 @@ jQuery(function ($) {
     /* ---------------------------------------------
     Preloader
     ------------------------------------------------ */
-    $(document).ready( function() {
+    $(document).ready(function () {
         $('#wp-preloader').removeClass('d-flex');
         $('#wp-preloader').addClass('d-none');
     });
@@ -60,12 +68,12 @@ jQuery(function ($) {
     /* ---------------------------------------------
     Infinite Scroll
     ------------------------------------------------ */
-    if ( jQuery.fn.infiniteScroll ) {
+    if (jQuery.fn.infiniteScroll) {
         $('.mtwriter-posts').infiniteScroll({
             path: '.pagination .next',
             append: 'article.entry-blog',
             status: '.scroller-status',
             hideNav: '.pagination',
         });
-    }    
+    }
 });

@@ -411,8 +411,7 @@ function mtwriter_comment($comment, $args, $depth) { ?>
                     <?php 
                         comment_reply_link(
                             array_merge( $args, 
-                                array( 
-                                    'add_below' => $add_below, 
+                                array(
                                     'depth'     => $depth, 
                                     'max_depth' => $args['max_depth'],
                                     'class' => 'text-secondary'

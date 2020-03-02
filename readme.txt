@@ -3,10 +3,10 @@
 Contributors: mightythemes1
 Donate link: https://mightythemes.com/
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, theme-options, right-sidebar, left-sidebar
-Requires at least: 4.5
-Tested up to: 5.2
+Requires at least: 5.0
+Tested up to: 5.3
 Requires PHP: 7.2
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,10 @@ FontAwesome Free is free, open source, and GPL friendly.
 * Source: https://infinite-scroll.com
 
 == Changelog ==
+
+= 1.1.9 =
+* Fixed: Undefined variable errors
+* Fixed: Keyboard Navigation
 
 = 1.1.8 =
 * Updated: Hero Area Defaults
