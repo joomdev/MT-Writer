@@ -78,26 +78,29 @@ if ( ! function_exists( 'mtwriter_post_thumbnail' ) ) :
 			return;
 		}
 
-		if ( is_singular() ) :
-			?>
+		if ( is_singular() ) : ?>
 
 			<div class="post-thumbnail">
 				<?php the_post_thumbnail(); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
-
-		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-			<?php
-			the_post_thumbnail( 'post-thumbnail', array(
-				'alt' => the_title_attribute( array(
-					'echo' => false,
-				) ),
-			) );
-			?>
-		</a>
-
+			<div class="entry-blog-list-left">
+				<div class="entry-format">
+					<div class="featured-image" data-color="#ee0000">
+						<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+							<?php
+							the_post_thumbnail( 'post-thumbnail', array(
+								'alt' => the_title_attribute( array(
+									'echo' => false,
+								) ),
+							) );
+							?>
+						</a>
+					</div>
+				</div>
+			</div>
 		<?php
-		endif; // End is_singular().
+		endif;
 	}
 endif;

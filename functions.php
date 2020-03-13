@@ -105,7 +105,7 @@ function mtwriter_custom_excerpt_length( $length ) {
 	if ( is_user_logged_in() ) {
 		return $length;
 	}
-	return mtGetOption( 'defaults', 'excerpt_length' );
+	return mtwriterGetOption( 'defaults', 'excerpt_length' );
 }
 add_filter( 'excerpt_length', 'mtwriter_custom_excerpt_length', 999 );
 
@@ -167,6 +167,8 @@ add_action( 'widgets_init', 'mtwriter_widgets_init' );
 function mtwriter_scripts() {
 	wp_enqueue_style( 'mtwriter-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
 	wp_enqueue_style( 'mtwriter-fontawesome', get_template_directory_uri() . '/css/fontawesome/css/all.min.css' );
+	wp_enqueue_style( 'mtwriter-font-heebo', 'https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900' );
+	wp_enqueue_style( 'mtwriter-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700,700i,900' );
 	wp_enqueue_style( 'mtwriter-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'mtwriter-responsive', get_template_directory_uri() . '/css/responsive.css' );
 

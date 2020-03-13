@@ -34,11 +34,11 @@ if ( ! function_exists( 'mtwriter_get_defaults' ) ) {
                 'show_profile_pic' => true,
                 'hero_profile_pic' => '',
                 'show_hero_brands' => true,
-                'brand_one' => get_template_directory_uri() . '/inc/assets/images/logo (1).png',
-                'brand_two' => get_template_directory_uri() . '/inc/assets/images/logo (2).png',
-                'brand_three' => get_template_directory_uri() . '/inc/assets/images/logo (3).png',
-                'brand_four' => get_template_directory_uri() . '/inc/assets/images/logo (4).png',
-                'brand_five' => get_template_directory_uri() . '/inc/assets/images/logo (5).png',
+                'brand_one' => get_template_directory_uri() . '/inc/assets/images/logo(1).png',
+                'brand_two' => get_template_directory_uri() . '/inc/assets/images/logo(2).png',
+                'brand_three' => get_template_directory_uri() . '/inc/assets/images/logo(3).png',
+                'brand_four' => get_template_directory_uri() . '/inc/assets/images/logo(4).png',
+                'brand_five' => get_template_directory_uri() . '/inc/assets/images/logo(5).png',
 
                 'default_sidebar' => 'none',
                 'singlepost_sidebar' => 'default',
@@ -268,12 +268,12 @@ if ( ! function_exists( 'mtwriter_get_default_fonts' ) ) {
 }
 
 
-if ( ! function_exists( 'mtGetOption' ) ) {
+if ( ! function_exists( 'mtwriterGetOption' ) ) {
     /**
 	 * Get customizer values if set else return default values
 	 */
 
-    function mtGetOption($type, $property) {
+    function mtwriterGetOption($type, $property) {
 
         $defaults = mtwriter_get_defaults();
         $defaultColors = mtwriter_get_color_defaults();

@@ -3,32 +3,6 @@
  * Famous Posts Custom Widget For MT-Writer
  */
 
- // Popular posts meta
-function mtwriter_count_views($postID) {
-    $post_meta = 'mtwriter_post_views_count';
-    $count = get_post_meta($postID, $post_meta, true);
-    if($count == '') {
-        $count = 0;
-        delete_post_meta($postID, $post_meta);
-        add_post_meta($postID, $post_meta, '0');
-    }
-    else {
-        $count++;
-        update_post_meta($postID, $post_meta, $count);
-    }
-}
-
-// Increasing the post views counter
-function mtwriter_track_views ($post_id) {
-    if ( !is_single() ) { return; }
-    if ( empty ( $postId) ) {
-        global $post;
-        $postId = $post->ID;
-    }
-    mtwriter_count_views($postId);
-}
-add_action( 'wp_head', 'mtwriter_track_views');
-
 // Creating Widgets
 function mtwriter_load_widget() {
     register_widget( 'mtwriter_widget' );
@@ -47,20 +21,7 @@ function mtwriter_popular_posts($instance) {
 		)
 	);
 
-	$popularByViews  = new WP_Query( 
-		array(
-			'posts_per_page' => $instance['totalPosts'],
-			'meta_key' => 'mtwriter_post_views_count',
-			'orderby' => 'meta_value_num',
-			'order' => 'DESC'
-		)
-	);
-
-	if ( $popularByViews->have_posts() ) {
-		$sortedPosts = $popularByViews;
-	} elseif ( $recentPosts->have_posts() ) {
-		$sortedPosts = $recentPosts;
-	}
+	$sortedPosts = $recentPosts;
 	?>
 
 	<div class="mt-popular-post-list">
@@ -134,10 +95,10 @@ class mtwriter_widget extends WP_Widget {
 		'mtwriter_widget',
 		
 		// Widget name will appear in UI
-		__('Popular Posts (MT-Writer)', 'mtwriter'),
+		__('Recent Posts (MT-Writer)', 'mtwriter'),
 		
 		// Widget description
-		array( 'description' => __( 'Popular posts widget by MightyThemes', 'mtwriter' ), )
+		array( 'description' => __( 'Recent posts widget by MightyThemes', 'mtwriter' ), )
 		);
 	}
  
@@ -148,7 +109,7 @@ class mtwriter_widget extends WP_Widget {
 		// before and after widget arguments
 		echo $args['before_widget']; // WPCS: XSS ok.
 		if ( ! empty( $title ) )
-		echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS ok.
+			echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS ok.
 
 		// This is where you run the code and display the output		
 		mtwriter_popular_posts( $instance );
@@ -170,7 +131,7 @@ class mtwriter_widget extends WP_Widget {
          
 	// Widget Backend
 	public function form( $instance ) {
-		$title = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : __( 'Popular Posts', 'mtwriter' );
+		$title = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : __( 'Recent Posts', 'mtwriter' );
 		$totalPosts = isset( $instance['totalPosts'] ) ? absint( $instance['totalPosts'] ) : 3;
 		$showThumbnail = isset( $instance['showThumbnail'] ) ? (bool) $instance['showThumbnail'] : true;
 		$showCategory = isset( $instance['showCategory'] ) ? (bool) $instance['showCategory'] : true;
@@ -187,22 +148,22 @@ class mtwriter_widget extends WP_Widget {
 				<hr>
 				<p>Customization Options: </p>
 				<input class="checkbox" type="checkbox" <?php checked( $showThumbnail ); ?> id="<?php echo esc_attr( $this->get_field_id( 'showThumbnail' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'showThumbnail' ) ); ?>" /> 
-				<label for="<?php echo esc_attr( $this->get_field_id( 'showThumbnail' ) ); ?>">Show Thumbnail</label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'showThumbnail' ) ); ?>"><?php echo __( 'Show Thumbnail', 'mtwriter' ) ?></label>
 				
 				<br><br>
 
 				<input class="checkbox" type="checkbox" <?php checked( $showCategory ); ?> id="<?php echo esc_attr( $this->get_field_id( 'showCategory' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'showCategory' ) ); ?>" /> 
-				<label for="<?php echo esc_attr( $this->get_field_id( 'showCategory' ) ); ?>">Show Category</label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'showCategory' ) ); ?>"><?php echo __( 'Show Category', 'mtwriter' ) ?></label>
 				
 				<br><br>
 
 				<input class="checkbox" type="checkbox" <?php checked( $showDate ); ?> id="<?php echo esc_attr( $this->get_field_id( 'showDate' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'showDate' ) ); ?>" /> 
-				<label for="<?php echo esc_attr( $this->get_field_id( 'showDate' ) ); ?>">Show Date</label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'showDate' ) ); ?>"><?php echo __( 'Show Date', 'mtwriter' ) ?></label>
 				
 				<br><br>
 
 				<input class="checkbox" type="checkbox" <?php checked( $showAuthor ); ?> id="<?php echo esc_attr( $this->get_field_id( 'showAuthor' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'showAuthor' ) ); ?>" /> 
-				<label for="<?php echo esc_attr( $this->get_field_id( 'showAuthor' ) ); ?>">Show Author</label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'showAuthor' ) ); ?>"><?php echo __( 'Show Author', 'mtwriter' ) ?></label>
 			</p>			
 		<?php
 	}

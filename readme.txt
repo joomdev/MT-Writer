@@ -33,11 +33,17 @@ Mt-Writer is distributed under the terms of the GNU GPL.
 Mt-Writer is based on Underscores https://underscores.me/, (C) 2012-2015 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
-== Infinite-scroll ==
+== Infinite Scroll ==
 MT-Writer uses infinite-scroll by https://infinite-scroll.com.
- * Licensed GPLv3 for open source use (https://creativecommons.org/licenses/by/3.0/)
+* Licensed GPLv3 for open source use (https://creativecommons.org/licenses/by/3.0/)
 
 == Media Licenses ==
+
+== Brands Icons (Hero Area) ==
+The logos and source artwork are released under Creative Commons Attribution-Share Alike
+* Licence: http://creativecommons.org/licenses/by-sa/4.0/
+* Source: https://github.com/pigment/fake-logos
+
 == About Section Image (Asian woman) ==
 * Creator: Asian woman created by asawin - https://pxhere.com
 * Licence: https://creativecommons.org/publicdomain/zero/1.0/ (Creative Commons CC0)

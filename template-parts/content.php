@@ -12,13 +12,10 @@
 <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" class="entry-blog">
 	<div class="entry-blog-listing clearfix">
 		<div class="post-standard-view">
-			<div class="entry-blog-list-left">
-				<div class="entry-format">
-					<div class="featured-image" data-color="#ee0000">
-						<?php mtwriter_post_thumbnail(); ?>
-					</div>
-				</div>
-			</div>
+			
+			<!-- Post Thumbnail -->
+			<?php mtwriter_post_thumbnail(); ?>
+			
 			<div class="entry-blog-list-right">
 				<div class="post-content">
 					

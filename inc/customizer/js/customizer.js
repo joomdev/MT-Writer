@@ -42,11 +42,6 @@
 			$('.mt-header, .mt-header .main-menu').css('background-color', newval);
 		});
 	});
-	// wp.customize( 'color_stickyheader_background', function( value ) {
-	// 	value.bind( function( newval ) {
-	// 		document.documentElement.style.setProperty('--main-color', newval);
-	// 	});
-	// });
 
 	// Background Color
 	wp.customize( 'color_background', function( value ) {
@@ -185,10 +180,6 @@
 			$('.error-404 .404-cta').html(newval);
 		})
 	});
-
-
-
-	
 	
 	wp.customize('preloader_type', function (value) {
 		value.bind(function (newval) {

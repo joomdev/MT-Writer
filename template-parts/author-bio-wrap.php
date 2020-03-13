@@ -4,11 +4,11 @@
             <div class="col-lg-8 col-md-12 order-2 order-lg-1">
                 <div class="mt-author-bio">
                     <div class="hero-title">
-                        <?php echo wp_kses_post( mtGetOption('defaults', 'hero_title') ); // WPCS: XSS OK. ?>
+                        <?php echo wp_kses_post( mtwriterGetOption('defaults', 'hero_title') ); // WPCS: XSS OK. ?>
                     </div>
 
                     <div class="hero-bio">
-                        <?php echo wp_kses_post( mtGetOption('defaults', 'hero_bio') ); // WPCS: XSS OK. ?>
+                        <?php echo wp_kses_post( mtwriterGetOption('defaults', 'hero_bio') ); // WPCS: XSS OK. ?>
                     </div>
                     
                     <div class="bio-share">
@@ -48,23 +48,23 @@
                     <div class="featured-in">
                         
                         <?php if ( get_theme_mod('brand_one', 1) ) : ?>
-                            <img src="<?php echo esc_url(get_theme_mod('brand_one', get_template_directory_uri() . '/inc/assets/images/logo (1).png' )); ?>">
+                            <img src="<?php echo esc_url(get_theme_mod('brand_one', get_template_directory_uri() . '/inc/assets/images/logo(1).png' )); ?>">
                         <?php endif; ?>
 
                         <?php if ( get_theme_mod('brand_two', 1) ) : ?>
-                            <img src="<?php echo esc_url(get_theme_mod('brand_two', get_template_directory_uri() . '/inc/assets/images/logo (2).png' )); ?>">
+                            <img src="<?php echo esc_url(get_theme_mod('brand_two', get_template_directory_uri() . '/inc/assets/images/logo(2).png' )); ?>">
                         <?php endif; ?>
 
                         <?php if ( get_theme_mod('brand_three', 1) ) : ?>
-                            <img src="<?php echo esc_url(get_theme_mod('brand_three', get_template_directory_uri() . '/inc/assets/images/logo (3).png' )); ?>">
+                            <img src="<?php echo esc_url(get_theme_mod('brand_three', get_template_directory_uri() . '/inc/assets/images/logo(3).png' )); ?>">
                         <?php endif; ?>
 
                         <?php if ( get_theme_mod('brand_four', 1) ) : ?>
-                            <img src="<?php echo esc_url(get_theme_mod('brand_four', get_template_directory_uri() . '/inc/assets/images/logo (4).png' )); ?>">
+                            <img src="<?php echo esc_url(get_theme_mod('brand_four', get_template_directory_uri() . '/inc/assets/images/logo(4).png' )); ?>">
                         <?php endif; ?>
 
                         <?php if ( get_theme_mod('brand_five', 1) ) : ?>
-                            <img src="<?php echo esc_url(get_theme_mod('brand_five', get_template_directory_uri() . '/inc/assets/images/logo (5).png' )); ?>">
+                            <img src="<?php echo esc_url(get_theme_mod('brand_five', get_template_directory_uri() . '/inc/assets/images/logo(5).png' )); ?>">
                         <?php endif; ?>
                     </div>
                 </div>
