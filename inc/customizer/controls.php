@@ -94,7 +94,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'preloader_status',
         array(
@@ -111,7 +111,7 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     $wp_customize->add_control(
-        new MightyThemes_Preloaders_Custom_Control(
+        new MtWriter_Preloaders_Custom_Control(
         $wp_customize,
         'preloader_type',
         array(
@@ -259,7 +259,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'preloader_size',
         array(
@@ -286,7 +286,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'backtotop_status',
         array(
@@ -328,7 +328,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'backtotop_size',
         array(
@@ -397,7 +397,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'backtotop_mobile',
         array(
@@ -420,7 +420,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_hero_area',
         array(
@@ -467,7 +467,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_profile_pic',
         array(
@@ -498,7 +498,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_hero_brands',
         array(
@@ -904,7 +904,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'body_fontsize',
         array(
@@ -968,7 +968,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'body_letterspacing',
         array(
@@ -1012,7 +1012,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'body_lineheight',
         array(
@@ -1046,7 +1046,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_separator'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Separator_Custom_Control( 
+        new MtWriter_Separator_Custom_Control( 
         $wp_customize, 
         'h1_separator',
         array(
@@ -1073,7 +1073,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h1_fontsize',
         array(
@@ -1137,7 +1137,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h1_letterspacing',
         array(
@@ -1181,7 +1181,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h1_lineheight',
         array(
@@ -1203,7 +1203,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_separator'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Separator_Custom_Control( 
+        new MtWriter_Separator_Custom_Control( 
         $wp_customize, 
         'h2_separator',
         array(
@@ -1230,7 +1230,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h2_fontsize',
         array(
@@ -1294,7 +1294,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h2_letterspacing',
         array(
@@ -1338,7 +1338,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h2_lineheight',
         array(
@@ -1360,7 +1360,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_separator'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Separator_Custom_Control( 
+        new MtWriter_Separator_Custom_Control( 
         $wp_customize, 
         'h3_separator',
         array(
@@ -1387,7 +1387,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h3_fontsize',
         array(
@@ -1451,7 +1451,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h3_letterspacing',
         array(
@@ -1495,7 +1495,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h3_lineheight',
         array(
@@ -1517,7 +1517,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_separator'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Separator_Custom_Control( 
+        new MtWriter_Separator_Custom_Control( 
         $wp_customize, 
         'h4_separator',
         array(
@@ -1544,7 +1544,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h4_fontsize',
         array(
@@ -1608,7 +1608,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h4_letterspacing',
         array(
@@ -1652,7 +1652,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h4_lineheight',
         array(
@@ -1674,7 +1674,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_separator'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Separator_Custom_Control( 
+        new MtWriter_Separator_Custom_Control( 
         $wp_customize, 
         'h5_separator',
         array(
@@ -1701,7 +1701,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h5_fontsize',
         array(
@@ -1765,7 +1765,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h5_letterspacing',
         array(
@@ -1809,7 +1809,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h5_lineheight',
         array(
@@ -1831,7 +1831,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_separator'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Separator_Custom_Control( 
+        new MtWriter_Separator_Custom_Control( 
         $wp_customize, 
         'h6_separator',
         array(
@@ -1858,7 +1858,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h6_fontsize',
         array(
@@ -1922,7 +1922,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'h6_letterspacing',
         array(
@@ -1966,7 +1966,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize,
         'h6_lineheight',
         array(
@@ -2008,7 +2008,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'logo_fontsize',
         array(
@@ -2072,7 +2072,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'logo_letterspacing',
         array(
@@ -2116,7 +2116,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'logo_lineheight',
         array(
@@ -2156,7 +2156,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'mainmenu_fontsize',
         array(
@@ -2220,7 +2220,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'mainmenu_letterspacing',
         array(
@@ -2264,7 +2264,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'mainmenu_lineheight',
         array(
@@ -2303,7 +2303,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'dropdown_fontsize',
         array(
@@ -2367,7 +2367,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'dropdown_letterspacing',
         array(
@@ -2411,7 +2411,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'dropdown_lineheight',
         array(
@@ -2450,7 +2450,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'entrytitle_fontsize',
         array(
@@ -2514,7 +2514,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'entrytitle_letterspacing',
         array(
@@ -2558,7 +2558,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'entrytitle_lineheight',
         array(
@@ -2597,7 +2597,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'posttitle_fontsize',
         array(
@@ -2661,7 +2661,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'posttitle_letterspacing',
         array(
@@ -2705,7 +2705,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'posttitle_lineheight',
         array(
@@ -2744,7 +2744,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'meta_fontsize',
         array(
@@ -2808,7 +2808,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'meta_letterspacing',
         array(
@@ -2852,7 +2852,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'meta_lineheight',
         array(
@@ -2891,7 +2891,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'widgettitle_fontsize',
         array(
@@ -2955,7 +2955,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'widgettitle_letterspacing',
         array(
@@ -2999,7 +2999,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'widgettitle_lineheight',
         array(
@@ -3038,7 +3038,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'copyright_fontsize',
         array(
@@ -3102,7 +3102,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'copyright_letterspacing',
         array(
@@ -3146,7 +3146,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'copyright_lineheight',
         array(
@@ -3249,7 +3249,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'sidebar_width',
         array(
@@ -3286,7 +3286,7 @@ function mtwriter_customize_register($wp_customize)
         )
     );
     $wp_customize->add_control(
-        new MightyThemes_Image_Radio_Button_Custom_Control(
+        new MtWriter_Image_Radio_Button_Custom_Control(
         $wp_customize,
         'header_style',
         array(
@@ -3325,7 +3325,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_search',
         array(
@@ -3340,7 +3340,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_search_mobile',
         array(
@@ -3391,7 +3391,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_author',
         array(
@@ -3406,7 +3406,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_readtime',
         array(
@@ -3421,7 +3421,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_date',
         array(
@@ -3436,7 +3436,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_category',
         array(
@@ -3451,7 +3451,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_tags',
         array(
@@ -3467,7 +3467,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'social_share_enable',
         array(
@@ -3482,7 +3482,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_authorinfobox',
         array(
@@ -3497,7 +3497,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_comments',
         array(
@@ -3513,7 +3513,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'related_post_enable',
         array(
@@ -3561,7 +3561,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'estimated_read_time_archive',
         array(
@@ -3576,7 +3576,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_author_archive',
         array(
@@ -3591,7 +3591,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_category_archive',
         array(
@@ -3606,7 +3606,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_date_archive',
         array(
@@ -3621,7 +3621,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'show_excerpt',
         array(
@@ -3637,7 +3637,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_number'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Slider_Custom_Control( 
+        new MtWriter_Slider_Custom_Control( 
         $wp_customize, 
         'excerpt_length',
         array(
@@ -3659,7 +3659,7 @@ function mtwriter_customize_register($wp_customize)
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
-        new MightyThemes_Toggle_Switch_Custom_control(
+        new MtWriter_Toggle_Switch_Custom_control(
         $wp_customize,
         'enable_read_more',
         array(

@@ -8,7 +8,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Separator Custom Control
 	 */
-	class MightyThemes_Separator_Custom_Control extends WP_Customize_Control {
+	class MtWriter_Separator_Custom_Control extends WP_Customize_Control {
 		/**
 		 * Data type of control
 		 */
@@ -41,7 +41,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Image Radio Control for MightyThemes Preloaders
 	 */
-	class MightyThemes_Preloaders_Custom_Control extends WP_Customize_Control {
+	class MtWriter_Preloaders_Custom_Control extends WP_Customize_Control {
 		/**
 		 * Data type of control
 		 */
@@ -88,7 +88,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Image Check Box Custom Control
 	 */
-	class MightyThemes_Image_Checkbox_Custom_Control extends WP_Customize_Control {
+	class MtWriter_Image_Checkbox_Custom_Control extends WP_Customize_Control {
  		/**
  		 * Data type of control
  		 */
@@ -134,7 +134,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Text Radio Button Custom Control
 	 */
-	class MightyThemes_Text_Radio_Button_Custom_Control extends WP_Customize_Control {
+	class MtWriter_Text_Radio_Button_Custom_Control extends WP_Customize_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -173,7 +173,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Image Radio Button Custom Control
 	 */
-	class MightyThemes_Image_Radio_Button_Custom_Control extends WP_Customize_Control {
+	class MtWriter_Image_Radio_Button_Custom_Control extends WP_Customize_Control {
 		/**
 		 * Data type of control
 		 */
@@ -218,7 +218,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Slider Custom Control
 	 */
-	class MightyThemes_Slider_Custom_Control extends WP_Customize_Control {
+	class MtWriter_Slider_Custom_Control extends WP_Customize_Control {
 		/**
 		 * Data type of control
 		 */
@@ -254,7 +254,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	/**
 	 * Toggle Switch Custom Control
 	 */
-	class MightyThemes_Toggle_Switch_Custom_control extends WP_Customize_Control {
+	class MtWriter_Toggle_Switch_Custom_control extends WP_Customize_Control {
 		/**
 		 * Data type of control
 		 */
