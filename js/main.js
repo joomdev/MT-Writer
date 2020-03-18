@@ -11,7 +11,7 @@ jQuery(function ($) {
     Mobile Menus
     ------------------------------------------------ */
 
-    $('li.menu-item-has-children').append('<button/>');
+    $('li.menu-item-has-children > a:first-child').after('<button/>');
     $('li.menu-item-has-children button').click(function () {
         $(this).parent().toggleClass('open');
     });
