@@ -280,7 +280,7 @@ if ( ! function_exists( 'mtwriterGetOption' ) ) {
         $defaultFonts = mtwriter_get_default_fonts();
 
         switch( $type ) {
-            case 'defaults': return get_theme_mod( $property, $defaults[$property] ); // WPCS: XSS ok.
+            case 'defaults': return get_theme_mod( $property, $defaults[$property] ); // phpcs:ignore.
             break;
             case 'color': return esc_attr( get_theme_mod( $property, $defaultColors[$property] ) );
             break;

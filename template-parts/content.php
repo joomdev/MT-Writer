@@ -53,7 +53,7 @@
 							<span class="list-post-comment">
 								<?php
 								echo esc_html(mtwriter_CalculateReadTime( get_post_field( 'post_content', $post->ID ) ));
-								echo mtwriter_CalculateReadTime( get_post_field( 'post_content', $post->ID ) ) == 1 ? ' minute' : ' minutes' // WPCS: XSS ok. ?> <?php esc_html_e('read.', 'mtwriter'); ?>
+								echo mtwriter_CalculateReadTime( get_post_field( 'post_content', $post->ID ) ) == 1 ? ' minute' : ' minutes' // phpcs:ignore. ?> <?php esc_html_e('read.', 'mtwriter'); ?>
 							</span>
 						<?php endif; ?>
 					</div> <!-- Post meta footer-->
@@ -65,7 +65,7 @@
 					<?php if ( get_theme_mod('enable_read_more', true) ) : ?>
 						<div class="post-btn">
 							<a href="<?php the_permalink(); ?>" class="btn btn-primary more-btn">
-								<?php echo wp_kses_post(get_theme_mod( 'read_more_text', 'Read More')); // WPCS: XSS ok. ?>
+								<?php echo wp_kses_post(get_theme_mod( 'read_more_text', 'Read More')); // phpcs:ignore. ?>
 							</a>
 						</div>
 					<?php endif; ?>

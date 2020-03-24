@@ -4,11 +4,11 @@
             <div class="col-lg-8 col-md-12 order-2 order-lg-1">
                 <div class="mt-author-bio">
                     <div class="hero-title">
-                        <?php echo wp_kses_post( mtwriterGetOption('defaults', 'hero_title') ); // WPCS: XSS OK. ?>
+                        <?php echo wp_kses_post( mtwriterGetOption('defaults', 'hero_title') ); // phpcs:ignore. ?>
                     </div>
 
                     <div class="hero-bio">
-                        <?php echo wp_kses_post( mtwriterGetOption('defaults', 'hero_bio') ); // WPCS: XSS OK. ?>
+                        <?php echo wp_kses_post( mtwriterGetOption('defaults', 'hero_bio') ); // phpcs:ignore. ?>
                     </div>
                     
                     <div class="bio-share">

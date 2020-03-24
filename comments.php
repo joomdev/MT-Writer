@@ -75,7 +75,7 @@ if (have_comments()) :
 	<div id="comments" class="comments-area mt-sept">
         <h3 class="comments-heading">
             <?php
-            $comments_title = apply_filters( 'comment_form_title', sprintf( // WPCS: XSS OK.
+            $comments_title = apply_filters( 'comment_form_title', sprintf( // phpcs:ignore.
 			/* translators: 1: number of comments, 2: post title */
             esc_html( _nx(
                 '%1$s Comment on &ldquo;%2$s&rdquo;',
@@ -100,7 +100,7 @@ if (have_comments()) :
 			?>
 			<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" class="commentnavi pagination">
 				<h2 class="screen-reader-text">
-                    <?php esc_html_e('Comments navigation.', 'mtwriter'); // WPCS: XSS OK. ?>
+                    <?php esc_html_e('Comments navigation.', 'mtwriter'); // phpcs:ignore. ?>
 				</h2>
 				<div class="nav-links">
 					<?php paginate_comments_links(); ?>
@@ -117,7 +117,7 @@ if (have_comments()) :
 	<?php else : 
 	?>
 		<!-- If comments are closed. -->
-        <?php esc_html_e('Comments are disabled.', 'mtwriter'); // WPCS: XSS OK. ?>
+        <?php esc_html_e('Comments are disabled.', 'mtwriter'); // phpcs:ignore. ?>
 	<?php endif; ?>
 
 <?php endif; ?>

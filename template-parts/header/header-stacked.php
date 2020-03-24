@@ -46,7 +46,7 @@
                         </button>
                         <div class="search-box">
                             <input type="search" class="search-field" name="s" id="search"
-                                placeholder="<?php esc_html_e('Type here and Search...', 'mtwriter'); // WPCS: XSS OK. ?>" />
+                                placeholder="<?php esc_html_e('Type here and Search...', 'mtwriter'); // phpcs:ignore. ?>" />
                         </div>
                     </form>
 

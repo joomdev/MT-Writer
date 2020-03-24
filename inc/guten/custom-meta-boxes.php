@@ -23,7 +23,7 @@ if ( ! class_exists( 'MTWriter_Meta_Boxes' ) ) {
 		/**
 		 * Creating instance of current class
 		 */
-		public static function create_instance() {
+		public static function mtwriter_create_instance() {
 			if ( ! isset( self::$instance ) ) {
 				self::$instance = new self();
 			}
@@ -32,14 +32,14 @@ if ( ! class_exists( 'MTWriter_Meta_Boxes' ) ) {
         
 		public function __construct() {
 
-			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
-			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
+			add_action( 'load-post.php', array( $this, 'mtwriter_init_metabox' ) );
+			add_action( 'load-post-new.php', array( $this, 'mtwriter_init_metabox' ) );
         }
         
-		public function init_metabox() {
+		public function mtwriter_init_metabox() {
 
-			add_action( 'add_meta_boxes', array( $this, 'setup' ) );
-            add_action( 'save_post', array( $this, 'save' ) );
+			add_action( 'add_meta_boxes', array( $this, 'mtwriter_setup' ) );
+            add_action( 'save_post', array( $this, 'mtwriter_save' ) );
             
 			/**
 			 * Set metabox options
@@ -58,12 +58,12 @@ if ( ! class_exists( 'MTWriter_Meta_Boxes' ) ) {
 		/**
 		 *  Setup Metabox
 		 */
-		function setup() {
+		function mtwriter_setup() {
 
             add_meta_box(
                 'mtwriter_metabox_settings',
                 'MT-Writer Settings',
-                array( $this, 'render_meta_box' ),
+                array( $this, 'mtwriter_render_meta_box' ),
                 array( 'post', 'page' ),
                 'side',
                 'default'
@@ -74,14 +74,14 @@ if ( ! class_exists( 'MTWriter_Meta_Boxes' ) ) {
 		/**
 		 * Get metabox options
 		 */
-		public static function get_meta_option() {
+		public static function mtwriter_get_meta_option() {
 			return self::$meta_option;
 		}
 
 		/**
 		 * Renders Metabox in Post Gutenberg Editor
 		 */
-		function render_meta_box( $post ) {
+		function mtwriter_render_meta_box( $post ) {
 
 			wp_nonce_field( basename( __FILE__ ), 'MTWriter_metabox_settings' );
 			$stored = get_post_meta( $post->ID );
@@ -92,7 +92,7 @@ if ( ! class_exists( 'MTWriter_Meta_Boxes' ) ) {
 			}
 
 			// Get defaults.
-			$meta = self::get_meta_option();
+			$meta = self::mtwriter_get_meta_option();
 
 			/**
 			 * Get options
@@ -124,12 +124,12 @@ if ( ! class_exists( 'MTWriter_Meta_Boxes' ) ) {
 		/**
 		 * Metabox Save
 		 */
-		function save( $post_id ) {
+		function mtwriter_save( $post_id ) {
 
 			// Checks save status.
 			$is_autosave    = wp_is_post_autosave( $post_id );
 			$is_revision    = wp_is_post_revision( $post_id );
-			$is_valid_nonce = ( isset( $_POST['MTWriter_metabox_settings'] ) && wp_verify_nonce( wp_unslash($_POST['MTWriter_metabox_settings']), basename( __FILE__ ) ) ) ? true : false; // WPCS: XSS ok.
+			$is_valid_nonce = ( isset( $_POST['MTWriter_metabox_settings'] ) && wp_verify_nonce( wp_unslash($_POST['MTWriter_metabox_settings']), basename( __FILE__ ) ) ) ? true : false; // phpcs:ignore.
 
 			// Exits script depending on save status.
 			if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {
@@ -139,7 +139,7 @@ if ( ! class_exists( 'MTWriter_Meta_Boxes' ) ) {
 			/**
 			 * Get meta options
 			 */
-			$post_meta = self::get_meta_option();
+			$post_meta = self::mtwriter_get_meta_option();
 
 			foreach ( $post_meta as $key => $data ) {
 
@@ -178,6 +178,6 @@ if ( ! class_exists( 'MTWriter_Meta_Boxes' ) ) {
 }
 
 /**
- * Creating instance by calling 'create_instance()' method
+ * Creating instance by calling 'mtwriter_create_instance()' method
  */
-MTWriter_Meta_Boxes::create_instance();
+MTWriter_Meta_Boxes::mtwriter_create_instance();

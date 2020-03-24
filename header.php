@@ -222,7 +222,7 @@ endif;
 		<?php
 			if ( is_home() ) :
 				if ( get_theme_mod('show_hero_area', 0) ) :
-					get_template_part( 'template-parts/author-bio', 'wrap' );
+					get_template_part( 'template-parts/author', 'bio-wrap' );
 				endif;
 			endif;
 		?>

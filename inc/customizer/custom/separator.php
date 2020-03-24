@@ -11,14 +11,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Horizontal_Separator' ) ) {
+if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'MtWriter_Horizontal_Separator' ) ) {
 	/**
 	 * Create our upsell section.
 	 * Escape your URL in the Customizer using esc_url().
 	 *
 	 * @since unknown
 	 */
-	class Horizontal_Separator extends WP_Customize_Section {
+	class MtWriter_Horizontal_Separator extends WP_Customize_Section {
 		public $type = 'horizontal-separator';		
 		public $pro_text = '';
 		public $id = '';
@@ -61,14 +61,14 @@ if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Horizontal_Separ
 	}
 }
 
-if ( ! function_exists( 'mighty_customizer_controls_css' ) ) {
-	add_action( 'customize_controls_enqueue_scripts', 'mighty_customizer_controls_css' );
+if ( ! function_exists( 'mtwriter_customizer_controls_css' ) ) {
+	add_action( 'customize_controls_enqueue_scripts', 'mtwriter_customizer_controls_css' );
 	/**
 	 * Add CSS for our controls
 	 *
 	 * @since 1.3.41
 	 */
-	function mighty_customizer_controls_css() {
+	function mtwriter_customizer_controls_css() {
 		
 		wp_enqueue_script( 'mighty-separator', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/js/section-customizer.js', array( 'customize-controls' ), false, true );
 

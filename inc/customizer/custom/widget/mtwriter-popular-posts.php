@@ -107,13 +107,13 @@ class mtwriter_widget extends WP_Widget {
 		$title = apply_filters( 'widget_title', $instance['title'] );
 
 		// before and after widget arguments
-		echo $args['before_widget']; // WPCS: XSS ok.
+		echo $args['before_widget']; // phpcs:ignore.
 		if ( ! empty( $title ) )
-			echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS ok.
+			echo $args['before_title'] . $title . $args['after_title']; // phpcs:ignore.
 
 		// This is where you run the code and display the output		
 		mtwriter_popular_posts( $instance );
-		echo $args['after_widget']; // WPCS: XSS ok.
+		echo $args['after_widget']; // phpcs:ignore.
 	}
 
 	// Updating widget replacing old instances with new

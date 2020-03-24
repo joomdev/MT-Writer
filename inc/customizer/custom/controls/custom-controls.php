@@ -71,12 +71,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 							<input type="radio" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php $this->link(); ?> <?php checked( esc_attr( $key ), $this->value() ); ?>/>
 							<div class="radio-image">
 								<div id="wp-preloader" class="align-items-center d-flex">
-									<?php echo $value['code']; // WPCS: XSS ok. ?>
+									<?php echo $value['code']; // phpcs:ignore. ?>
 								</div>
 							</div>
-							<?php if($value['name']) : ?>
-								<span class="image-radio-title"><?php echo esc_attr($value['name']); ?></span>
-							<?php endif; ?>
 						</label>
 					<?php } ?>
 				</div>

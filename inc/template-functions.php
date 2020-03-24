@@ -336,7 +336,7 @@ function mtwriter_get_date() {
 
     // If our date is enabled, show it.
     if ( $mt_modified_date ) {
-        echo apply_filters( 'mtwriter_date_output', sprintf( '%1$s', // WPCS: XSS ok, sanitization ok.
+        echo apply_filters( 'mtwriter_date_output', sprintf( '%1$s', // phpcs:ignore, sanitization ok.
             sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
                 esc_url( get_permalink() ),
                 esc_attr( get_the_time() ),
@@ -360,7 +360,7 @@ if ( ! function_exists( 'mtwriter_footer_info' ) ) {
 			__( 'MT Writer', 'mtwriter' )
         );
         
-        echo $copyright; // WPCS: XSS ok.
+        echo $copyright; // phpcs:ignore.
 	}
 }
 
@@ -388,7 +388,7 @@ function mtwriter_comment($comment, $args, $depth) { ?>
         
         <?php if ( $comment->comment_approved == '0' ) { ?>
             <em class="comment-awaiting-moderation">
-                <?php esc_html( 'Your comment is awaiting moderation.', 'mtwriter' ); // WPCS: XSS ok. ?>
+                <?php esc_html( 'Your comment is awaiting moderation.', 'mtwriter' ); // phpcs:ignore. ?>
             </em>
             <br/>
         <?php } ?>
@@ -398,7 +398,7 @@ function mtwriter_comment($comment, $args, $depth) { ?>
                 <span class="comment-author"><?php echo get_comment_author_link(); ?></span>
                 <span class="comment-date">
                     <?php
-                        printf( // WPCS: XSS ok.
+                        printf( // phpcs:ignore.
                             /* translators: 1: date, 2: time */
                             esc_html__('%1$s at %2$s', 'mtwriter'),
                             get_comment_date(),

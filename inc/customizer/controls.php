@@ -16,7 +16,7 @@ function mtwriter_customize_register($wp_customize)
     // ─── CHECKING FOR CUSTOM SECTION AND CONTROLS STATUS ────────────────────────────
     //
     if ( method_exists( $wp_customize, 'register_section_type' ) ) {
-        $wp_customize->register_section_type( 'Horizontal_Separator' );
+        $wp_customize->register_section_type( 'MtWriter_Horizontal_Separator' );
     }
 
     $mtwriterAltFontFamily = array(
@@ -49,7 +49,7 @@ function mtwriter_customize_register($wp_customize)
     // ─── SEPARATOR FOR MIGHTYTHEMES OPTIONS ─────────────────────────────────────────
     //
     $wp_customize->add_section(
-        new Horizontal_Separator( $wp_customize, 'Horizontal_Separator-MT_options',
+        new MtWriter_Horizontal_Separator( $wp_customize, 'MtWriter_Horizontal_Separator-MT_options',
             array(
                 'pro_text' => __( 'MT Writer Options', 'mtwriter' ),
                 'type' => 'horizontal-separator',
