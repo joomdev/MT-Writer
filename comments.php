@@ -22,8 +22,8 @@ if ( post_password_required() ) {
 
 <?php 
 // Comments form
-global $aria_req;
-$comments_args = array(
+global $mtwriter_aria_req;
+$mtwriter_comments_args = array(
     // remove "Text or HTML to be displayed after the set of comment fields"
     'title_reply' => '<h3 class="title-normal">' . esc_html__('Leave a Comment', 'mtwriter') . '</h3>',
     'id_submit'         => 'submit',
@@ -36,13 +36,13 @@ $comments_args = array(
         'author' =>
             '<div class="col-md-4">
 				<div class="form-group">
-                    <input class="form-control" name="author" id="author" type="text"  placeholder="' . esc_attr__('Full Name', 'mtwriter') . '" size="19"' . $aria_req . ' required />
+                    <input class="form-control" name="author" id="author" type="text"  placeholder="' . esc_attr__('Full Name', 'mtwriter') . '" size="19"' . $mtwriter_aria_req . ' required />
                 </div>
             </div>',
         'email' =>
             '<div class="col-md-4">
                 <div class="form-group">
-					<input id="emailaddress" name="email" class="form-control" placeholder="' . esc_attr__('Email Address', 'mtwriter') . '" type="email" size="19"' . $aria_req . ' required />
+					<input id="emailaddress" name="email" class="form-control" placeholder="' . esc_attr__('Email Address', 'mtwriter') . '" type="email" size="19"' . $mtwriter_aria_req . ' required />
                 </div>
             </div>',
         'url' =>
@@ -63,32 +63,32 @@ $comments_args = array(
 ?>
 
 <div class="comments-form border-box mt-sept">
-    <?php comment_form($comments_args); ?>
+    <?php comment_form($mtwriter_comments_args); ?>
 </div>
 
 
 <?php 
 // Comment list
 if (have_comments()) :
-	$comments_count = wp_count_comments($post->ID)->approved;
+	$mtwriter_comments_count = wp_count_comments($post->ID)->approved;
 ?>
 	<div id="comments" class="comments-area mt-sept">
         <h3 class="comments-heading">
             <?php
-            $comments_title = apply_filters( 'comment_form_title', sprintf( // phpcs:ignore.
+            $mtwriter_comments_title = apply_filters( 'comment_form_title', sprintf( // phpcs:ignore.
 			/* translators: 1: number of comments, 2: post title */
             esc_html( _nx(
                 '%1$s Comment on &ldquo;%2$s&rdquo;',
                 '%1$s Comments on &ldquo;%2$s&rdquo;',
-                $comments_count,
+                $mtwriter_comments_count,
                 'comments title',
                 'mtwriter'
             ) ),
-                number_format_i18n( $comments_count ),
+                number_format_i18n( $mtwriter_comments_count ),
                 get_the_title()
             ) );
 
-            echo esc_html( $comments_title );
+            echo esc_html( $mtwriter_comments_title );
             ?>
         </h3>
         
