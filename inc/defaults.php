@@ -55,7 +55,6 @@ if ( ! function_exists( 'mtwriter_get_defaults' ) ) {
                 'show_date' => true,
                 'show_category' => true,
                 'show_tags' => true,
-                'social_share_enable' => true,
                 'show_authorinfobox' => true,
                 'show_comments' => true,
                 'related_post_enable' => false,

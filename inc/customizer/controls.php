@@ -3461,20 +3461,6 @@ function mtwriter_customize_register($wp_customize)
     ));
 
     // Enable/Disable Social Share Icon
-    $wp_customize->add_setting( 'social_share_enable', array(
-        'default' => $mtwriterDefaults['social_share_enable'],
-        'transport' => 'refresh',
-        'sanitize_callback' => 'mtwriter_sanitize_checkbox'
-    ));
-    $wp_customize->add_control(
-        new MtWriter_Toggle_Switch_Custom_control(
-        $wp_customize,
-        'social_share_enable',
-        array(
-            'label' => __( 'Enable Social Share Icons', 'mtwriter' ),
-            'section' => 'single_post'
-        )
-    ));
 
     $wp_customize->add_setting( 'show_authorinfobox', array(
         'default' => $mtwriterDefaults['show_authorinfobox'],
