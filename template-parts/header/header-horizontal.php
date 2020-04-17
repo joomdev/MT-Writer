@@ -14,9 +14,7 @@
         <div class="row">
             <!-- Logo Area -->
             <div class="col-7 col-lg-4 logo-area">
-                <a class="mt-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <?php the_custom_logo(); ?>
-                </a>
+                <?php the_custom_logo(); ?>
                 <div class="mt-logo-text list-inline">
                     <?php if (get_theme_mod('site_identity_status', true)) { ?>
                         <a itemscope="itemscope" itemtype="https://schema.org/Organization" class="brand-title"

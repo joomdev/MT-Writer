@@ -492,7 +492,6 @@ button:hover {
 
 	/* Header Stacked */
 	.mt-header.mt-header-stacked .logo-area {
-		max-width: 200px;
 		margin-left: auto;
 		margin-right: auto;
 		padding-top: 15px;

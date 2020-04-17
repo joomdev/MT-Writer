@@ -70,4 +70,12 @@
             </a>
         </li>
     <?php endif; ?>
+
+    <?php if(get_theme_mod('xing')) : ?>
+        <li class="list-inline-item social-icon">
+            <a href="<?php echo esc_url(get_theme_mod('xing')); ?>" target="_blank">
+                <i class="fab fa-xing" aria-hidden="true"></i>
+            </a>
+        </li>
+    <?php endif; ?>
 </ul>

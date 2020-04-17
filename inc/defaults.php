@@ -81,6 +81,7 @@ if ( ! function_exists( 'mtwriter_get_defaults' ) ) {
                 'github' => '',
                 'whatsapp' => '',
                 'telegram' => '',
+                'xing' => '',
 			)
 		);
 	}

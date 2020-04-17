@@ -3813,6 +3813,16 @@ function mtwriter_customize_register($wp_customize)
         'section' => 'social_profiles',
         'type' => 'text'
     ));
+    $wp_customize->add_setting('xing', array (
+        'default' => $mtwriterDefaults['xing'],
+        'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+    $wp_customize->add_control( 'xing', array(
+        'label' => __('Xing', 'mtwriter'),
+        'section' => 'social_profiles',
+        'type' => 'text'
+    ));
 }
 add_action('customize_register', 'mtwriter_customize_register');
 
