@@ -82,6 +82,7 @@ if ( ! function_exists( 'mtwriter_get_defaults' ) ) {
                 'whatsapp' => '',
                 'telegram' => '',
                 'xing' => '',
+                'email' => '',
 			)
 		);
 	}

@@ -78,4 +78,12 @@
             </a>
         </li>
     <?php endif; ?>
+
+    <?php if(get_theme_mod('email')) : ?>
+        <li class="list-inline-item social-icon">
+            <a href="mailto:<?php echo get_theme_mod('email'); ?>" target="_blank">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+            </a>
+        </li>
+    <?php endif; ?>
 </ul>

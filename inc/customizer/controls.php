@@ -3823,6 +3823,16 @@ function mtwriter_customize_register($wp_customize)
         'section' => 'social_profiles',
         'type' => 'text'
     ));
+    $wp_customize->add_setting('email', array (
+        'default' => $mtwriterDefaults['email'],
+        'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+    $wp_customize->add_control( 'email', array(
+        'label' => __('Email', 'mtwriter'),
+        'section' => 'social_profiles',
+        'type' => 'text'
+    ));
 }
 add_action('customize_register', 'mtwriter_customize_register');
 
