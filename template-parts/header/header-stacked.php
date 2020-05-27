@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <!-- Logo Area -->
-            <div class="logo-area">
+            <div class="col-7 col-lg-4 logo-area">
                 <?php the_custom_logo(); ?>
                 <div class="mt-logo-text list-inline">
                     <?php if (get_theme_mod('site_identity_status', true)) { ?>

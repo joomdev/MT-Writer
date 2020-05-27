@@ -18,15 +18,7 @@ get_header();
 	<?php wp_link_pages(); ?>
 	
 	<div class="mt-title-wrap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<h2 class="entry-single-title">
-						<?php the_title(); ?>
-					</h2>
-				</div><!-- Col End -->
-			</div><!-- Main Row End -->
-		</div><!-- Container End -->
+		<h2 class="entry-single-title"><?php the_title(); ?></h2>
 	</div>
 
 	<div class="page">
