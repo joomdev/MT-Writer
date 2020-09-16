@@ -199,8 +199,7 @@ endif;
 
 <?php if (get_theme_mod('backtotop_status', 0) ) { ?>
 	<!-- Back To Top -->
-	<a id="backtotop" class="<?php echo esc_attr(get_theme_mod('backtotop_shape', 'square')); ?>
-	<?php echo get_theme_mod('backtotop_mobile', 0) ? ' d-none d-sm-block' : ''; ?>" href="javascript:void(0)" >
+	<a id="backtotop" class="<?php echo esc_attr( get_theme_mod('backtotop_shape', 'square') ); echo esc_attr( get_theme_mod('backtotop_mobile', 0) ? ' d-none d-sm-block' : '' ); ?>" href="javascript:void(0)" >
         <i class="<?php echo esc_attr(get_theme_mod('backtotop_icon', 'fas fa-arrow-up')); ?>"></i>
     </a>
 <?php } ?>

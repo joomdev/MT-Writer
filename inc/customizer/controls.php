@@ -393,7 +393,6 @@ function mtwriter_customize_register($wp_customize)
     // Enable Back to top on mobile
     $wp_customize->add_setting( 'backtotop_mobile', array(
         'default' => $mtwriterDefaults['backtotop_mobile'],
-        'transport' => 'postMessage',
         'sanitize_callback' => 'mtwriter_sanitize_checkbox'
     ));
     $wp_customize->add_control(
