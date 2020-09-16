@@ -4,9 +4,9 @@ Contributors: mightythemes1
 Donate link: https://mightythemes.com/
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, theme-options, right-sidebar, left-sidebar
 Requires at least: 5.0
-Tested up to: 5.3
+Tested up to: 5.5
 Requires PHP: 7.2
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,9 @@ FontAwesome Free is free, open source, and GPL friendly.
 * Source: https://infinite-scroll.com
 
 == Changelog ==
+
+= 1.2.6 =
+* Added: Customizer option for choosing date type for Archives
 
 = 1.2.5 =
 * Fixed: Styling issues
