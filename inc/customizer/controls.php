@@ -3666,6 +3666,23 @@ function mtwriter_customize_register($wp_customize)
         'type' => 'text',
     ));
     
+    // Post Date Type
+    $wp_customize->add_setting('post_date_type', array (
+        'default' => $mtwriterDefaults['post_date_type'],
+        'transport' => 'refresh',
+        'sanitize_callback' => 'mtwriter_sanitize_select'
+    ));
+    $wp_customize->add_control( 'post_date_type', array(
+        'label' => __( 'Post Date Type', 'mtwriter' ),
+        'section' => 'archive',
+        'description' => 'Choose Published date or Updated date for archive.',
+        'type' => 'select',
+        'choices' => array(
+            'published' => 'Published Date',
+            'updated' => 'Updated Date',
+        )
+    ));
+    
     /* 404 Error Page */
     $wp_customize->add_section('404_error_page', array (
         'title' => __('404 Error Page', 'mtwriter'),

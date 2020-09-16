@@ -68,6 +68,7 @@ if ( ! function_exists( 'mtwriter_get_defaults' ) ) {
                 'excerpt_length' => 30,
                 'enable_read_more' => true,
                 'read_more_text' => __('Read More', 'mtwriter' ),
+                'post_date_type' => 'updated',
                 '404_page_content' => __('<h1>404</h1>', 'mtwriter' ),
                 'calltoaction' => __('Back To Home', 'mtwriter' ),
 

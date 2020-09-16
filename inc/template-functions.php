@@ -321,10 +321,10 @@ function mtwriter_custom_sanitize_fonts($input)
 function mtwriter_get_date() {
     $mt_modified_date = apply_filters( 'mtwriter_date', true );
 
-    $time_string = '<time class="entry-date published" datetime="%1$s" itemprop="datePublished">%2$s</time>';
-
-    if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+    if ( get_theme_mod( 'post_date_type', 'updated' ) == 'updated' ) {
         $time_string = '<time class="updated" datetime="%3$s" itemprop="dateModified">%4$s</time>';
+    } else if ( get_theme_mod( 'post_date_type', 'updated' ) == 'published' ) {
+        $time_string = '<time class="entry-date published" datetime="%1$s" itemprop="datePublished">%2$s</time>';
     }
 
     $time_string = sprintf( $time_string,

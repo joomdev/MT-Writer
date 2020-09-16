@@ -38,7 +38,7 @@ wp_link_pages();
 						
 						<?php if ( get_theme_mod('show_date', 1) ) : ?>
 							<span class="list-post-date m-1">
-								<?php esc_html_e('Updated on ', 'mtwriter'); mtwriter_get_date(); ?>
+								<?php esc_html_e( ucfirst( get_theme_mod( 'post_date_type', 'updated' ) ) . ' on ' ); mtwriter_get_date(); ?>
 							</span>
 						<?php endif; ?>
 						<?php if ( get_theme_mod('show_author', 1) ) : ?>
