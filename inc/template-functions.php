@@ -430,3 +430,27 @@ function mtwriter_comment($comment, $args, $depth) { ?>
     </li>
 <?php
 }
+
+
+function mtwriter_customizer_styles() { ?>
+	<style>
+		/* Separator style */
+        .separator-text {
+            text-align:center;
+            color: #222;
+            padding: 14px;
+            margin: 0px;
+            font-size: 16px;
+            background-color: #f7f5f5;
+        }
+
+        .separator-border  {
+            border-width: 4px;
+            border-style: solid;
+            border-image: linear-gradient(to bottom, #4A00E0, #8E2DE2) 1 100%;
+        }
+	</style>
+	<?php
+
+}
+add_action( 'customize_controls_print_styles', 'mtwriter_customizer_styles', 999 );
