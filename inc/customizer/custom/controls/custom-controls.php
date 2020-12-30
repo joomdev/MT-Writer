@@ -118,7 +118,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 								<img src="<?php echo esc_url( $value['image'] ); ?>" alt="<?php echo esc_attr( $value['name'] ); ?>" title="<?php echo esc_attr( $value['name'] ); ?>" />
 							</div>
 							<?php if($value['name']) : ?>
-								<span class="image-checkbox-title"><?php echo esc_attr($value['name']); ?></span>
+								<span class="image-checkbox-title"><?php esc_html_e( $value['name'], 'mtwriter' ); ?></span>
 							<?php endif; ?>
 						</label>
 					<?php	} ?>
@@ -158,7 +158,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				   <?php foreach ( $this->choices as $key => $value ) { ?>
 						<label class="radio-button-label">
 							<input type="radio" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php $this->link(); ?> <?php checked( esc_attr( $key ), $this->value() ); ?>/>
-							<span><?php echo esc_attr( $value ); ?></span>
+							<span><?php esc_html_e( $value, 'mtwriter' ); ?></span>
 						</label>
 					<?php	} ?>
 			   </div>
@@ -202,7 +202,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 								<img src="<?php echo esc_url( $value['image'] ); ?>" alt="<?php echo esc_attr( $value['name'] ); ?>" title="<?php echo esc_attr( $value['name'] ); ?>" />
 							</div>
 							<?php if($value['name']) : ?>
-								<span class="image-radio-title"><?php echo esc_attr($value['name']); ?></span>
+								<span class="image-radio-title"><?php esc_html_e( $value['name'], 'mtwriter' ); ?></span>
 							<?php endif; ?>
 						</label>
 					<?php	} ?>

@@ -40,7 +40,7 @@ wp_link_pages();
 							<span class="list-post-date m-1">
 								<?php
 									echo sprintf( '%1$s %2$s %3$s',
-										esc_html_e( ucfirst( get_theme_mod( 'post_date_type', 'updated' ) ) ),
+										esc_html_e( ucfirst( get_theme_mod( 'post_date_type', 'updated' ) ), 'mtwriter' ),
 										esc_html_e( ' on ', 'mtwriter' ),
 										mtwriter_get_date()
 									)
